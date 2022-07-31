@@ -1,0 +1,115 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+
+\title{Prueba}
+\author{luisapaez31416 }
+\date{July 2022}
+
+
+\setlength{\parindent}{0pt}
+\begin{document}
+
+\maketitle
+% Esto es un comentario. Solo se ve en el archivo .tex pero no se 
+% procesa en el documento PDF, es decir, en el PDF no se vera esto
+% que hemos escrito. Suelen ser utiles para descibir lo que estamos
+% escribiendo y haciendo dentro de nuestro archivo .tex
+
+% Esto es una seccion, le hemos cambiado el nombre
+\section{Poemas de Lope de Vega}
+
+% Poema. El titulo del poema ira en negritas
+% Para escribir un texto en negritas utilizamos el comando \textbf{}
+\textbf{Ir y quedarse, y con quedar partirse}
+ 
+Ir y quedarse, y con quedar partirse,
+partir sin alma y ir con alma ajena,
+oír la dulce voz de una sirena
+y no poder del árbol desasirse;
+% al dejar un espacio en blanco indicamos que se debe escribir el siguiente
+% texto en la siguiente línea
+
+arder como la vela y consumirse
+haciendo torres sobre tierna arena;
+caer de un cielo, y ser demonio en pena,
+y de serlo jamás arrepentirse;
+
+% podemos centrar el texto utilizando un entorno de centrado 
+% los entornos siempre empiezan con begin y terminan con end
+\begin{center}
+hablar entre las mudas soledades,
+pedir pues resta sobre fe paciencia,
+y lo que es temporal llamar eterno;
+\end{center}
+
+% texto en cursiva \textit{}
+creer sospechas y negar \textit{verdades,
+es lo que llaman en el mundo ausencia},
+fuego en el alma, y en la vida infierno.
+
+
+% pagina nueva
+\newpage
+
+% Agregamos otra seccion
+\section{Expresiones Matemáticas}
+
+% los exponentes los escribimos como ^{} y los subindices como _{}
+
+Mi primer ecuación: $f(x) = x^{2}_{1} + 2x_{2}+5$
+
+% ecuacion de Euler
+% el comando \pi arroja
+% el simbolo matematico de pi
+% podemos maner el espacio vertical entre lineas
+\vspace{0.5cm}
+
+Ecuación de \textit{Euler}:
+$e^{i \pi} + 1 = 0$
+
+Hablamos de la ecuación más bella de las Matemáticas, la cual está dada por $e^{i \pi} + 1 = 0$
+\vspace{0.5cm}
+
+Fórmula de la chicharronera:
+$$
+x = \frac{-b\pm \sqrt{b^{2}-4ac}}{2a}
+$$
+
+Otra forma de escribir expresiones matemáticas
+
+% \left(  hace que el tamaño del parentesis ( se adapte a lo que estamos escribiendo
+% \right(  hace que el tamaño del parentesis ) se adapte a lo que estamos escribiendo
+% el entorno array nos permite escribir matrices, donde cc nos indica que la matriz
+% tendra dos columnas, y el numero de filas que deseemos. Si ponemos ccc la matriz 
+% tendra 3 columnas
+% & separa lo que ira en una entrada con lo que ira en la otra entrada de la fila
+% \\ separa una fila de otra
+
+\begin{equation}
+    M= \left(\begin{array}{cc}
+        1 & 0 \\
+        0 & 1 
+    \end{array}\right)
+\end{equation}
+
+\newpage
+\section{Listas}
+
+% subseccion
+\subsection{Listas básicas}
+
+Crearemos nuestra primer lista, para ello
+
+% dentro del entorno itemize, cada item es un punto de la lista:
+\begin{itemize}
+    \item Este es un punto de la lista
+    \item Este es otro punto de la lista
+\end{itemize}
+
+De forma análoga tendremos lista numeradas, para ello utilizaremos el entorno
+\textit{enumerate}:
+\begin{enumerate}
+    \item Hola
+    \item Mundo
+\end{enumerate}
+\end{document}
