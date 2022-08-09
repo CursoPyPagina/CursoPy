@@ -16,11 +16,6 @@ ol {
 }	
 
 
-
-pre {
-	font-size: 30px;
-}
-
 .img_seis {
 	width: 60%;
 	height: 60%;
@@ -50,7 +45,7 @@ pre {
 /*codigo*/
 
 .c1 {
-	font-size:13px;	/*Comentarios*/
+	font-size:14px;	/*Comentarios*/
 }
 
 .n {
