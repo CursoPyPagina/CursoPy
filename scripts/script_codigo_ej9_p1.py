@@ -102,7 +102,8 @@ def c_graficar():
         plt.title(f'f(x)={fun_str}')
         # Mostramos el grafico creado
         plt.show()
-# Accion del boton graficar_rac
+        
+    # Accion del boton graficar_rac
 
     def graficar_rac():
         # Rango fijo
