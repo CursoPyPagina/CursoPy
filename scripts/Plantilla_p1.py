@@ -410,8 +410,8 @@ ventana._ _ _ ()
 
 # Agrega las siguientes dos lineas de codigo:
 
-# menu_principal.add_command(label = 'Limites', command = c_limites)
-# menu_principal.add_command(label = 'Derivadas', command = c_derivadas)
+# submenu.add_command(label = 'Limites', command = c_limites)
+# submenu.add_command(label = 'Derivadas', command = c_derivadas)
 
 # sin los comentarios, donde escribimos: 
 
