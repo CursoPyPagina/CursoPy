@@ -293,6 +293,19 @@ def c_graficar():
 #                                      | interfaz para graficar
 submenu.add_command(label = 'Graficador', command = c_graficar)
 
+# Mostramos una linea separadora
+submenu.add_separator()
+
+# Agregamos la opcion para salir de nuestro programa.
+#                                             cerraremos la ventana
+#                                             principal   
+submenu.add_command(label = 'Salir', command = ventana.destroy)
+
+# Agregamos el submenu al menu principal
+#                    nombre del menu | submenu a 
+#                    principal       | agregar
+menu_principal._ _ _ (label='Menú', menu = _ _ _ )
+
 
 # ---------------------------------------------------------
 
