@@ -1,0 +1,45 @@
+p {
+	font-size: 20px;  /*parráfos*/
+}
+body{
+	margin-right: 10%;
+	margin-left: 7%;
+	margin-top: 5%;
+}
+
+ul {
+	font-size: 20px;
+}	
+
+ol {
+	font-size: 15px;
+}	
+
+
+.img_seis {
+	width: 60%;
+	height: 60%;
+}
+
+.img_cuatro {
+	width: 40%;
+	height: 40%;
+}
+
+.img_tresymedio {
+	width: 35%;
+	height: 35%;
+}
+.img_tres {
+	width: 30%;
+	height: 30%;
+}
+.img_dosymedio {
+	width: 25%;
+	height: 25%;
+}
+.img_dos {
+	width: 20%;
+	height: 20%;
+}
+/*codigo*/
