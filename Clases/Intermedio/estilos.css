@@ -1,0 +1,125 @@
+p {
+	font-size: 20px;  /*parráfos*/
+}
+body{
+	margin-right: 10%;
+	margin-left: 7%;
+	margin-top: 5%;
+}
+
+ul {
+	font-size: 20px;
+}	
+
+ol {
+	font-size: 15px;
+}	
+
+.img_seis {
+	width: 60%;
+	height: 60%;
+}
+
+.img_cuatro {
+	width: 40%;
+	height: 40%;
+}
+
+.img_tresymedio {
+	width: 35%;
+	height: 35%;
+}
+.img_tres {
+	width: 30%;
+	height: 30%;
+}
+.img_dosymedio {
+	width: 25%;
+	height: 25%;
+}
+.img_dos {
+	width: 20%;
+	height: 20%;
+}
+/*codigo*/
+
+.c1 {
+	font-size:14px;	/*Comentarios*/
+}
+
+.n {
+	font-size: 15px; /*variables, x,y,etc*/
+}
+
+.o {
+	font-size: 15px; /*igual*/
+}
+
+.nb {
+	font-size: 15px;	/*funciones*/
+}
+
+.p {
+	font-size: 15px;	/*paréntesis*/
+}
+
+.ow {
+	font-size: 15px;	/*is, not, and,etc*/
+}
+
+.kc{
+	font-size: 15px;	 /*true, false*/
+}
+
+.s2{
+	font-size: 15px;	/*cadenas de texto*/
+}
+
+.kn{
+	font-size: 15px;	/*form, import*/
+}
+
+.nn{
+	font-size: 15px;	/*math, librerías*/
+}
+
+
+.mf{
+	font-size: 15px;	/*números flotantes*/
+}
+
+.mi{
+	font-size: 15px;	/*enteros*/
+}
+
+.s1 {
+	font-size: 15px;	/*f string (lo de adentro)*/
+}
+
+.sa {
+	font-size: 15px;	/*letra f de fstring*/
+}
+
+.k {
+	font-size: 15px;	/*while*/
+}
+
+.si {
+	font-size: 15px;	/*formato, llaves*/
+}
+
+.ne {
+	font-size: 15px;	/*Errores, excepciones*/
+}
+
+.nf {
+	font-size: 15px;	/*funciones descripción*/
+}
+
+.se {
+	font-size: 15px;	/*\n*/
+}
+
+.sd {
+	font-size: 15px;	/*triple comillas dobles*/
+}
