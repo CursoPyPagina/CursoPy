@@ -156,6 +156,7 @@
       </p>
       <div class="tab">
         <button class="tablinks" onclick="openTab(event, 'Tab1')">Curso de introducción a SQL con Python y PostgreSQL</button>
+        <button class="tablinks" onclick="openTab(event, 'Tab1.2')">Curso Mayo</button>
         <button class="tablinks" onclick="openTab(event, 'Tab2')">Notas de PostgreSQL en pgAdmin</button>
       </div>
 
@@ -175,15 +176,6 @@
           <a href="#c5"><li>Consultas avanzadas</li></a> 
           <a href="#c6"><li>Proyecto</li></a> 
         </ol>
-        <hr>
-        <p>
-          Entrega de tareas:
-          <br>
-          <br>
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLScgEzKaduGbzvOTqUrTraPc2eq3ucvS8A65GdJiHsWkRDJGog/viewform?usp=sf_link" style="color:rgb(255, 255, 255);">Formulario de entrega de tareas</a>
-          </button>
-        </p>
         <hr>
         <h5 id="c1"><strong>Introducción a la programación con Python</strong></h5>
         <p style="background:rgb(2, 104, 172); color:rgb(231, 223, 223); font-weight:bold; padding:15px; border:3px solid rgb(231, 223, 223);">
@@ -206,12 +198,183 @@
           Clase 5.1: Creando datos falsos con Python | <a href="https://drive.google.com/file/d/1ipf1YskYdqZaEYbqdHqZzpgLT159ReKU/view?usp=share_link" style="color:rgb(231, 223, 223);">Video de Clase</a> |<a href="https://colab.research.google.com/drive/1NBUsIHroiCOqdXFWF2F6AnEjTpVKXNdy?usp=sharing" style="color:rgb(231, 223, 223);">Notas de Clase</a> | 
         </p>
         <p style="background:rgb(2, 104, 172); color:rgb(231, 223, 223); font-weight:bold; padding:15px; border:3px solid rgb(231, 223, 223);">
-          Clase 5.2: WHERE, HAVING, BETWEEN, LIKE, IN, JOINS | <a href="https://drive.google.com/file/d/1RmPP3rm33er7qHqscZlIORf83OQTvcTG/view?usp=share_link" style="color:rgb(231, 223, 223);">Video de Clase</a> | <a href="https://github.com/CursoPyPagina/CursoPy/blob/gh-pages/scripts/ClaseExtra1_2.sql" style="color:rgb(231, 223, 223)">Archivo SQL</a> |
+          Clase 5.2: WHERE, HAVING, BETWEEN, LIKE, IN, JOINS | <a href="" style="color:rgb(231, 223, 223);">Video de Clase</a> | <a href="https://github.com/CursoPyPagina/CursoPy/tree/gh-pages/scripts/ClaseExtra1.sql" style="color:rgb(231, 223, 223)">Archivo SQL</a> |
         </p>
         <h5 id="c6"><strong>Proyecto</strong></h5>
         <p style="background:rgb(2, 104, 172); color:rgb(231, 223, 223); font-weight:bold; padding:15px; border:3px solid rgb(231, 223, 223);">
             Proyecto | <a href="Clases/SQL/Proyecto1SQL.html" style="color:rgb(231, 223, 223);">Descripción</a> |
         </p>
+        <br>
+        <p>Si deseas seguir aprendiendo sobre temas de <code>Python</code>, tenemos dos cursos para tí:
+        <ol>
+          <a href="https://cursopypagina.github.io/CursoPy/index_Python_intro.html"><li>Curso de introducción a la programación con Python</li></a>
+          <a href="https://cursopypagina.github.io/CursoPy/index_Python_inter.html"><li>Curso intermedio de Python para análisis de datos</li></a>
+        </ol>
+        De igual manera, para complementar tu aprendizaje sobre <code>SQL</code> puedes checar las notas del segundo <strong>tab</strong>.
+        </p>
+      </div>
+      <div id="Tab1.2" class="tabcontent">
+        <br>
+        <center>
+          <h3>Introducción a SQL con Python y PostgreSQL</h3>  
+        </center>
+        <br>
+        <h4><strong>Notas de Clase</strong></h4>
+        <br>
+        <p>En esta sección se irán subiendo los apuntes de clases, las <i>tareas, prácticas</i> y <i>proyectos</i>
+          que realizaremos a lo largo del curso. Asimismo, encontrarás los videos de clase.
+        </p>
+        <br>
+        <h5><strong>Índice</strong></h5>
+        <ol>
+          <a href="#c1"><li>Introducción a la programación con Python</li></a>
+          <a href="#c2"><li>Librería Pandas</li></a>
+          <a href="#c3"><li>Introducción a SQL con SQLite</li></a> 
+          <a href="#c4"><li>Introducción a SQL con PostgreSQL en pgAdmin</li></a>  
+          <a href="#c5"><li>Consultas avanzadas</li></a> 
+          <a href="#c6"><li>Proyecto</li></a>
+          <a href="#c6.1"><li>Introducción al Machine Learning</li></a> 
+          <a href="#c7"><li>Profundizando en Pandas</li></a>
+          <a href="#c8"><li>Profundizando en Seaborn</li></a> 
+        </ol>
+        <hr>
+        <p>
+          Entrega de tareas:
+          <br>
+          <br>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScgEzKaduGbzvOTqUrTraPc2eq3ucvS8A65GdJiHsWkRDJGog/viewform?usp=sf_link" style="color:rgb(255, 255, 255);">Formulario de entrega de tareas</a>
+          </button>
+        </p>
+        <hr>
+        <h5 id="c1"><strong>Introducción a la programación con Python</strong></h5>
+        <p>
+          En esta clase nos introduciremos al mundo de la programación utilizando para 
+          ello el lenguaje <code>Python</code>. Veremos que <code>Python</code> puede
+          realizar operaciones como si fuera una calculadora, veremos el tema de variables,
+          tipos de datos, veremos algunas funciones predefinidas (<code>print(), input(), len()</code>)
+          y veremos el tema de condicionales.
+          <br>
+          <br>
+          En el <strong>video extra</strong> asociado completaremos
+          los temas vistos en clase, viendo bucles (<code>for, while</code>),
+          estructuras de datos (listas, tuplas y diccionarios) y veremos listas
+          de comprehensión.
+        </p>
+        <p style="background:rgb(2, 104, 172); color:rgb(231, 223, 223); font-weight:bold; padding:15px; border:3px solid rgb(231, 223, 223);">
+            Clase 1: | <a href="#" style="color:rgb(231, 223, 223);">Video de Clase</a> |<a href="#" style="color:rgb(231, 223, 223);">Notas de Clase</a> | <a href="https://drive.google.com/file/d/1sGCCK7di3LM-K7Y2ZaPbb24C3HSiQyVY/view?usp=share_link" style="color:rgb(231, 223, 223)">Tarea 1</a> | <a href="#" style="color:rgb(231, 223, 223)">Video Extra</a> | <a href="#" style="color:rgb(231, 223, 223)">Notas de clase (video extra)</a> |
+        </p>
+        <hr>
+        <h5 id="c2"><strong>Librería Pandas</strong></h5>
+        <p>
+          La librería <code>Pandas</code> es fundamental para el análisis de datos utilizando <code>Python</code>.
+          De tal manera, en esta clase nos introduciremos en dicha librería abordando los 
+          temas:
+          <ul>
+            <li>Importación, creación y exploración de <strong>dataframes</strong> (tablas).</li>
+            <li>Selección de información (consultas).</li>
+            <li>Filtros.</li>
+            <li>Graficación.</li>
+          </ul>
+          <br>
+          En la clase extra asociada veremos algunos temas complementarios sobre la 
+          librería <code>Pandas</code> y adicionalemente veremos una introducción a 
+          la librería <code>Numpy</code>.
+        </p>
+        <p style="background:rgb(2, 104, 172); color:rgb(231, 223, 223); font-weight:bold; padding:15px; border:3px solid rgb(231, 223, 223);">
+          Clase 2: | <a href="#" style="color:rgb(231, 223, 223);">Video de Clase</a> |<a href="#" style="color:rgb(231, 223, 223);">Notas de Clase</a> | <a href="https://drive.google.com/file/d/11ZpdKQ6JKE4v0H7q225U8W5Boauy2_Hr/view?usp=share_link" style="color:rgb(231, 223, 223)">Tarea 2</a> | <a href="#" style="color:rgb(231, 223, 223)">Video Extra</a> | <a href="#" style="color:rgb(231, 223, 223)">Notas de clase (video extra)</a> |
+        </p>
+        <hr>
+        <h5 id="c3"><strong>Introducción a SQL con SQLite</strong></h5>
+        <p>
+          En esta clase comenzaremos a programar en el lenguaje <code>SQL</code>,
+          utilizando a <code>Python</code> como intermediario mediante la librería 
+          <code>sqlite3</code>. Abordaremos un poco de teoría detrás de las bases 
+          de datos relacionales, veremos como crear una base de datos y una tabla;
+          veremos cómo insertar información a las tablas y veremos cómo generar información 
+          falsa mediante la librería <code>Faker</code> de <code>Python</code>.
+          <br>
+          <br>
+          En el video extra asociado nos introduciremos en la sintaxis básica de las consultas en 
+          <code>SQL</code> y veremos algunos temas complementarios como actualización, modificación 
+          y eliminación de información de una tabla.
+        </p>
+        <p style="background:rgb(2, 104, 172); color:rgb(231, 223, 223); font-weight:bold; padding:15px; border:3px solid rgb(231, 223, 223);">
+            Clase 3: | <a href="https://drive.google.com/file/d/1nsV7-VKzfrsvbEGw7XRbyJUMJmvGLEey/view?usp=share_link" style="color:rgb(231, 223, 223);">Video de Clase</a> |<a href="https://colab.research.google.com/drive/1DW4cECx6PvYJEUf9PyQxc75RVQvKB_li?usp=sharing" style="color:rgb(231, 223, 223);">Notas de Clase</a> | <a href="https://drive.google.com/file/d/18C5McnoxlCoLHDIMO2fAVYvIVNOzVTPa/view?usp=share_link" style="color:rgb(231, 223, 223)">Tarea 3</a> |  | <a href="#" style="color:rgb(231, 223, 223)">Video Extra</a> | <a href="#" style="color:rgb(231, 223, 223)">Notas de clase (video extra)</a> |
+        </p>
+        <h5 id="c4"><strong>Introducción a SQL con PostgreSQL en pgAdmin</strong></h5>
+        En esta clase abordaremos los temas vistos antes en <code>SQLITE3</code> pero ahora 
+        utilizando <code>PostgreSQL</code> en <code>pgAdmin</code>. Veremos cómo crear y eliminar
+        una base de datos y una tabla; veremos cómo insertar, actualizar y modificar información
+        de una tabla. Asimismo, veremos el tema de restricciones: llaves primarias y foráneas.
+        <br>
+        <br>
+        <p style="background:rgb(2, 104, 172); color:rgb(231, 223, 223); font-weight:bold; padding:15px; border:3px solid rgb(231, 223, 223);">
+            Clase 4: | <a href="https://drive.google.com/file/d/1uLARGvl7Az7n8VA_dzKg3irzCkiVEohv/view?usp=share_link" style="color:rgb(231, 223, 223);">Video de Clase</a> |<a href="https://colab.research.google.com/drive/1fePK_x0fiaeGXDffkpW2CpuSZJgrJ-BX?usp=sharing" style="color:rgb(231, 223, 223);">Notas de Clase en <code>Python</code></a> | <a href="https://github.com/CursoPyPagina/CursoPy/blob/gh-pages/scripts/archivo1.sql" style="color:rgb(231, 223, 223)">Código <code>SQL</code> de la clase</a> | <a href="https://drive.google.com/file/d/1g6FeN53_R_fc9Gr86vnPrpYjp--OYQ4C/view?usp=share_link" style="color:rgb(231, 223, 223)">Tarea 4</a> |
+        </p>
+        <h5 id="c5"><strong>Consultas avanzadas y joins</strong></h5>
+        A lo largo de la clase veremos diferentes sentencias para profundizar en las 
+        consultas, utilizaremos las sentencias <code>WHERE</code>, <code>GROUP BY</code>,
+        <code>HAVING</code>, <code>ORDER BY</code>, <code>LIKE</code>, <code>IN</code>, entre 
+        otras para lograr tal hazaña. Asimismo, veremos cómo realizar <code>JOINS</code>
+        para obtener información de diferentes tablas. Finalmente, practicaremos resolviendo
+        algunos problemas en el cual deberemos de pensar y plantear el código <code>SQL</code>
+        para obtener la información de interés.
+        <br>
+        <br>
+        <p style="background:rgb(2, 104, 172); color:rgb(231, 223, 223); font-weight:bold; padding:15px; border:3px solid rgb(231, 223, 223);">
+          Clase 5: | <a href="https://drive.google.com/file/d/1ipf1YskYdqZaEYbqdHqZzpgLT159ReKU/view?usp=share_link" style="color:rgb(231, 223, 223);">Video de Clase</a> |<a href="https://colab.research.google.com/drive/1NBUsIHroiCOqdXFWF2F6AnEjTpVKXNdy?usp=sharing" style="color:rgb(231, 223, 223);">Notas de Clase</a> | 
+        </p>
+        <h5 id="c6"><strong>Proyecto</strong></h5>
+        <p style="background:rgb(10, 0, 100); color:rgb(231, 223, 223); font-weight:bold; padding:15px; border:3px solid rgb(231, 223, 223);">
+            Proyecto | <a href="Clases/SQL/Proyecto1SQL.html" style="color:rgb(231, 223, 223);">Descripción</a> |
+        </p>
+        <h5 id="c6.1"><strong>Introducción al Machine Learning</strong></h5>
+        <p style="background:rgb(89, 0, 100); color:rgb(231, 223, 223); font-weight:bold; padding:15px; border:3px solid rgb(231, 223, 223);">
+          Clase 6.1: Introducción | <a href="#" style="color:rgb(231, 223, 223);">Video de Clase</a> |<a href="#" style="color:rgb(231, 223, 223);">Notas de Clase</a> | 
+        </p>
+        <p style="background:rgb(89, 0, 100); color:rgb(231, 223, 223); font-weight:bold; padding:15px; border:3px solid rgb(231, 223, 223);">
+          Clase 6.2: Regresiones | <a href="#" style="color:rgb(231, 223, 223);">Video de Clase</a> | <a href="#" style="color:rgb(231, 223, 223)">Notas de clase</a> |
+        </p>
+        <p style="background:rgb(89, 0, 100); color:rgb(231, 223, 223); font-weight:bold; padding:15px; border:3px solid rgb(231, 223, 223);">
+          Clase 6.3: Clustering | <a href="#" style="color:rgb(231, 223, 223);">Video de Clase</a> | <a href="#" style="color:rgb(231, 223, 223)">Notas de clase</a> |
+        </p>
+        <h5 id="c7"><strong>Profundizando en Pandas</strong></h5>
+        <p style="background:rgb(4, 48, 241); color:rgb(231, 223, 223); font-weight:bold; padding:15px; border:3px solid rgb(231, 223, 223);">
+          Clase 7.1: Análisis exploratorio de datos | <a href="#" style="color:rgb(231, 223, 223);">Video de Clase</a> |<a href="https://colab.research.google.com/drive/1ehvMXc4DyozIqUxHkANfCw8p3IJb3I4l?usp=sharing" style="color:rgb(231, 223, 223);">Notas de Clase</a> | 
+        </p>
+        <p style="background:rgb(4, 48, 241); color:rgb(231, 223, 223); font-weight:bold; padding:15px; border:3px solid rgb(231, 223, 223);">
+          Clase 7.2: Imputación de datos faltantes | <a href="#" style="color:rgb(231, 223, 223);">Video de Clase</a> | <a href="https://colab.research.google.com/drive/1WbKtUg8IbTOxa5yELzkbXDB3f4xtD02w?usp=sharing" style="color:rgb(231, 223, 223)">Notas de clase</a> |
+        </p>
+        <p style="background:rgb(4, 48, 241); color:rgb(231, 223, 223); font-weight:bold; padding:15px; border:3px solid rgb(231, 223, 223);">
+          Clase 7.3: Filtros, agrupaciones y pivots | <a href="#" style="color:rgb(231, 223, 223);">Video de Clase</a> | <a href="https://colab.research.google.com/drive/1YPTIOQmQIcOgywYfEPX8l4ugm36RwqfF?usp=sharing" style="color:rgb(231, 223, 223)">Notas de clase</a> |
+        </p>
+        <p style="background:rgb(4, 48, 241); color:rgb(231, 223, 223); font-weight:bold; padding:15px; border:3px solid rgb(231, 223, 223);">
+          Clase 7.4: Joins | <a href="#" style="color:rgb(231, 223, 223);">Video de Clase</a> | <a href="https://colab.research.google.com/drive/1WbKtUg8IbTOxa5yELzkbXDB3f4xtD02w?usp=sharing" style="color:rgb(231, 223, 223)">Notas de clase</a> |
+        </p>
+        <p style="background:rgb(4, 48, 241); color:rgb(231, 223, 223); font-weight:bold; padding:15px; border:3px solid rgb(231, 223, 223);">
+          Clase 7.5: Series de tiempo | <a href="#" style="color:rgb(231, 223, 223);">Video de Clase</a> | <a href="#" style="color:rgb(231, 223, 223)">Notas de clase</a> |
+        </p>
+        <h5 id="c8"><strong>Profundizando en Seaborn</strong></h5>
+        <br>
+        <a href="Clases/Intermedio/Clase1_py_inter_sns.html" style="background-color: #940eee; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Clase 8.1: Gráficos relacionales y de líneas &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        <br>
+        <br>
+        <a href="Clases/Intermedio/Clase2_py_inter_sns.html" style="background-color: #940eee; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Clase 8.2: Gráfico de conteo y de barras &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        <br>
+        <br>
+        <a href="Clases/Intermedio/Clase3_py_inter_sns.html" style="background-color: #940eee; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Clase 8.3: Personalización de gráficos &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        <br>
+        <br>
+        <a href="Clases/Intermedio/Clase4_py_inter_sns.html" style="background-color: #940eee; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Clase 8.4: Gráficos de distribución &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        <br>
+        <br>
+        <a href="Clases/Intermedio/Clase5_py_inter_sns.html" style="background-color: #940eee; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Clase 8.5: Gráficos para variables categóricas</a>
+        <br>
+        <br>
+        <a href="Clases/Intermedio/Clase6_py_inter_sns.html" style="background-color: #940eee; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Clase 8.6: Joinplots y más&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        <hr>
+        <br>
         <br>
         <p>Si deseas seguir aprendiendo sobre temas de <code>Python</code>, tenemos dos cursos para tí:
         <ol>
