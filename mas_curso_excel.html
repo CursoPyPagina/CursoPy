@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Curso PyM</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/dino.ico" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i,900" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <style>
+    /* Style the tab */
+    /* Main container */
+    .tab {
+      overflow: hidden;
+      border: 1px solid #ccc;
+      background-color: #f1f1f1;
+    }
+
+    /* Buttons inside the tab */
+    .tab button {
+      float: left;
+      padding: 14px 16px;
+      font-size: 17px;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+      background-color: #ddd;
+    }
+
+    /* Active/current tablink */
+    .tab button.active {
+      background-color: #ccc;
+    }
+
+    /* Tab content */
+    .tabcontent {
+      display: none;
+      padding: 6px 12px;
+      border: 1px solid #ccc;
+      border-top: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======= Top Bar ======= -->
+  <section id="topbar" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-center justify-content-md-between">
+    </div>
+  </section>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+
+      <div class="logo me-auto">
+        <a href="#"><img src="assets/img/subpaginas/python.ico"></a> Curso PyM
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+        <li><a class="nav-link scrollto active" href="index_excel.html">Regresar</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section>
+    <div class="container" data-aos="fade-up">
+      <h1 align="center"><strong>Sobre el curso</strong></h2>
+      <hr>
+      <p style="text-align: justify">
+        <img src="assets/img/Imagen1.png" width="30%" align="left">
+        &nbsp;&nbsp;&nbsp; <strong>El profe:</strong> Soy Luis Apáez, estudie la licenciatura en Matemáticas
+        en la Facultad de Ciencias de la UNAM &nbsp;&nbsp;&nbsp;y actualmente me desempeño como analista de datos 
+        en una institución bancaria. Me apasiona la &nbsp;&nbsp;&nbsp;ciencia de datos y la programación,
+        me gusta compartir mis conocimientos con los demás por lo que &nbsp;&nbsp;&nbsp;soy un apasionado por la 
+        docencia. 
+        Soy profesor del curso <strong>Fundamentos de Python</strong> en <i>Ucamp</i> (<a href="https://www.credly.com/badges/6c38658e-e6bb-4c2f-a01a-46fa61962f08/print">Ver &nbsp;&nbsp;&nbsp;&nbsp;insignia</a>).
+        <br>
+        &nbsp;&nbsp;&nbsp; Para <strong>Cursos PyM</strong> he impartido:
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 📘 Introducción a la programación con Python (<i>una ocasión - 16 horas de clase</i>).
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 📘 Introducción a Python y SQL (<i>dos ocasiones - 32 horas de clase</i>).
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 📘 Python básico-intemerdio (<i>una ocasión - 16 horas de clase</i>).
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 📘 Introducción a la estadística, probabilidad y Machine Learning (<i>tres ocasiones - 48 horas de clase</i>).
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 📘 Machine Learning y redes neuronales  (<i>una ocasión - 16 horas de clase</i>).
+        <br>
+        &nbsp; Actualmente me encuentro dando un curso de <code>introducción a la programación</code> a 
+        estudiantes de la &nbsp;&nbsp;&nbsp;<i>Prepa 1 de la UNAM</i>.
+      </p>
+    </div>
+  </section>
+
+  <main>
+    <hr>
+    <div class="container" data-aos="fade-up" id="indice">
+      
+    </div>
+
+    <div class="container" data-aos="fade-up" id="notas">
+      <br>
+      <h2>Sobre el curso</h2>
+      <br>
+      <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'Tab1')">Información</button>
+        <button class="tablinks" onclick="openTab(event, 'Tab5')">Roadmap</button>
+        <button class="tablinks" onclick="openTab(event, 'Tab2')">Estudiantes</button>
+  
+      </div>
+
+      <div id="Tab1" class="tabcontent">
+      
+      </div>
+      <div id="Tab5" class="tabcontent">
+      diagrama de flujo sobre el curso 
+      </div>
+      <div id="Tab2" class="tabcontent">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Clave</th>
+            <th scope="col">Prácticas entregadas</th>
+            <th scope="col">Avance del proyecto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>0</td>
+            <td>0%</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>0</td>
+            <td>0%</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>0</td>
+            <td>0%</td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td>0</td>
+            <td>0%</td>
+          </tr>
+          <tr>
+            <th scope="row">5</th>
+            <td>0</td>
+            <td>0%</td>
+          </tr>
+          <tr>
+            <th scope="row">6</th>
+            <td>0</td>
+            <td>0%</td>
+          </tr>
+          <tr>
+            <th scope="row">7</th>
+            <td>0</td>
+            <td>0%</td>
+          </tr>
+          <tr>
+            <th scope="row">8</th>
+            <td>0</td>
+            <td>0%</td>
+          </tr>
+          <tr>
+            <th scope="row">9</th>
+            <td>0</td>
+            <td>0%</td>
+          </tr>
+          <tr>
+            <th scope="row">10</th>
+            <td>0</td>
+            <td>0%</td>
+          </tr>
+          <tr>
+            <th scope="row">11</th>
+            <td>0</td>
+            <td>0%</td>
+          </tr>
+          <tr>
+            <th scope="row">12</th>
+            <td>0</td>
+            <td>0%</td>
+          </tr>
+          <tr>
+            <th scope="row">13</th>
+            <td>0</td>
+            <td>0%</td>
+          </tr>
+          <tr>
+            <th scope="row">14</th>
+            <td>0</td>
+            <td>0%</td>
+          </tr>
+          <tr>
+            <th scope="row">15</th>
+            <td>0</td>
+            <td>0%</td>
+          </tr>
+          <tr>
+            <th scope="row">16</th>
+            <td>0</td>
+            <td>0%</td>
+          </tr>
+          <tr>
+            <th scope="row">17</th>
+            <td>0</td>
+            <td>0%</td>
+          </tr>
+          <tr>
+            <th scope="row">18</th>
+            <td>0</td>
+            <td>0%</td>
+          </tr>
+          <tr>
+            <th scope="row">19</th>
+            <td>0</td>
+            <td>0%</td>
+          </tr>
+          <tr>
+            <th scope="row">20</th>
+            <td>0</td>
+            <td>0%</td>
+          </tr>
+        </tbody>
+      </div>
+      <br>
+    </div>
+    <div>
+    </div>
+    
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+  
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/purecounter/purecounter.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <!-- tabs -->
+  <script>
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+  </script>
+</body>
+
+</html>
