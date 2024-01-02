@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Curso PyM</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/dino.ico" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i,900" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <style>
+    /* Style the tab */
+    /* Main container */
+    .tab {
+      overflow: hidden;
+      border: 1px solid #ccc;
+      background-color: #f1f1f1;
+    }
+
+    /* Buttons inside the tab */
+    .tab button {
+      float: left;
+      padding: 14px 16px;
+      font-size: 17px;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+      background-color: #ddd;
+    }
+
+    /* Active/current tablink */
+    .tab button.active {
+      background-color: #ccc;
+    }
+
+    /* Tab content */
+    .tabcontent {
+      display: none;
+      padding: 6px 12px;
+      border: 1px solid #ccc;
+      border-top: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======= Top Bar ======= -->
+  <section id="topbar" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-center justify-content-md-between">
+    </div>
+  </section>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+
+      <div class="logo me-auto">
+        <a href="index.html"><img src="assets/img/subpaginas/python.ico"></a> Curso PyM
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+        <li><a class="nav-link scrollto active" href="Stat_proba_ml.html">Regresar</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section>
+    <div class="container" data-aos="fade-up">
+      <center>
+        <img src="assets/img/mats.ico" width="5%">
+      </center>
+      <h1 align="center"><strong>Introducción a la Estadística y al Machine Learning</strong></h2>
+      <center>
+      <hr>
+        <img src="assets/img/prueba11.png" width="900" height="500">
+      </center>
+      <br>
+      <br>
+      <hr>
+      <p style="text-align: justify">
+        <img src="assets/img/subpaginas/Intro_excel.png" width="30%" align="left">
+        <br>
+        <br>
+        <br>
+        <br>
+          <strong>Descripción:</strong> En esta sección hallarás los videos grabados de las clases, 
+          así como los apuntes generados en las mismas. Adicionalmente encontrarás
+          material complementario para cada clase, ejercicios, tareas y quizzes.
+          <br>
+          Para cada clase tendremos asociados tres videos: clase de la mañana (AM), clase de la
+          tarde (PM) y clase sabatina.
+          <br>
+          Adicionalmente, estará el material para efectuar los diferentes proyectos guiados y las clases 
+          extras al final del curso.
+    </div>
+  </section>
+
+  <main>
+    <hr>
+    <div class="container" data-aos="fade-up" id="notas">
+      <br>
+      <br>
+      <h2>Contenido</h2>
+      <br>
+      <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'Tab1')">Curso</button>
+        <button class="tablinks" onclick="openTab(event, 'Tab5')">Clases extra</button>
+        <button class="tablinks" onclick="openTab(event, 'Tab2')">Proyectos</button>
+        <button class="tablinks" onclick="openTab(event, 'Tab3')">Lista Mañana</button>
+        <button class="tablinks" onclick="openTab(event, 'Tab4')">Lista Tarde</button>
+        <button class="tablinks" onclick="openTab(event, 'Tab4')">Lista Sabatino</button>
+        <button class="tablinks" onclick="openTab(event, 'Tab6')">Recursos</button>
+      </div>
+
+      <div id="Tab1" class="tabcontent">
+        <br>
+        <h5>Índice</h5>
+        <ol>
+          <a href="#Clase1"><li>Introducción a Python: Conceptos básicos</li></a>
+          <a href="#Clase2"><li>Más de Python: Pandas</li></a>  
+          <a href="#Clase3"><li>Introducción a la inferencia estadística</li></a>
+          <a href="#Clase4"><li>Regresión lineal simple y múltiple</li></a>
+          <a href="#Clase5"><li>Regresión logística y modelos predictivos</li></a>
+          <a href="#Clase6"><li>Introducción a las series de tiempo</li></a>
+          <a href="#Clase7"><li>Introducción a las redes neuronales artificiales</li></a>
+        </ol>
+        <hr>
+        <p>
+          Plataformas que ocuparemos:
+          <ul>
+            <li><code>Python</code>: <a href="https://colab.research.google.com">Google colab</a></li>
+            <li><code>R y Python</code>: <a href="https://www.kaggle.com">Kaggle</a></li>
+          </ul>
+        </p>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScgEzKaduGbzvOTqUrTraPc2eq3ucvS8A65GdJiHsWkRDJGog/viewform?usp=sf_link" style="color:rgb(255, 255, 255);">Formulario de entrega de tareas</a>
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="https://drive.google.com/file/d/1_zq5FTVtT3eGotTRUdKl2W8ydztBan0E/view?usp=sharing" style="color:rgb(255, 255, 255);">¿Cómo hacer y entregar un tarea o práctica?</a>
+        </button> 
+        <hr>
+        <br>
+        <h4 id="Clase1"><strong>Clase 1: Introducción a Python</strong></h4>
+        <p>En esta clase indagaremos en los conceptos más básicos de <code>Python</code>, tales como 
+          tipos de datos, vectores, condicionales y bucles. Asimismo, nos familarizaremos con el entorno de trabajo y las 
+          plataformas de Google colab y Kaggle.
+        </p>
+        <br>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="https://drive.google.com/file/d/1GGeyxbxHpglX6ZU4NCbK98AJacyz7Rg2/view?usp=share_link" style="color:rgb(255, 255, 255);">Video (AM)</a>
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="https://drive.google.com/file/d/15_i0B5aO0kdG8UWEW69OshoaHuvk64Z0/view?usp=share_link" style="color:rgb(255, 255, 255);">Video (PM)</a>
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="https://drive.google.com/file/d/15_i0B5aO0kdG8UWEW69OshoaHuvk64Z0/view?usp=share_link" style="color:rgb(255, 255, 255);">Video (Sabatino)</a>
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="Clases/Stats_ml_r_py/Clase1_intro.html" style="color:rgb(255, 255, 255);">Notas de clase (Python y R)</a>
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="" style="color:rgb(255, 255, 255);">Notas de clase en <code>Python</code></a>
+        </button>
+        <br>
+        <br>
+        <a href="https://drive.google.com/file/d/1qi11izP4Dt-78pSoZwa6pIVgBPh_Jhqe/view?usp=share_link" style="background-color: #940eee; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Resumen Python</a>
+        <a href="" style="background-color: #F449A8; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Práctica 1</a>
+        <br>
+        <hr>
+        <h4 id="Clase2"><strong>Clase 2: Manejo de datos y graficación</strong></h4>
+        <p> A lo largo de la clase aprenderemos a seleccionar información de un conjunto de datos, 
+          a realizar filtros y a crear dataframes, tanto en <code>Python</code> como <code>R</code>. Asimismo,
+          en dichos lenguajes aprenderemos a realizar algunos gráficos básicos y a personalizarlos. Adicionalmente,
+          veremos el tema de bucles y estructuras de datos.
+        </p>
+        <br>
+        <br>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="https://drive.google.com/file/d/14iy1LHmoQPlrZgmP0aaclzQ8PohPN63q/view?usp=share_link" style="color:rgb(255, 255, 255);">Video (AM)</a>
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="https://drive.google.com/file/d/1_g8DGBlzrbHIwJurV_CsuuX22jCtl227/view?usp=share_link" style="color:rgb(255, 255, 255);">Video (PM)</a>
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="https://drive.google.com/file/d/1_g8DGBlzrbHIwJurV_CsuuX22jCtl227/view?usp=share_link" style="color:rgb(255, 255, 255);">Video (Sabatino)</a>
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="Clases/Stats_ml_r_py/Clase2_intro.html" style="color:rgb(255, 255, 255);">Notas de clase (Python y R)</a>
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="" style="color:rgb(255, 255, 255);">Notas de clase en <code>Python</code></a>
+        </button>
+        <br>
+        <br>
+        <a href="https://drive.google.com/file/d/1aUykSkRJ43NMgz_j9avCzwUSf_K1RnIm/view?usp=share_link" style="background-color: #940eee; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Video complementario</a>
+        <a href="https://colab.research.google.com/drive/19sVFmodc1pA74heMwgypYgGQXNcTi_Hv?usp=sharing" style="background-color: #940eee; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Complemento Python: Graficación</a>
+        <a href="Clases/Stats_ml_r_py/ClaseExtra2_R.html" style="background-color: #940eee; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Complemento R: Manejo de datos y graficación</a>
+        <br>
+        <br>
+        <a href="" style="background-color: #940eee; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Resumen Python</a>
+        <a href="" style="background-color: #F449A8; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Práctica 3</a>
+        <br>
+        <hr>
+        <h4 id="Clase3"><strong>Clase 3: Introducción a la estadística y a la probabilidad</strong></h4>
+        <p> En esta clase veremos probabilidad clásica, variables aleatorias y algunas distribuciones. 
+          Adicionalmente, veremos un poco de estadística inferencial, intervalos de confianza y
+          pruebas de hipótesis.
+        </p>
+        <br>
+        <br>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="https://drive.google.com/file/d/16m4BG5ih-TBcs-sLBcqm87bkgJC_t101/view?usp=share_link" style="color:rgb(255, 255, 255);">Video (AM)</a>
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="https://drive.google.com/file/d/1JWk9zsqpWrLXe2ChW1VNuIxplRWFtuZT/view?usp=share_link" style="color:rgb(255, 255, 255);">Video (PM)</a>
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="" style="color:rgb(255, 255, 255);">Video (Sabatino)</a>
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="https://drive.google.com/file/d/1131CffO7kqPE4VpSaMTRAE6Rj9oobwUj/view?usp=share_link" style="color:rgb(255, 255, 255);">Notas de clase (PDF)</a>
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="https://drive.google.com/file/d/1_g834vdFMpReLbkFfZjUEZ92a0z0S_Ma/view?usp=share_link" style="color:rgb(255, 255, 255);">Pizarrón (PDF)</a>
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="Clases/Stats_ml_r_py/Clase3_Py_R.html" style="color:rgb(255, 255, 255);">Notas de clase (Python y R)</code></a>
+        </button>
+        <br>
+        <br>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="https://drive.google.com/file/d/1kOttvMyPc5LMnEVjiiMFMoDkRBy1IL5D/view?usp=share_link" style="color:rgb(255, 255, 255);">Video extra</a>
+        </button>
+        <br>
+        <br>
+        <a href="https://drive.google.com/file/d/1_qPOqKk-Fc6YsBP0sal-L5dAm2_PhiSE/view?usp=share_link" style="background-color: #F449A8; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Tarea</a> <a href="https://colab.research.google.com/drive/16L7TbaCUNRjFM8XUyWFUJV2IbJg-M1JF?usp=sharing" style="background-color: #F449A8; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Práctica 2 (Opcional)</a>
+        <br>
+        <br>
+        <br>
+        <hr>
+        <h4 id="Clase4"><strong>Clase 4: Regresión lineal simple y múltiple</strong></h4>
+        <p>  
+          Con las herramientas de probabilidad y estadística que hemos visto, podemos comenzar
+          a indagar en el tema de regresión lineal, el cual será fundamental para el resto
+          del curso y para abordar posteriormente en modelos predictivos.
+          <br>
+          <br>
+          En la clase extra veremos el tema de regresión lineal múltiple (modelo predictivo) y también 
+          efectuaremos un análisis de supuestos de un modelo estadísticos de regresión lineal simple. 
+        </p>
+        <br>
+        <br>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="https://drive.google.com/file/d/1ewHehtIzhOdnIp7hH9eVMUW-v24Vm6K2/view?usp=share_link" style="color:rgb(255, 255, 255);">Video (AM)</a>
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="https://drive.google.com/file/d/1WegO7U2Fj8n9ebAOa9YpM26HtybMDGo8/view?usp=share_link" style="color:rgb(255, 255, 255);">Video (PM)</a>
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="https://drive.google.com/file/d/1131CffO7kqPE4VpSaMTRAE6Rj9oobwUj/view?usp=share_link" style="color:rgb(255, 255, 255);">Notas de clase</a>
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="https://colab.research.google.com/drive/1eiiagREWaEvnn1a-afc_0UgaYDXDHdiZ?usp=sharing" style="color:rgb(255, 255, 255);">Notas de clase en <code>Python</code></a>
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="Clases/Stats_ml_r_py/Clase4_abril_complemento.html" style="color:rgb(255, 255, 255);">Notas de clase en <code>Python</code> y <code>R</code></a>
+        </button>
+        <br>
+        <br>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="https://drive.google.com/file/d/1LHQQCNYVKlFwBrIi5US6zN83jYgayg3f/view?usp=share_link" style="color:rgb(255, 255, 255);">Video extra</a>
+        </button>
+        <br>
+        <br>
+		    <a href="Clases/Stats_ml_r_py/ClaseExtra4_abril.html" style="background-color: #940eee; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Notas en R (del video extra)</a>
+        <a href="https://drive.google.com/file/d/11GfgHnreelITcm-y0k8XueVOV81Ty711/view?usp=share_link" style="background-color: #F449A8; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Resumen de los temas teóricos</a>
+        <a href="https://drive.google.com/file/d/1ao9fZVIxNdLE2HXGE9ETguKyj4JlxBTl/view?usp=sharing" style="background-color: #F449A8; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Resumen de códigos</a>
+        <a href="https://colab.research.google.com/drive/19n3Tl26bO0T4J49lNnDLuNHfknGKDwAf?usp=sharing" style="background-color: #F449A8; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Práctica 2</a>
+        <br>
+        <br>
+        <hr>
+        <h4 id="Clase5"><strong>Clase 5: Regresión logística y modelos predictivos</strong></h4>
+        <p>  
+          Veremos el tema de regresión logística aplicada a modelos predictivos, asimismo, 
+          aprenderemos a realizar la evaluación de modelos de clasificación y a realizar predicciones.
+        </p>
+        <br>
+        <br>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="https://drive.google.com/file/d/1A88HQ3fX5-ddrsafa_pzZkhoHcrqg8Qm/view?usp=share_link" style="color:rgb(255, 255, 255);">Video (AM)</a>
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="https://drive.google.com/file/d/1HF0bUOYQ7M_akIVe2FwrBDGXX91WM4jQ/view?usp=share_link" style="color:rgb(255, 255, 255);">Video (PM)</a>
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="https://drive.google.com/file/d/1ow8OxMh_xOmtQMJ1qMe7KjggWqhn0fr0/view?usp=share_link" style="color:rgb(255, 255, 255);">Notas de clase</a>
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="https://colab.research.google.com/drive/1OsEThtsR5_FrkXrGQippXhakc988d12X?usp=sharing" style="color:rgb(255, 255, 255);">Notas de clase en <code>Python</code></a>
+        </button>
+        <br>
+        <br>
+        <a href="https://drive.google.com/file/d/1Yr6cU1zywis33W9BtUOaNPSouUe61ya5/view?usp=share_link" style="background-color: #940eee; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Resumen regresión logística</a>
+        <a href="https://colab.research.google.com/drive/1-yu0AHVNoQl4YtWBTcfawLXIZqhyC2Z9?usp=sharing" style="background-color: #F449A8; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Práctica 3</a>
+        <br>
+        <br>
+        <br>
+        <hr>
+        <h4 id="Clase6"><strong>Clase 6: Introducción a las series de tiempo</strong></h4>
+        <p>  
+          Veremos el concepto de proceso estocástico y a partir de él entraremos en el tema de series de tiempo.
+          Asimismo, veremos los modelos del tipo ARIMA y su aplicación en el análisis de series de tiempo.
+        </p>
+        <br>
+        <br>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="https://drive.google.com/file/d/1fSFztGJi9BpihlRp78UKqRTUo_72SC9y/view?usp=share_link" style="color:rgb(255, 255, 255);">Video (AM)</a>
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="https://drive.google.com/file/d/18Me9PVVtN_i1Xp6YSEwKyWXMgSX-m1o4/view?usp=share_link" style="color:rgb(255, 255, 255);">Video (PM)</a>
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="https://drive.google.com/file/d/1mRETVEWP-1BcdCxWWZjpkUc_eYArR5E7/view" style="color:rgb(255, 255, 255);">Notas de clase</a>
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="Clases/Stats_ml_r_py/Clase6_Py_R.html" style="color:rgb(255, 255, 255);">Notas de clase en <code>R</code></a>
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="https://colab.research.google.com/drive/1iPmbJ7_zFWk8VZpBZ9LC52VRnQsB7kro?usp=sharing" style="color:rgb(255, 255, 255);">Notas de clase en <code>Python</code></a>
+        </button>
+        <br>
+        <br>
+        <a href="https://drive.google.com/file/d/1B8Z5B1FhcZmd97ttPqGK9u3p3cPCPYL9/view?usp=share_link" style="background-color: #F449A8; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Pizarra</a>
+        <br>
+        <br>
+        <br>
+        <hr>
+        <h4 id="Clase7"><strong>Clase 7: Introducción a las redes neuronales artificiales</strong></h4>
+        <p>  
+          Indagaremos rápidamente en la teoría detrás de las redes neuronales artificiales y ajustaremos
+          una red neuronal para realizar una tarea de clasificación. Veremos cómo definir una arquitectura de
+          un modelo MLP y su implementación en <code>Python</code> utilizando la librería Keras.
+        </p>
+        <br>
+        <br>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="https://drive.google.com/file/d/1buRFkAxXw0BDVBABpICmpK6Tsl4gFGOO/view?usp=sharing" style="color:rgb(255, 255, 255);">Video</a>
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="https://drive.google.com/file/d/1fSvC5SlWtblA7fHJvrqtYEnMDAU6UW99/view?usp=sharing" style="color:rgb(255, 255, 255);">Notas de clase</a>
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="https://colab.research.google.com/drive/1-y7pnvhzIULeHj-2jKE41BJL8Dia2_fW?usp=sharing" style="color:rgb(255, 255, 255);">Notas de clase en <code>Python</code></a>
+        </button>
+        <br>
+        <br>
+        <a href="https://colab.research.google.com/drive/1TvqT8jTf9nZQIOf-7NGvuitG3_3YAhXy?usp=sharing" style="background-color: #F449A8; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">EDA sobre dataset <i>Titanic</i></a> 
+        <br>
+        <br>
+        <br>
+      </div>
+      
+      <div id="Tab5" class="tabcontent">
+        <br>
+        <center>
+          <img src="assets/img/cerebro.png" width="20%">
+        </center>
+        <br>
+        <h5>Clase extra 1: Más sobre R</h5>
+        <p style="background:rgb(63, 1, 30); color:rgb(255, 255, 255); font-weight:bold; padding:15px; border:3px solid rgb(255, 255, 255);">
+          | <a href="" style="color:rgb(255, 255, 255);">Video de clase </a> | <a href="" style="color:rgb(255, 255, 255);">Apunte de clase</a> | <a href="" style="color:rgb(255, 255, 255)">Tarea</a> | 
+        </p>
+        <h5>Clase extra 2: Introducción a Power BI</h5>
+        <p style="background:rgb(63, 1, 30); color:rgb(255, 255, 255); font-weight:bold; padding:15px; border:3px solid rgb(255, 255, 255);">
+          | <a href="" style="color:rgb(255, 255, 255);">Video de clase </a> | <a href="" style="color:rgb(255, 255, 255);">Apunte de clase</a> | <a href="" style="color:rgb(255, 255, 255)">Tarea</a> | 
+        </p>
+        <h5>Clase extra 3: Introducción a la Programación orientada a objetos</h5>
+        <p style="background:rgb(63, 1, 30); color:rgb(255, 255, 255); font-weight:bold; padding:15px; border:3px solid rgb(255, 255, 255);">
+          | <a href="" style="color:rgb(255, 255, 255);">Video de clase </a> | <a href="" style="color:rgb(255, 255, 255);">Apunte de clase</a> | <a href="" style="color:rgb(255, 255, 255)">Tarea</a> | 
+        </p>
+        <h5>Clase extra 4: Introducción a SQL con Python</h5>
+        <p style="background:rgb(63, 1, 30); color:rgb(255, 255, 255); font-weight:bold; padding:15px; border:3px solid rgb(255, 255, 255);">
+          | <a href="" style="color:rgb(255, 255, 255);">Video de clase </a> | <a href="" style="color:rgb(255, 255, 255);">Apunte de clase</a> | <a href="" style="color:rgb(255, 255, 255)">Tarea</a> | 
+        </p>
+      </div>
+
+      <div id="Tab2" class="tabcontent">
+        <br>
+        <center>
+          <img src="assets/img/dino.ico" width="20%">
+        </center>
+        <h5>Proyecto 1: Prediciendo la especie <i>iris</i> con regresión logística y redes neuronales</h5>
+        <p style="background:rgb(110, 238, 255); color:rgb(0,0,0); font-weight:bold; padding:15px; border:3px solid rgb(0,0,0);">
+          <a href="https://colab.research.google.com/drive/1oQrrxxhcxPcQuc-gQ8niQGuocobHRVeg?usp=sharing" style="color:rgb(0,0,0);">Descripción</a> | <a href="https://cursopypagina.github.io/CursoPy/Clases/RedesN/C3_keras.html" style="color:rgb(0,0,0);">Apunte auxiliar</a> |
+        </p>
+        <h5>Proyecto 2 (Resuelto): Prediciendo el precio de una acción utilizando regresión lineal y redes neuronales</h5>
+        <p style="background:rgb(110, 238, 255); color:rgb(0,0,0); font-weight:bold; padding:15px; border:3px solid rgb(0,0,0);">
+          <a href="https://cursopypagina.github.io/CursoPy/Clases/RedesN/Proyecto0.html" style="color:rgb(0,0,0);">Descripción</a> | <a href="https://colab.research.google.com/drive/1oGh0hYsvV4q1Iwjh07EEyZwCeREQXOeP?usp=sharing" style="color:rgb(0,0,0);">Ejercicio</a> |
+        </p>
+        <h4>Podría interesarte</h4>
+        <p>Predicción del precio de apertura de las acciones de google utilizando
+          redes neuronales modelo estándar y LSTM (Long Short Term Memory), además de la implementación de una regresión lineal. 
+          En el proyecto se realiza un análisis estadístico y se implementa un modelo GARCH. Además,
+          se desarrolla un código para predecir los valores de : Open, High, Low y Close de las acciones de Google para el día 
+          siguiente y los siguientes <i>t</i> días.
+        <br>
+        <br>
+        <a href="https://github.com/LuisApaez/Proyectos_AnalisisDatos/tree/main/AccionesGoogle" style="background-color: rgb(110, 238, 255); color: rgb(0,0,0); border: none; padding: 10px 15px; border-radius: 5px;">Proyecto personal</a> 
+        <br>
+        </p>
+        <hr>
+        <h2>Proyectos extra (con prerequisitos)</h2>
+        <br>
+        <ol>
+          <li>Regresión lineal (Modelo teórico y predictivo):
+            <a href="https://colab.research.google.com/drive/1eML4ERJfqKIgWHzWVWjJgA-aSKXCu4F0?usp=sharing"><button style="background-color: #ffb6c1;">Notebook</button></a>
+          </li>
+          <br>
+          <li>Algoritmos de Machine Learning y clustering: 
+            <a href="https://colab.research.google.com/drive/1RzdCQVeEyPT4u4WlUKJMHvk-BXhQcp5e?usp=sharing"><button style="background-color: #ffb6c1;">Notebook</button></a>
+          </li>
+          <br>
+          <li>Random forest, regresión logística y redes neuronales; 
+            <a href="https://colab.research.google.com/drive/1PAJRtMaQuRTyZpUDftpzf3aym8c9_w44?usp=sharing"><button style="background-color: #ffb6c1;">Notebook</button></a>
+          </li>
+        </ol> 
+      </div>
+
+      <div id="Tab3" class="tabcontent">
+        <br>
+        <center>
+          <img src="assets/img/subpaginas/logopy.png" width="15%">
+          <img src="assets/img/subpaginas/postgres.png" width="15%">
+        </center>
+        <br>
+        <h5>Índice</h5>
+        <ol>
+          <a href="#c1"><li>Introducción a la programación con Python</li></a>
+          <a href="#c2"><li>Librería Pandas</li></a>
+          <a href="#c3"><li>Introducción a SQL con SQLite</li></a> 
+          <a href="#c4"><li>Introducción a SQL con PostgreSQL</li></a>  
+          <a href="#c5"><li>Consultas avanzadas</li></a> 
+          <a href="#c6"><li>Proyecto</li></a> 
+        </ol>
+        <hr>
+        <h5 id="c1"><strong>Introducción a la programación con Python</strong></h5>
+        <p style="background:rgb(2, 104, 172); color:rgb(231, 223, 223); font-weight:bold; padding:15px; border:3px solid rgb(231, 223, 223);">
+            Clase 1: | <a href="https://drive.google.com/file/d/1VuW9ZVrUwnb5V9oZtdUYx0HFdtl5jVR7/view?usp=share_link" style="color:rgb(231, 223, 223);">Video de Clase</a> |<a href="https://colab.research.google.com/drive/1TwYE68pMxCfGYhWKk1-miefXLrqmEzUS?usp=sharing" style="color:rgb(231, 223, 223);">Notas de Clase</a> | <a href="https://drive.google.com/file/d/1sGCCK7di3LM-K7Y2ZaPbb24C3HSiQyVY/view?usp=share_link" style="color:rgb(231, 223, 223)">Tarea 1</a> |
+        </p>
+        <h5 id="c2"><strong>Librería Pandas</strong></h5>
+        <p style="background:rgb(2, 104, 172); color:rgb(231, 223, 223); font-weight:bold; padding:15px; border:3px solid rgb(231, 223, 223);">
+            Clase 2: | <a href="https://drive.google.com/file/d/14YCBHJ_aR2zATqH54MNTCaOHpMqlz_vw/view?usp=share_link" style="color:rgb(231, 223, 223);">Video de Clase</a> |<a href="https://colab.research.google.com/drive/1xspX1aZ0GtacOY4O5oov-HDxynQbNllr?usp=sharing" style="color:rgb(231, 223, 223);">Notas de Clase</a> | <a href="https://drive.google.com/file/d/11ZpdKQ6JKE4v0H7q225U8W5Boauy2_Hr/view?usp=share_link" style="color:rgb(231, 223, 223)">Tarea 2</a> | <a href="https://drive.google.com/file/d/1XempoYhvOcQsEHOwJJd4q81Ea1QNeGcO/view?usp=share_link" style="color:rgb(231, 223, 223)">Video extra</a> |
+        </p>
+        <h5 id="c3"><strong>Introducción a SQL con SQLite y PostgreSQL</strong></h5>
+        <p style="background:rgb(2, 104, 172); color:rgb(231, 223, 223); font-weight:bold; padding:15px; border:3px solid rgb(231, 223, 223);">
+            Clase 3: | <a href="https://drive.google.com/file/d/1nsV7-VKzfrsvbEGw7XRbyJUMJmvGLEey/view?usp=share_link" style="color:rgb(231, 223, 223);">Video de Clase</a> |<a href="https://colab.research.google.com/drive/1DW4cECx6PvYJEUf9PyQxc75RVQvKB_li?usp=sharing" style="color:rgb(231, 223, 223);">Notas de Clase</a> | <a href="https://drive.google.com/file/d/18C5McnoxlCoLHDIMO2fAVYvIVNOzVTPa/view?usp=share_link" style="color:rgb(231, 223, 223)">Tarea 3</a> |
+        </p>
+        <h5 id="c4"><strong>Introducción a SQL con PostgreSQL</strong></h5>
+        <p style="background:rgb(2, 104, 172); color:rgb(231, 223, 223); font-weight:bold; padding:15px; border:3px solid rgb(231, 223, 223);">
+            Clase 4: | <a href="https://drive.google.com/file/d/1uLARGvl7Az7n8VA_dzKg3irzCkiVEohv/view?usp=share_link" style="color:rgb(231, 223, 223);">Video de Clase</a> |<a href="https://colab.research.google.com/drive/1fePK_x0fiaeGXDffkpW2CpuSZJgrJ-BX?usp=sharing" style="color:rgb(231, 223, 223);">Notas de Clase en <code>Python</code></a> | <a href="https://github.com/CursoPyPagina/CursoPy/blob/gh-pages/scripts/archivo1.sql" style="color:rgb(231, 223, 223)">Código <code>SQL</code> de la clase</a> | <a href="https://drive.google.com/file/d/1g6FeN53_R_fc9Gr86vnPrpYjp--OYQ4C/view?usp=share_link" style="color:rgb(231, 223, 223)">Tarea 4</a> |
+        </p>
+        <h5 id="c5"><strong>Consultas avanzadas y joins</strong></h5>
+        <p style="background:rgb(2, 104, 172); color:rgb(231, 223, 223); font-weight:bold; padding:15px; border:3px solid rgb(231, 223, 223);">
+          Clase 5.1: Creando datos falsos con Python | <a href="https://drive.google.com/file/d/1ipf1YskYdqZaEYbqdHqZzpgLT159ReKU/view?usp=share_link" style="color:rgb(231, 223, 223);">Video de Clase</a> |<a href="https://colab.research.google.com/drive/1NBUsIHroiCOqdXFWF2F6AnEjTpVKXNdy?usp=sharing" style="color:rgb(231, 223, 223);">Notas de Clase</a> | 
+        </p>
+        <p style="background:rgb(2, 104, 172); color:rgb(231, 223, 223); font-weight:bold; padding:15px; border:3px solid rgb(231, 223, 223);">
+          Clase 5.2: WHERE, HAVING, BETWEEN, LIKE, IN, JOINS | <a href="" style="color:rgb(231, 223, 223);">Video de Clase</a> | <a href="https://github.com/CursoPyPagina/CursoPy/tree/gh-pages/scripts/ClaseExtra1.sql" style="color:rgb(231, 223, 223)">Archivo SQL</a> |
+        </p>
+        <h5 id="c6"><strong>Proyecto</strong></h5>
+        <p style="background:rgb(2, 104, 172); color:rgb(231, 223, 223); font-weight:bold; padding:15px; border:3px solid rgb(231, 223, 223);">
+            Proyecto | <a href="Clases/SQL/Proyecto1SQL.html" style="color:rgb(231, 223, 223);">Descripción</a> |
+        </p>
+        <br>
+      </div>
+
+      <div id="Tab4" class="tabcontent">
+        <center>
+          <img src="assets/img/subpaginas/logoexcel.png" width="15%">
+          <img src="assets/img/subpaginas/powerbi.png" width="15%">
+        </center>
+		<h5>Índice:</h5>
+        <ol>
+          <h6>Excel</h6>
+          <a href="#c1"><li>Introducción a Excel, formateo de celdas, gráficos y condicionales</li></a>
+          <a href="#c2"><li>Fórmulas, BuscarV, validación de datos y seguridad</li></a>
+          <a href="#c3"><li>Consolidación de datos, filtros y tablas dinámicas</li></a>
+          <a href="#c4"><li>Bases de datos en Excel y sus funciones</li></a>
+          <a href="#c5"><li>Power Pivot y creación de dashboards en Excel</li></a> 
+          <a href="#c6"><li>Primer vistazo a macros y VBA</li></a>  
+          <h6>Power BI</h6>
+          <a href="#c7"><li>Introducción a Power BI: storytelling e interfaz</li></a> 
+          <a href="#c8"><li>Dashboard 1: Tienda de videojuegos</li></a> 
+          <a href="#c9"><li>Dashboard 2: Recursos humanos</li></a>
+          <a href="#c10"><li>Proyecto</li></a>    
+        </ol>
+      </div>
+
+      <div id="Tab6" class="tabcontent">
+        <center><img src="assets/img/subpaginas/libro.png" width="20%"></center>
+        <h5>PDF's</h5>
+        <ul>
+          <a href="https://drive.google.com/file/d/1T7pSonW3kN9qEqxYzl9yUP8K-FKJ0ZMF/view"><li>Introducción a la estadística y probabilidad para Machine Learning con Python</li></a>
+          <a href="https://drive.google.com/file/d/1a2wzUm1A6eYbVYWF1idI7al11ztOgXWs/view?usp=sharing"><li>A Beginners Guide to Python 3 Programming</li></a>
+          <a href="https://drive.google.com/file/d/1m_06pxsNGVgJF3h-kNQ1d2-uEeOptReu/view?usp=share_link"><li>Advanced Guide to Python 3 Programming</li></a>
+          <a href="https://drive.google.com/file/d/1CSEXIOFdr5-pjLJDUQiiY6ux-ScAtqU3/view?usp=share_link"><li>Introduction to Machine Learning With R</li></a>
+          <a href="https://drive.google.com/file/d/1CUjBWl9Sty5sfiyQlh1kNH84oULwUZvI/view?usp=share_link"><li>SQL for dummies</li></a>
+          <a href="https://drive.google.com/file/d/13qQaCd1JR-xAgFZGopL7-qKFBtKJXBkE/view?usp=share_link"><li>Essential Excel 2016 </li></a>
+          <a href="https://drive.google.com/file/d/1rC4qKFLTfKaDI9sRWVJPw3chQVSLQft8/view?usp=share_link"><li>Data Analysis with Microsoft Power Bi</li></a>
+        </ul>
+      </div>
+    <div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Mamba</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/mamba-one-page-bootstrap-template-free/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/purecounter/purecounter.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <!-- tabs -->
+  <script>
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+  </script>
+</body>
+
+</html>
