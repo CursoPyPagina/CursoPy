@@ -164,6 +164,7 @@
       <div class="tab">
         <button class="tablinks" onclick="openTab(event, 'Tab1')">Materiales</button>
         <button class="tablinks" onclick="openTab(event, 'Tab2')">Proyecto</button>
+        <button class="tablinks" onclick="openTab(event, 'Tab3')">Clases Sabatinas</button>
         <button class="tablinks" onclick="openTab(event, 'Tab4')">Libros</button>
       </div>
   
@@ -198,8 +199,10 @@
         <h5 id="Clase1"><strong>Clase 1: Introducción a la programación con <code>Python</code></strong></h5>
         <br>
         <p style="background:rgb(90, 255, 241); color:rgb(0,0,0); font-weight:bold; padding:15px; border:3px solid rgb(0,0,0);">        
-        <a href="https://drive.google.com/file/d/1rlf0-sfI8hYSjSHm5-lGw6_hNplF4X6C/view?usp=sharing" style="background-color: #1d0eee; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Grabación</a>
-        <a href="https://colab.research.google.com/drive/1tqqMCsHKMHPZINDCqjZVlmaHmB5XRCUW?usp=sharing" style="background-color: #1d0eee; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Notas de clase</a>
+        <a href="https://drive.google.com/file/d/1rlf0-sfI8hYSjSHm5-lGw6_hNplF4X6C/view?usp=sharing" style="background-color: #1d0eee; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Grabación I</a>
+        <a href="https://colab.research.google.com/drive/1tqqMCsHKMHPZINDCqjZVlmaHmB5XRCUW?usp=sharing" style="background-color: #1d0eee; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Notas de clase I</a>
+        <a href="" style="background-color: #1d0eee; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Grabación II</a>
+        <a href="" style="background-color: #1d0eee; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Notas de clase II</a>
         <a href="https://colab.research.google.com/drive/1CcbhOutVLWCGpO8eP0rrKXhoJYRhvPec?usp=sharing" style="background-color: #ee0ea3; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Acordeón</a>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSe1GzvnoW4FdxKL96Dcxj8DF-3IHpJ64WXql5YqIzTCMfJovg/viewform?usp=dialog" style="background-color: #ee0ea3; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Quiz</a>
         <img src="assets/img/dino.ico" width="10%" align="right">  
@@ -344,14 +347,28 @@
         <-->
         </div>
       <div id="Tab2" class="tabcontent">
-        <p align="right">Del 26 de Octubre al 7 de Diciembre</p>
         <center>
             <img src="assets/img/BBDD.gif" width="40%">
-          </center>
+        </center>
 
         <p><strong><a href="https://drive.google.com/file/d/1Mp8_ccB9r0MKjpr6G40itc6IkCXu5V4Q/view?usp=drive_link">Descripción:</a></strong> Utilizando <code>Python, SQL, Power BI</code> montaremos un flujo de datos 
           correspondientes a la simulación de ventas diarias de una papelería que cuenta con diez sucursales, y que además
-          oferta diferentes productos. La información que estaremos generando se visualizará como el siguiente ticket de venta:
+          oferta diferentes productos. A continuación, iremos trabajando el proyecto paso a paso, y cada para cada avance, se tendrá
+          asociado un <strong>entregable</strong> con ejercicios asociados que el estudiante deberá de resolver y enviar para ser calificado.
+        <br>
+        <br>
+        <br>
+        <h5><strong>Índice</strong></h5>
+        <ol>
+          <a style="color:#0456bb;" href="#P1"><li>Generar un ticket de venta (Parte I)</li></a>
+          <a style="color:#0456bb;" href="#P2"><li>Almacenar la información en un dataframe (Parte II)</li></a>
+        </ol>
+        <br>
+        <br>
+        <br>
+        <hr>
+
+        <h4 id="P1"><strong>Parte I</strong></h4>
         </p>
           <pre><code class="highlight">
             *****************************************************
@@ -359,8 +376,8 @@
             *****************************************************
             Te atendió Luis
             Fecha: 2025-01-04
-            Nombre del producto: $Papel
-            Precio: 1733.88
+            Nombre del producto: Papel
+            Precio: $1733.88
             Cantidad: 552
             Clave producto: PCD-896
             Sucursal: Centro
@@ -368,117 +385,34 @@
             *****************************************************
           </code></pre>
 
-      </div>
-      <div id="Tab5" class="tabcontent">
-        <center>
-            <img src="assets/img/BBDD.gif" width="40%">
-          </center>
-        <h5><strong>Índice</strong></h5>
-        <ol>
-          <a style="color:#0456bb;"><li>Introducción a la programación con Python</li></a>
-          <a style="color:#0456bb;"><li>Introducción a SQL</li></a>
-          <a style="color:#0456bb;"><li>Diseño de bases de datos</li></a> 
-          <a style="color:#0456bb;"><li>Proyecto de clase</li></a>  
-          <a style="color:#0456bb;"><li>Consultas avanzadas</li></a>
-          <a style="color:#0456bb;"><li>Pruebas técnicas</li></a> 
-          <a style="color:#0456bb;"><li>Procedimientos almacenados y funciones</li></a>    
-        </ol>
-        <hr>
-        <br>
-        <br>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLScgEzKaduGbzvOTqUrTraPc2eq3ucvS8A65GdJiHsWkRDJGog/viewform?usp=sf_link" style="color:rgb(255, 255, 255);">Formulario de entrega de tareas</a>
-        </button>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          <a href="https://drive.google.com/file/d/1_zq5FTVtT3eGotTRUdKl2W8ydztBan0E/view?usp=sharing" style="color:rgb(255, 255, 255);">¿Cómo hacer y entregar un tarea o práctica?</a>
-        </button> 
-        <br>
-        <br>
-        <br>
-        <hr>
-        <p>En este módulo aprenderemos a programar utilizando <code>Python</code> y <code>SQL</code>, después aprenderemos
-          a diseñar e implementar bases de datos, para lo cual pasaremos por los lenguajes DDL y DML. Luego, conjuntaremos
-          todo a la hora de implementar el proyecto del curso y además realizaremos pruebas técnicas que he hecho para algunas
-          instituciones bancarias y otras empresas. 
-          Finalmente, abordaremos el tema de procedimientos almacenados y funciones.
-        </p>
-        <h5 id="Clase1"><strong>Clase 1: Inicio del curso</strong></h5>
-        <br>
-        <p style="background:rgb(255, 255, 255); color:rgb(0,0,0); font-weight:bold; padding:15px; border:3px solid rgb(0,0,0);">        
-        <a href="https://drive.google.com/file/d/1LC7zCmZ0SRkP7DccJC1AYctbZrUiedyQ/view?usp=sharing" style="background-color: #1d0eee; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Grabación</a>
-        <a href="https://colab.research.google.com/drive/1lO5oXkpOAwQOhjQ1TQ2AV3NHIxXCnH58?usp=sharing" style="background-color: #1d0eee; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Notas</a>
-        <img src="assets/img/dino.ico" width="10%" align="right">  
-        <br>
-        <br>
-        <strong>Complementos:</strong> 
-        <br>
-        <a href="https://cursopypagina.github.io/CursoPy/Clases/Clase1_py.html" style="color: #1d0eee">✨ Conceptos básicos de Python ✨</a>
-        <br>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdlh9Z76gRDbvA-H7LLl0DNmHwnweaUc58s699fL3p00cStsA/viewform?usp=sf_link" style="color: #1d0eee">✨ Quiz ✨</a>
-        <br>
-        <a href="https://cursopypagina.github.io/CursoPy/Clases/Tarea_1.html" style="color: #1d0eee">✨ Para practicar (Ecuación de primer grado) ✨</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      </p>
-      <h5 id="Clase1"><strong>Clase 2: Introducción a Python</strong></h5>
-      <p style="background:rgb(255, 255, 255); color:rgb(0,0,0); font-weight:bold; padding:15px; border:3px solid rgb(0,0,0);">        
-      <a href="https://drive.google.com/file/d/1m1OQ7_4eq1gORiRDA5MIQ1bcLUDTKVrU/view?usp=sharing" style="background-color: #1d0eee; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Grabación</a>
-      <a href="https://colab.research.google.com/drive/1ITmt_NVkWvD5p8kudfIzEmVXYmWN8Ltc?usp=sharing" style="background-color: #1d0eee; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Notas</a>
-      <img src="assets/img/dino.ico" width="10%" align="right">  
-      <br>
-      <br>
-      <strong>Complementos:</strong> 
-      <br>
-      <a href="https://drive.google.com/file/d/1sGCCK7di3LM-K7Y2ZaPbb24C3HSiQyVY/view" style="color: #1d0eee">✨ Tarea 1 ✨</a>
-      <br>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdlh9Z76gRDbvA-H7LLl0DNmHwnweaUc58s699fL3p00cStsA/viewformk" style="color: #1d0eee">✨ Quiz ✨</a>
-      <br>
-      <br>
-      </p>
-      <h5 id="Clase1"><strong>Clase 3: Más de Python e introducción a SQL</strong></h5>
-      <p style="background:rgb(255, 255, 255); color:rgb(0,0,0); font-weight:bold; padding:15px; border:3px solid rgb(0,0,0);">        
-      <a href="https://drive.google.com/file/d/1cDsOTeCbQb_J0aROt1oAjmrhr5Et_PCy/view?usp=sharing" style="background-color: #1d0eee; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Grabación</a>
-      <a href="https://colab.research.google.com/drive/1fa1vLguP2Y0VpCd6ech0e4CKCSX248eG?usp=sharing" style="background-color: #1d0eee; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Notas</a>
-      <img src="assets/img/dino.ico" width="10%" align="right">  
-      <br>
-      <br>
-      <strong>Complementos:</strong> 
-      <br>
-      <a href="https://drive.google.com/file/d/18C5McnoxlCoLHDIMO2fAVYvIVNOzVTPa/view" style="color: #1d0eee">✨ Tarea 2 ✨</a>
-      <br>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLScO9iNF5prni7J9W9ID7kFX12zsCPSMB32Exc4xIULHsDEfWg/viewform" style="color: #1d0eee">✨ Quiz ✨</a>
-      <br>
-      <br>
-      </p>
-      <h5 id="Clase1"><strong>Clase 4: Más de Python e introducción a SQL</strong></h5>
-      <p style="background:rgb(255, 255, 255); color:rgb(0,0,0); font-weight:bold; padding:15px; border:3px solid rgb(0,0,0);">        
-      <a href="https://drive.google.com/file/d/147Kh3Tq0fFsNoXkTi85rZl7i38qdCcAV/view?usp=sharing" style="background-color: #1d0eee; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Grabación</a>
-      <a href="https://colab.research.google.com/drive/167swZP1sDXhi97EO4Tz3s1abmQJLRPia?usp=sharing" style="background-color: #1d0eee; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Notas</a>
-      <img src="assets/img/dino.ico" width="10%" align="right">  
-      <br>
-      <br>
-      <strong>Complementos:</strong> 
-      <br>
-      <a href="https://colab.research.google.com/drive/1NwxKvlTw4HEiSlz_-2IE6uedFtXDkuMp?usp=sharing" style="color: #1d0eee">✨ Tarea 3 ✨</a>
-      <br>
-      <br>
-      </p>
-      <h5 id="Clase1"><strong>Clase 5: Group By, Joins y automatizaciones</strong></h5>
-      <p style="background:rgb(255, 255, 255); color:rgb(0,0,0); font-weight:bold; padding:15px; border:3px solid rgb(0,0,0);">        
-      <a href="https://drive.google.com/file/d/13MKKlPdComwp701-kc_LgFU3D4a30alE/view?usp=sharing" style="background-color: #1d0eee; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Grabación</a>
-      <a href="https://colab.research.google.com/drive/183EEYA3GCvyc5U4sI2qSew3pUrONobJ0?usp=sharing" style="background-color: #1d0eee; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Notas</a>
-      <img src="assets/img/dino.ico" width="10%" align="right">  
-      <br>
-      <br>
-      </p>
-      </div>
+          <hr>
 
-      <div id="Tab2" class="tabcontent">
-        <h3>Módulo II</h3>
-        <p>Por definir</p>
+          <h4 id="P2"><strong>Parte II</strong></h4>
       </div>
 
       <div id="Tab3" class="tabcontent">
-        <h3>Módulo III</h3>
-        <p>Por definir</p>
+        <h2><strong>Clases extra y asesorías</strong></h2>
+        <center>
+          <img src="assets/img/Portada_202502.png" width="40%">
+        </center>
+        <hr>
+        <h5>En esta sección encontrarás los materiales referentes a las clases extra de <code>R</code> y de <code>Power BI</code>, así como
+        los materiales correspondientes a las asesorías.</h5>
+        <br>
+        <h5 id="Clase1"><strong>Clase 1: Introducción a R </strong></h5>
+        <br>
+        <p style="background:rgb(255, 255, 255); color:rgb(0,0,0); font-weight:bold; padding:15px; border:3px solid rgb(0,0,0);">        
+        <a href="" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Grabación</a>
+        <a href="" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Notas de clase</a>
+        <a href="https://cursopypagina.github.io/CursoPy/Clases/Stats_ml_r_py/C1_intro.html" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Acordeón</a>
+        <p align="right">Fecha de clase: 2025-01-18</p>
+        <br>
+        <h5 id="Clase1"><strong>Aseosoría 1: De la semana del 20-27 de enero</strong></h5>
+        <br>
+        <p style="background:rgb(255, 255, 255); color:rgb(0,0,0); font-weight:bold; padding:15px; border:3px solid rgb(0,0,0);">        
+        <a href="" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Grabación</a>
+        <a href="" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Notas de clase</a>
+        <p align="right">Fecha de clase: 2025-01-25</p>
       </div>
 
       <div id="Tab4" class="tabcontent">
