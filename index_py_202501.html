@@ -167,6 +167,7 @@
         <button class="tablinks" onclick="openTab(event, 'Tab2')">Proyecto</button>
         <button class="tablinks" onclick="openTab(event, 'Tab3')">Clases Sabatinas</button>
         <button class="tablinks" onclick="openTab(event, 'Tab4')">Libros</button>
+        <button class="tablinks" onclick="openTab(event, 'Tab5')">Certificados</button>
       </div>
       <div id="Tab0" class="tabcontent">
         <h3><strong>Pendientes entregables del curso</strong></h3>
@@ -379,7 +380,7 @@
         <h5><strong>Índice</strong></h5>
         <ol>
           <a style="color:#0456bb;" href="#P1"><li>Generar un ticket de venta (Parte I) <code>||Python||</code></li></a>
-          <a style="color:#0456bb;" href="#P2"><li>Almacenar la información en un dataframe (Parte II) <code>||Python||</code></li></a>
+          <li>Almacenar la información en un dataframe (Parte II) <code>||Python||</code></li>
           <li>Crear y alimentar la base de datos para las ventas (Parte III) <code>||Python</code><code>||SQL||</code></li>
           <li>Montar el flujo de datos (Parte IV) <code>||Python</code><code>||SQL||</code></li>
           <li>Montar el flujo de datos (Parte V) <code>||Python</code><code>||SQL||</code></li>
@@ -388,10 +389,13 @@
         <br>
         <br>
         <hr>
-
-        <h4 id="P1"><strong>Parte I</strong></h4>
         </p>
-          <pre><code class="highlight">
+        <h4 id="P1"><strong>Parte I</strong></h4>
+        <p>
+          Recordemos que el proyecto consiste en simular las ventas diarias de una papelería que cuenta con 10 sucursales diferentes 
+          y vende una variedad de productos. Así, lo primero que haremos será implementar el código para obtener en salida un ticket de venta de la forma:
+        </p>
+          <pre><code>
             *****************************************************
             Bienvenido a comercializara PyM.
             *****************************************************
@@ -405,10 +409,53 @@
             *****************************************************
             *****************************************************
           </code></pre>
+        <p>
+          Para lo cual:
+          <ul>
+            <li>Utiliza la librería <code>random</code> para seleccionar un producto aleatorio, asociarle una clave 
+            aleatoria, un precio, una sucursal y una cantidad vendida. Todo lo anterior guàrdalo en variables.</li>
+            <li>Define una variable que almacene la cadena de texto que simulará el ticket de venta, utiliza para ello
+              un <code>f-string</code> y una cadena de texto multilínea.
+            </li>
+          </ul>
+        </p>
+      <h5>💀 <strong>Esqueleto de la soluciòn </strong>💀</h5>
+      <pre>
+        <a style="color:#04bb0a;" ># Importamos la libreria que utilizaremos</a>
+        import random as r
 
-          <hr>
+        <a style="color:#04bb0a;" ># Definicion de las listas a utilizar</a>
+        abcdario = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
+                    'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
+                    'U', 'V', 'W', 'X', 'Y', 'Z']
 
-          <h4 id="P2"><strong>Parte II</strong></h4>
+        papelerias = ['Xochimilco', 'Cuemanco', 'Coapa', 'Milpa Alta', 'CU', 'Zócalo',
+                      'Narvarte', 'Santa Fé', 'Polanco', 'Centro']
+
+        lineas = ['Cuadernos', 'Libretas', 'Lápices', 'Plumones', 'Borradores', 'Sacapuntas',
+                  'Laptops', 'Tablets', 'Mochilas', 'Bolsas', 'Cajas', 'Pegamento', 'Tijeras',
+                  'Monitores', 'Teclados', 'Mouse', 'Audífonos', 'Cables', 'Cargadores', 'Baterías',
+                  'Pc', 'Uniformes', 'Pinturas', 'Pinceles', 'Papel', 'Cartulinas']
+                  
+        <a style="color:#04bb0a;" ># Uso de las funciones de la libreria random para hacer selecciones aleatorias</a>
+        <a style="color:#04bb0a;" >#</a>
+        <a style="color:#04bb0a;" >#</a>
+        <a style="color:#04bb0a;" >#</a>
+
+        <a style="color:#04bb0a;" ># Definicion de la variable que contenga el string multilinea</a>
+        <a style="color:#04bb0a;" >#</a>
+
+        <a style="color:#04bb0a;" ># Mandamos a imprimir el ticket</a>
+        <a style="color:#04bb0a;" >#</a>
+      </pre>
+
+      <center>
+        <a href="https://colab.research.google.com/drive/1qclDQnbqPKRRzI0oACBxnGOF8aHs-XAb?usp=sharing" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Abrir en Colab</a>
+
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdDfnvlldiuqlG_hfx4KCqgh2uS5b0xDAc9uI6fKq9wyHYcCg/viewform?usp=dialog" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Formulario de entrega</a>
+      </center>
+      <hr>
+      <h4 id="P2"><strong>Parte II</strong></h4>
       </div>
 
       <div id="Tab3" class="tabcontent">
@@ -449,6 +496,9 @@
           <a href="https://drive.google.com/file/d/13qQaCd1JR-xAgFZGopL7-qKFBtKJXBkE/view?usp=share_link"><li>Essential Excel 2016 </li></a>
           <a href="https://drive.google.com/file/d/1rC4qKFLTfKaDI9sRWVJPw3chQVSLQft8/view?usp=share_link"><li>Data Analysis with Microsoft Power Bi</li></a>
         </ul>
+      </div>
+      <div id="Tab5" class="tabcontent">
+        Disponible a partir del 27 de Enero
       </div>
 
     </div>
