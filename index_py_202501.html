@@ -569,7 +569,7 @@
           <br>
           ✨ <a href="https://docs.google.com/forms/d/e/1FAIpQLSfkCaFJaHZJNUIiUUSLzbEZJ3ynM6KyT2KQ615Uem-C-2M2Mg/viewform">Entrega</a>✨
           <br>
-          ✨ <a href="">Solución (Se sube el 22-mar)</a>✨
+          ✨ <a href="">Solución</a>✨
           <!--
           <br>
           <br>
@@ -585,6 +585,57 @@
           <a href="" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Link</a>
           <a href="" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Tablero</a>
         </p>
+        <button onclick="cargarMarkdown1()">Código Login</button>
+        <button onclick="cargarMarkdown2()">Código Menú</button>
+        <button onclick="cargarMarkdown3()">Código Funciones</button>
+        <button onclick="limpiarMarkdown()">Limpiar</button>
+      
+        <div id="markdown-content">
+          <!-- Aquí se mostrará el contenido del archivo .md -->
+        </div>
+      
+        <script>
+          function cargarMarkdown1() {
+            fetch("scripts/login.md")
+              .then(response => response.text())
+              .then(text => {
+                document.getElementById("markdown-content").innerHTML = marked.parse(text);
+              })
+              .catch(error => {
+                console.error("Error al cargar el archivo:", error);
+                document.getElementById("markdown-content").innerHTML = "<p>Error al cargar el archivo.</p>";
+              });
+          }
+
+          function cargarMarkdown2() {
+            fetch("scripts/menu.md")
+              .then(response => response.text())
+              .then(text => {
+                document.getElementById("markdown-content").innerHTML = marked.parse(text);
+              })
+              .catch(error => {
+                console.error("Error al cargar el archivo:", error);
+                document.getElementById("markdown-content").innerHTML = "<p>Error al cargar el archivo.</p>";
+              });
+          }
+
+          function cargarMarkdown3() {
+            fetch("scripts/funciones.md")
+              .then(response => response.text())
+              .then(text => {
+                document.getElementById("markdown-content").innerHTML = marked.parse(text);
+              })
+              .catch(error => {
+                console.error("Error al cargar el archivo:", error);
+                document.getElementById("markdown-content").innerHTML = "<p>Error al cargar el archivo.</p>";
+              });
+          }
+
+          function limpiarMarkdown() {
+            document.getElementById("markdown-content").innerHTML = "";
+          }
+        </script>
+
         <br>
         <br>
         <p style="background:rgb(255, 255, 255); color:rgb(0,0,0); font-weight:bold; padding:15px; border:3px solid rgb(0,0,0);">
@@ -713,6 +764,7 @@
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/purecounter/purecounter.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
