@@ -76,7 +76,6 @@
     }
   }
   </style>
-
   <style>
     /* Style the tab */
     .tab {
@@ -127,6 +126,40 @@
     }
   </style>
 
+  <style>
+    .carrusel-container {
+      width: 100%;
+      max-width: 600px;
+      margin: 50px auto;
+      overflow: hidden;
+      position: relative;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      background-color: white;
+    }
+
+    .carrusel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .tarjeta {
+      min-width: 100%;
+      box-sizing: border-box;
+      padding: 30px;
+    }
+
+    .tarjeta h4 {
+      margin: 0 0 10px;
+      color: #333;
+    }
+
+    .tarjeta p {
+      color: #555;
+      font-size: 16px;
+      line-height: 1.4;
+    }
+  </style>
 
 </head>
 
@@ -202,9 +235,9 @@
       </p>
       <br>
       <div class="tab">
-        <button class="tablinks" onclick="openTab(event, 'Tab11')">Clase 1</button>
-        <button class="tablinks" onclick="openTab(event, 'Tab12')">Clase 2</button>
-        <button class="tablinks" onclick="openTab(event, 'Tab13')">Clase 3</button>
+        <button class="tablinks" onclick="openTab(event, 'Tab11'); activarTab('Tab11')" >Clase 1</button>
+        <button class="tablinks" onclick="openTab(event, 'Tab12'); activarTab('Tab12')">Clase 2</button>
+        <button class="tablinks" onclick="openTab(event, 'Tab13'); activarTab('Tab13')">Clase 3</button>
         <button class="tablinks" onclick="openTab(event, 'Tab14')">Clase 4</button>
         <button class="tablinks" onclick="openTab(event, 'Tab15')">Clase 5</button>
         <button class="tablinks" onclick="openTab(event, 'Tab16')">Clase 6</button>
@@ -256,6 +289,9 @@
             <iframe src="https://drive.google.com/file/d/1UTu8Vc9aSD-1RU_U0tMf7fwyjSvvRgq0/preview" allow="autoplay" allowfullscreen title="Video de Google Drive"></iframe>
           </div>
           <br>
+          ⭐⭐⭐⭐⭐
+          <br>
+          <br>
           <p style="background:rgb(255, 255, 255); color:rgb(0,0,0); font-weight:bold; padding:15px; border:3px solid rgb(0,0,0);">
             Materiales: &nbsp;&nbsp;
           <a href="https://colab.research.google.com/drive/1xKlOkHCJLKvxhea1t3W-0oLifStOuPNx?usp=sharing" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Notas de la clase en vivo</a>
@@ -264,15 +300,60 @@
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJ98oa4idJducwtRBAZUM4h_AZKJKf37lnsv8QcB1a1bXIQw/viewform?usp=dialog" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Quiz de asistencia</a>
           <a href="https://drive.google.com/file/d/1tEDsRfs6GNyCmq3m1e5lngT_3Fdfz6lB/view?usp=sharing" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Tarea 1</a>
           </p>
-
+          <center>
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSevwAC3Ys7psGkKDdENAcL-XEJbC7A88U_MlKSTaKMkfP0oLg/viewform?usp=dialog" style="color:rgb(255, 255, 255);">Formulario de entrega de tareas</a>
           </button>
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
           <a href="https://drive.google.com/file/d/1_zq5FTVtT3eGotTRUdKl2W8ydztBan0E/view?usp=sharing" style="color:rgb(255, 255, 255);">¿Cómo hacer y entregar un tarea o práctica?</a>
-          </button> 
-
+          </button>
+          </center> 
         </div>
+
+      <div class="carrusel-container"> 
+        <p><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comentarios de la clase:</i></p>
+        <hr>
+        <div class="carrusel-track" id="carruselTrack">
+          <div class="tarjeta">
+            <p>Todo bien hasta el momento.</p>
+          </div>
+          <div class="tarjeta">
+            <p>La verdad es muy buen curso, tengo pensado tomar el Python intermedio </p>
+          </div>
+          <div class="tarjeta">
+            <p>Un poquito más de tiempo para hacer las actividades durante clase</p>
+          </div>
+          <div class="tarjeta">
+            <p>Nada, por el momento la clase esta muy bien</p>
+          </div>
+          <div class="tarjeta">
+            <p>Sentí que al final iba un poco rápido, tal vez ir más lento mejore. Pero en general, fue una clase muy amena, llamativa y con buen aprendizaje</p>
+          </div>
+          <div class="tarjeta">
+            <p>Hasta ahora todo muy bien</p>
+          </div>
+          <!-- Clon de tarjetas para efecto infinito -->
+                     <div class="tarjeta">
+          <p>Todo bien hasta el momento.</p>
+          </div>
+          <div class="tarjeta">
+            <p>La verdad es muy buen curso, tengo pensado tomar el Python intermedio </p>
+          </div>
+          <div class="tarjeta">
+            <p>Un poquito más de tiempo para hacer las actividades durante clase</p>
+          </div>
+          <div class="tarjeta">
+            <p>Nada, por el momento la clase esta muy bien</p>
+          </div>
+          <div class="tarjeta">
+            <p>Sentí que al final iba un poco rápido, tal vez ir más lento mejore. Pero en general, fue una clase muy amena, llamativa y con buen aprendizaje</p>
+          </div>
+          <div class="tarjeta">
+            <p>Hasta ahora todo muy bien</p>
+          </div>
+        </div>
+      </div>
+
       </div>
 
       <div id="Tab12" class="tabcontent">
@@ -291,7 +372,6 @@
               <li>Fechas en <code>Python</code>: librería <code>datetime</code></li>
               <li>Librería <code>Pandas</code></li>
               <li>Bucle <code>for</code></li>
-
             </ul>
           </p>
 
@@ -299,6 +379,9 @@
             <h2>Intro</h2>
             <iframe src="https://drive.google.com/file/d/1lFcN0Rk8e7OTfLwaiP9BXlhN9tT1MjA5/preview" allow="autoplay" allowfullscreen title="Video de Google Drive"></iframe>
           </div>
+          <br>
+          ⭐⭐⭐⭐⭐
+          <br>
           <br>
           <p style="background:rgb(255, 255, 255); color:rgb(0,0,0); font-weight:bold; padding:15px; border:3px solid rgb(0,0,0);">
             Materiales: &nbsp;&nbsp;
@@ -308,18 +391,92 @@
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSdPrBXsGdyva3-Jt0JsfFLnCzuAyYKfg7KdMjseWwVThxOZrg/viewform?usp=dialog" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Quiz de asistencia</a>
           </p>
 
+          <center>
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSevwAC3Ys7psGkKDdENAcL-XEJbC7A88U_MlKSTaKMkfP0oLg/viewform?usp=dialog" style="color:rgb(255, 255, 255);">Formulario de entrega de tareas</a>
           </button>
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
           <a href="https://drive.google.com/file/d/1_zq5FTVtT3eGotTRUdKl2W8ydztBan0E/view?usp=sharing" style="color:rgb(255, 255, 255);">¿Cómo hacer y entregar un tarea o práctica?</a>
-          </button> 
-
+          </button>
+          </center> 
         </div>
+
+        <div class="carrusel-container"> 
+        <p><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comentarios de la clase:</i></p>
+        <hr>
+        <div class="carrusel-track" id="carruselTrack">
+          <div class="tarjeta">
+            <p>Todo bien hasta el momento.</p>
+          </div>
+          <div class="tarjeta">
+            <p>La verdad es muy buen curso, tengo pensado tomar el Python intermedio </p>
+          </div>
+          <div class="tarjeta">
+            <p>Un poquito más de tiempo para hacer las actividades durante clase</p>
+          </div>
+          <div class="tarjeta">
+            <p>Nada, por el momento la clase esta muy bien</p>
+          </div>
+          <div class="tarjeta">
+            <p>Sentí que al final iba un poco rápido, tal vez ir más lento mejore. Pero en general, fue una clase muy amena, llamativa y con buen aprendizaje</p>
+          </div>
+          <div class="tarjeta">
+            <p>Hasta ahora todo muy bien</p>
+          </div>
+          <!-- Clon de tarjetas para efecto infinito -->
+                     <div class="tarjeta">
+          <p>Todo bien hasta el momento.</p>
+          </div>
+          <div class="tarjeta">
+            <p>La verdad es muy buen curso, tengo pensado tomar el Python intermedio </p>
+          </div>
+          <div class="tarjeta">
+            <p>Un poquito más de tiempo para hacer las actividades durante clase</p>
+          </div>
+          <div class="tarjeta">
+            <p>Nada, por el momento la clase esta muy bien</p>
+          </div>
+          <div class="tarjeta">
+            <p>Sentí que al final iba un poco rápido, tal vez ir más lento mejore. Pero en general, fue una clase muy amena, llamativa y con buen aprendizaje</p>
+          </div>
+          <div class="tarjeta">
+            <p>Hasta ahora todo muy bien</p>
+          </div>
+        </div>
+      </div>
+
       </div>
 
       <div id="Tab13" class="tabcontent">
         <h2>20-Mayo</h2>
+
+      <div class="carrusel-container"> 
+        <p><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comentarios de la clase:</i></p>
+        <hr>
+        <div class="carrusel-track" id="carruselTrack">
+          <div class="tarjeta">
+            <p>Ya me agrada mucho las clases la verdad</p>
+          </div>
+          <div class="tarjeta">
+            <p>Dar 2 minutos más para terminar las actividades de clase rápido</p>
+          </div>
+          <div class="tarjeta">
+            <p>Nada todo me gusto je</p>
+          </div>
+          <!-- Clon de tarjetas para efecto infinito -->
+          <div class="tarjeta">
+            <p>Ya me agrada mucho las clases la verdad</p>
+          </div>
+          <div class="tarjeta">
+            <p>Dar 2 minutos más para terminar las actividades de clase rápido</p>
+          </div>
+          <div class="tarjeta">
+            <p>Nada todo me gusto je</p>
+          </div>
+        </div>
+      </div>
+
+
       </div>
 
       <div id="Tab14" class="tabcontent">
@@ -541,6 +698,45 @@
       }
       document.getElementById(tabName).style.display = "block";
       evt.currentTarget.className += " active";
+    }
+  </script>
+
+  <script>
+    let carruselesIniciados = {};
+
+    function iniciarCarrusel(tabId) {
+      const tab = document.getElementById(tabId);
+      const track = tab.querySelector(".carrusel-track");
+      const cards = track.querySelectorAll(".tarjeta");
+      const total = cards.length / 2;
+      let index = 0;
+
+      function avanzarCarrusel() {
+        index++;
+        track.style.transform = `translateX(-${index * 100}%)`;
+
+        if (index === total) {
+          setTimeout(() => {
+            track.style.transition = "none";
+            index = 0;
+            track.style.transform = `translateX(0%)`;
+            void track.offsetWidth;
+            track.style.transition = "transform 0.5s ease-in-out";
+          }, 500);
+        }
+      }
+
+      setInterval(avanzarCarrusel, 4000);
+      carruselesIniciados[tabId] = true;
+    }
+
+    function activarTab(tabId) {
+      document.querySelectorAll(".tab-content").forEach(tab => tab.style.display = "none");
+      document.getElementById(tabId).style.display = "block";
+
+      if (!carruselesIniciados[tabId]) {
+        iniciarCarrusel(tabId);
+      }
     }
   </script>
 
