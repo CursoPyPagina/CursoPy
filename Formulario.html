@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    form {
+      background: white;
+      padding: 2em;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5em;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 0.7em;
+      margin-bottom: 1.5em;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      width: 100%;
+      padding: 0.8em;
+      border: none;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <form action="https://formspree.io/f/mvgaylgv" method="POST">
+    <label for="name">Nombre</label>
+    <input type="text" id="name" name="nombre" required>
+
+    <label for="email">Correo electrónico</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="age">Edad</label>
+    <input type="number" id="age" name="edad" min="1" required>
+
+    <button type="submit">Enviar</button>
+  </form>
+
+</body>
+</html>
