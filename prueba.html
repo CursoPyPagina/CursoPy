@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Videos en carrusel</title>
+  <style>
+    .video-container {
+      text-align: center;
+      max-width: 640px;
+      margin: auto;
+    }
+    iframe {
+      width: 100%;
+      height: 360px;
+      border: none;
+    }
+    .controls {
+      margin-top: 10px;
+    }
+    button {
+      padding: 8px 12px;
+      font-size: 16px;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="video-container">
+    <h2>Intro</h2>
+    <iframe id="videoFrame" src="https://drive.google.com/file/d/166G8iLSkZzaiNUeoIJQbHhzbIKpI5mLu/preview" allow="autoplay" allowfullscreen title="Video de Google Drive"></iframe>
+    <div class="controls">
+      <button onclick="changeVideo(-1)">⏮️ Anterior</button>
+      <button onclick="changeVideo(1)">Siguiente ⏭️</button>
+    </div>
+  </div>
+
+  <script>
+    const videos = [
+      "https://drive.google.com/file/d/166G8iLSkZzaiNUeoIJQbHhzbIKpI5mLu/preview",
+      "https://drive.google.com/file/d/1BfLCiNWHlmCh6W8DxjcJV8jt-WnUi0I1/preview"
+    ];
+
+    let currentVideo = 0;
+
+    function changeVideo(direction) {
+      currentVideo = (currentVideo + direction + videos.length) % videos.length;
+      document.getElementById("videoFrame").src = videos[currentVideo];
+    }
+  </script>
+</body>
+</html>
+
+
