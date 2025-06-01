@@ -54,6 +54,11 @@
       border: none;
       border-radius: 12px;
     }
+    .video-label {
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
   </style>
 
   <style>
@@ -76,6 +81,7 @@
     }
   }
   </style>
+
   <style>
     /* Style the tab */
     .tab {
@@ -531,14 +537,14 @@
           </p>
 
           <div class="video-container">
-            <h2>Intro</h2>
-            <iframe id="videoFrame" src="https://drive.google.com/file/d/166G8iLSkZzaiNUeoIJQbHhzbIKpI5mLu/preview" allow="autoplay" allowfullscreen title="Video de Google Drive"></iframe>
+<            <h2>Intro</h2>
+            <iframe id="player1" src="https://drive.google.com/file/d/166G8iLSkZzaiNUeoIJQbHhzbIKpI5mLu/preview" allow="autoplay" allowfullscreen title="Video de Google Drive"></iframe>
             <div class="controls">
             </div>
           </div>
           <br>
           <center>
-            <button onclick="changeVideo(1)">Siguiente ⏭️</button>
+            <button onclick="changeVideo('player1', 1)">Siguiente ⏭️</button>
           </center>
           <br>
           ⭐⭐⭐⭐⭐
@@ -565,7 +571,7 @@
 
       </div>
 
-<div id="Tab15" class="tabcontent">
+      <div id="Tab15" class="tabcontent">
         <center>
           <img src="assets/img/camara_py.png" class="imagen-responsiva2">
         </center>
@@ -589,10 +595,17 @@
           </p>
 
           <div class="video-container">
-            <h2>Intro</h2>
-            <iframe src="https://drive.google.com/file/d/1wOgSe2Y11liKVeH8XjiZYd3cTCnRH_vv/preview" allow="autoplay" allowfullscreen title="Video de Google Drive"></iframe>
+          <div class="video-label" id="label-player2">Clase 1</div>
+            <iframe id="player2" src="https://drive.google.com/file/d/1wOgSe2Y11liKVeH8XjiZYd3cTCnRH_vv/preview" allow="autoplay" allowfullscreen title="Video de Google Drive"></iframe>
+            <div class="controls">
+            </div>
           </div>
           <br>
+          <center>
+            <button onclick="changeVideo('player2', 1)">Siguiente ⏭️</button>
+          </center>
+          <br>
+
           ⭐⭐⭐⭐⭐
           <br>
           <br>
@@ -885,19 +898,39 @@
     }
   </script>
 
-  <script>
-    const videos = [
-      "https://drive.google.com/file/d/166G8iLSkZzaiNUeoIJQbHhzbIKpI5mLu/preview",
+<script>
+  // Objeto para almacenar listas de videos por iframe
+  const videoPlayers = {
+    player1: {
+      videos: [
+        "https://drive.google.com/file/d/166G8iLSkZzaiNUeoIJQbHhzbIKpI5mLu/preview",
       "https://drive.google.com/file/d/1BfLCiNWHlmCh6W8DxjcJV8jt-WnUi0I1/preview"
-    ];
+      ],
+      current: 0
+    },
+    player2: {
+      videos: [
+        "https://drive.google.com/file/d/1wOgSe2Y11liKVeH8XjiZYd3cTCnRH_vv/preview",
+      "https://drive.google.com/file/d/1sPscwR7Oz-Xpd_WaQxllMUT13293cT-U/preview",
+      "https://drive.google.com/file/d/1ul9Z33H78cpx0RxV1rNI5pxELYIowRcp/preview"
+      ],
+      labels: ["Clase 1", "Clase 2", "Clase 3"],
 
-    let currentVideo = 0;
-
-    function changeVideo(direction) {
-      currentVideo = (currentVideo + direction + videos.length) % videos.length;
-      document.getElementById("videoFrame").src = videos[currentVideo];
+      current: 0
     }
-  </script>
+  };
+
+  function changeVideo(playerId, direction) {
+    const player = videoPlayers[playerId];
+    if (!player) return;
+
+    player.current = (player.current + direction + player.videos.length) % player.videos.length;
+
+    document.getElementById(playerId).src = player.videos[player.current];
+    document.getElementById(`label-${playerId}`).textContent = player.labels[player.current];
+  }
+</script>
+
 </body>
 
 </html>
