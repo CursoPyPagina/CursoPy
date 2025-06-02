@@ -45,6 +45,7 @@
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
+
     .video-container iframe {
       position: absolute;
       top: 0;
@@ -53,11 +54,6 @@
       height: 100%;
       border: none;
       border-radius: 12px;
-    }
-    .video-label {
-      font-weight: bold;
-      font-size: 18px;
-      margin-bottom: 8px;
     }
   </style>
 
@@ -581,33 +577,33 @@
           <h2>📖 Clase 5 📖</h2>
           <p>
             A este punto ya tenemos el código del proyecto automatizado mediante una librería de <code>Python</code>, y nuestro 
-            proyecto se encuentra en Github. Una vez que la información ya están generada y el proceso automatizado, nos 
-            podemos concentrar en realizar análisis de datos, tanto con <code>Python</code> como con <code>SQL</code>. Así, lo que 
-            abordaremos en esta clase es:
+            proyecto se encuentra en Github (https://github.com/LuisApaez/ProgramacionNube/tree/main/PyBiS_Basico_Notebooks). Una vez que la información ya está generada y el proceso automatizado, nos 
+            podemos concentrar en realizar análisis de datos, tanto con <code>Python</code> como con <code>SQL</code>. En este caso la 
+            clase está dividida en tres partes, de donde:
+
+            <h4><strong>Parte I</strong></h4>
             <ul>
-              <li>Más de consultas en <code>SQL</code></li>
-              <li>Crear funciones de <code>Python</code> y subirlas a <code>SQLITE3</code></li>
-              <li>Exploración de datos con Pandas</li>
+              <li>Programar en <code>Github</code></li>
+              <li>Estructura del proyecto</li>
             </ul>
+
+            <h4><strong>Parte II</strong></h4>
+              <ul>
+                <li>Más de consultas en <code>SQL</code></li>
+                <li>Crear funciones de <code>Python</code> y subirlas a <code>SQLITE3</code></li>
+                <li>Exploración de datos con Pandas</li>
+              </ul>
+
+            <h4><strong>Parte III</strong></h4>
+              <ul>
+                <li><code>Group By</code></li>
+                <li>Problemas aplicados en <code>SQL</code></li>
+                <li>Análisis de datos con <code>Pandas</code></li>
+              </ul>
 
           Respecto a la clase de <code>R</code>, aprenderemos a manejar vectores y matrices, luego, veremos también como 
           trabajar con dataframes.
           </p>
-
-          <div class="video-container">
-          <div class="video-label" id="label-player2">Clase 1</div>
-            <iframe id="player2" src="https://drive.google.com/file/d/1wOgSe2Y11liKVeH8XjiZYd3cTCnRH_vv/preview" allow="autoplay" allowfullscreen title="Video de Google Drive"></iframe>
-            <div class="controls">
-            </div>
-          </div>
-          <br>
-          <center>
-            <button onclick="changeVideo('player2', 1)">Siguiente ⏭️</button>
-          </center>
-          <br>
-
-          ⭐⭐⭐⭐⭐
-          <br>
           <br>
           <p style="background:rgb(255, 255, 255); color:rgb(0,0,0); font-weight:bold; padding:15px; border:3px solid rgb(0,0,0);">
             Materiales: &nbsp;&nbsp;
@@ -625,22 +621,25 @@
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
           <a href="https://drive.google.com/file/d/1_zq5FTVtT3eGotTRUdKl2W8ydztBan0E/view?usp=sharing" style="color:rgb(255, 255, 255);">¿Cómo hacer y entregar un tarea o práctica?</a>
           </button>
+          <br>
+          <br>
+          <a href="Grabaciones_clase_5.html" style="background-color: #ff0404; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Grabaciones de clase</a>
+          <br>
+          <br>
+          &nbsp;
           </center> 
         </div>
         
       </div>
 
       <div id="Tab16" class="tabcontent">
-        <h2>27-Mayo</h2>
+        <h2>03-Junio</h2>
       </div>
 
       <div id="Tab17" class="tabcontent">
-        <h2>29-Mayo</h2>
+        <h2>05-Junio (Fin del curso)</h2>
       </div>
 
-      <div id="Tab18" class="tabcontent">
-        <h2>31-Mayo</h2>
-      </div>
     
 
 
@@ -930,6 +929,7 @@
     document.getElementById(`label-${playerId}`).textContent = player.labels[player.current];
   }
 </script>
+
 
 </body>
 

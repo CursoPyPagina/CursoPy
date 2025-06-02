@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Transición entre Videos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
+    }
+
+    .video-container {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      margin: 20px auto;
+    }
+
+    .video-embed,
+    .cover-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1920px;
+      height: 1080px;
+      border: none;
+    }
+
+    .cover-image {
+      cursor: pointer;
+      object-fit: cover;
+    }
+
+    #nextButton {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+
+    .fade {
+      transition: opacity 1s;
+      opacity: 0;
+    }
+
+    .visible {
+      opacity: 1;
+    }
+  </style>
+  </head>
+  <body>
+
+    <h1>Clase 5</h1>
+
+    <div class="video-container" id="videoContainer">
+      <!-- Se cargará dinámicamente el contenido -->
+    </div>
+
+  <div>
+    <button id="prevButton">Anterior Video</button>
+    <button id="nextButton">Siguiente Video</button>
+  </div>
+
+  <div>
+    <button id="nextButton"><a href="index_py_202505.html">Página Principal</a></button>
+  </div>
+
+  <script>
+    const videoData = [
+      {
+        id: "1wOgSe2Y11liKVeH8XjiZYd3cTCnRH_vv",
+        cover: "assets/img/1.png"
+      },
+      {
+        id: "1sPscwR7Oz-Xpd_WaQxllMUT13293cT-U",
+        cover: "assets/img/2.png"
+      },
+      {
+        id: "1ul9Z33H78cpx0RxV1rNI5pxELYIowRcp",
+        cover: "assets/img/3.png"
+      }
+    ];
+
+    let currentIndex = 0;
+    const container = document.getElementById('videoContainer');
+    const nextButton = document.getElementById('nextButton');
+    const prevButton = document.getElementById('prevButton');
+
+    function showCover(index) {
+      container.innerHTML = '';
+      const img = document.createElement('img');
+      img.src = videoData[index].cover;
+      img.className = 'cover-image visible';
+      img.onclick = () => showVideo(index);
+      container.appendChild(img);
+    }
+
+    function showVideo(index) {
+      container.innerHTML = '';
+      const iframe = document.createElement('iframe');
+      iframe.className = 'video-embed fade';
+      iframe.src = `https://drive.google.com/file/d/${videoData[index].id}/preview`;
+      container.appendChild(iframe);
+      requestAnimationFrame(() => iframe.classList.add('visible'));
+    }
+
+    nextButton.onclick = () => {
+      if (currentIndex < videoData.length - 1) {
+        currentIndex++;
+        showCover(currentIndex);
+      } else {
+        alert("Has visto todos los videos.");
+      }
+    };
+
+    prevButton.onclick = () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        showCover(currentIndex);
+      } else {
+        alert("Ya estás en el primer video.");
+      }
+    };
+
+    // Mostrar la portada del primer video al cargar
+    showCover(currentIndex);
+  </script>
+
+
+
+  </body>
+</html>
+
+
