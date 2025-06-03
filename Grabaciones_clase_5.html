@@ -14,13 +14,24 @@
 
     .video-container {
       position: relative;
-      padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+      padding-bottom: 40%; /* Relación de aspecto 16:9 */
       height: 0;
       overflow: hidden;
-      max-width: 100%;
+      max-width: 1080px; /* o el ancho máximo deseado */
+      max-height: 200px; /* Límite de altura en pantallas grandes */
+      margin: 0 auto; /* Centrado horizontal */
       background-color: #000;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .video-container iframe,
+    .video-container video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
 
     .video-embed,
@@ -28,9 +39,10 @@
       position: absolute;
       top: 0;
       left: 0;
-      width: 1920px;
-      height: 1080px;
+      width: 100%;
+      height: 100%;
       border: none;
+      object-fit: cover; /* mantiene proporciones sin deformar */
     }
 
     .cover-image {
