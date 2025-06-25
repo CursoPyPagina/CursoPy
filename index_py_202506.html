@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Curso PyM</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/dino.ico" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i,900" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Mamba - v4.6.0
+  * Template URL: https://bootstrapmade.com/mamba-one-page-bootstrap-template-free/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  <style>
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+      height: 0;
+      overflow: hidden;
+      max-width: 100%;
+      background-color: #000;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 12px;
+    }
+  </style>
+
+  <style>
+  .imagen-responsiva {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .imagen-responsiva2 {
+    max-width: 35%;
+    height: auto;
+  }
+
+  @media (max-width: 768px) {
+    .imagen-responsiva {
+      max-width: 100%;
+      float: none;
+      display: block;
+      margin: 0 auto 20px auto;
+    }
+  }
+  </style>
+
+  <style>
+    /* Style the tab */
+    .tab {
+      overflow: hidden;
+      border: 1px solid #ccc;
+      background-color: #f1f1f1;
+    }
+
+    /* Style the buttons inside the tab */
+    .tab button {
+      background-color: inherit;
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      transition: 0.3s;
+      font-size: 17px;
+    }
+
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+      background-color: #ddd;
+    }
+
+    /* Create an active/current tablink class */
+    .tab button.active {
+      background-color: #ccc;
+    }
+
+    /* Style the tab content */
+    .tabcontent {
+      display: none;
+      padding: 6px 12px;
+      border: 1px solid #ccc;
+      border-top: none;
+    }
+  </style>
+
+  <style>
+    .linea-iconos {
+      width: 100%;
+      height: 30px; /* Ajusta la altura según el tamaño de los íconos */
+      background-image: url('assets/img/panda.png'); /* Cambia la ruta de la imagen */
+      background-repeat: repeat-x;
+      background-size: auto 30px; /* Ajusta el tamaño de los íconos */
+      background-position: center;
+    }
+  </style>
+
+  <style>
+    .carrusel-container {
+      width: 100%;
+      max-width: 600px;
+      margin: 50px auto;
+      overflow: hidden;
+      position: relative;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      background-color: white;
+    }
+
+    .carrusel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .tarjeta {
+      min-width: 100%;
+      box-sizing: border-box;
+      padding: 30px;
+    }
+
+    .tarjeta h4 {
+      margin: 0 0 10px;
+      color: #333;
+    }
+
+    .tarjeta p {
+      color: #555;
+      font-size: 16px;
+      line-height: 1.4;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- ======= Top Bar ======= -->
+  <section id="topbar" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-center justify-content-md-between">
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-envelope-fill"></i><a href="mailto:cursopythonfc@gmail.com">cursopythonfc@gmail.com</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+
+      <div class="logo me-auto">
+        <a href="index.html"><img src="assets/img/subpaginas/python.ico"></a> Curso PyM
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="index.html">Inicio</a></li>
+          <li><a class="nav-link scrollto active" href="index_cv.html">CV Profesor</a></li>
+          <li><a class="nav-link scrollto active" href="index_py_242_ejercicios.html">Ejercicios</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section>
+    <div class="container" data-aos="fade-up">
+      <p style="text-align: justify">
+        <img src="assets/img/Portada_pibis.png" alt="Portada PIBIS" class="imagen-responsiva">
+        <br>
+        <br>
+        <hr>
+        <h1 align="center"><strong>Curso Python, power Bi y SQL</strong></h1>
+        <br>
+
+        <FONT SIZE=5>
+          <strong>Descripción: </strong>Este curso está enfocado en aprender cuatro de las herramientas más utilizadas en el análisis de datos
+          y ciencia de datos, partiendo de cero. El curso busca dotar de habilidades a los estudiantes en un contraste totalmente
+          enfocado en el mundo laboral, preparándolos con herramientas demandadas en el mercado actual. Aprenderemos también sobre
+          cómo buscar trabajo en las principales plataformas de empleo como OCC y tendremos clases especiales sobre inversiones, 
+          tips para entrevistas de trabajo y la elaboración de un primer CV. 
+          <br>
+          Para ello dividimos el curso en tres vertientes:
+          <br>
+          <ol>
+            <li><strong>Python + SQL: </strong>Aprenderemos estos dos lenguajes de programacación para montar y automatizar un flujo de datos.</li>
+            <li><strong>Power BI: </strong> Con el flujo de datos previamente implementado, lo que haremos será aprender a elaborar y diseñar tableros interactivos.</li>
+            <li><strong>R: </strong> Veremos un código alternativo del proyecto que hicimos en Python, pero ahora lo trasladaremos al lenguaje R.</li>
+          </ol>
+        </FONT>
+      </p>
+    </div>
+  </section>
+
+  <main>
+    <div class="container" data-aos="fade-up" id="notas">
+      <hr>
+      <h1>Contenido</h1>
+      <p>
+        Checa cuántos puntos te da cada entregable que realizas 👉 <a href="https://cursospym-pybisbasico.my.canva.site/">Link</a>
+      </p>
+      <br>
+      <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'Tab11'); activarTab('Tab11')" >Clase 1</button>
+        <button class="tablinks" onclick="openTab(event, 'Tab12'); activarTab('Tab12')">Clase 2</button>
+        <button class="tablinks" onclick="openTab(event, 'Tab13'); activarTab('Tab13')">Clase 3</button>
+        <button class="tablinks" onclick="openTab(event, 'Tab14')">Clase 4</button>
+        <button class="tablinks" onclick="openTab(event, 'Tab15')">Clase 5</button>
+        <button class="tablinks" onclick="openTab(event, 'Tab16')">Clase 6</button>
+        <button class="tablinks" onclick="openTab(event, 'Tab17')">Clase 7</button>
+        <button class="tablinks" onclick="openTab(event, 'Tab2')">Proyecto</button>
+        <button class="tablinks" onclick="openTab(event, 'Tab4')">Libros</button>
+        <button class="tablinks" onclick="openTab(event, 'Tab5')">Certificados</button>
+        <button class="tablinks" onclick="openTab(event, 'Tab6')">Seguimiento</button>
+      </div>
+
+      <div id="Tab11" class="tabcontent">
+        <br>
+        <h1><strong>Módulo I</strong></h1>
+        <p>
+          <FONT SIZE=5>
+            En este módulo aprenderemos a programar en <code>Python</code>, <code>SQL</code> y <code>R</code>,
+            con lo cual montaremos un flujo de datos correspondiente a las ventas de la papelería. Aprenderemos 
+            a manipular datos, crear información y subirla a una base de datos; así, diseñaremos una 
+            estructura <code>SQL</code> que nos permitirá, posteriormente, analizar información.
+          </FONT>
+        </p>
+        <br>
+        <center>
+          <img src="assets/img/camara_py.png" class="imagen-responsiva2">
+        </center>
+        <hr>
+
+        <div class="content">
+          <h2>📖 Clase 1 📖</h2>
+          <p>
+            En esta clase aprenderemos a programar desde cero y nos enfocaremos en aplicar directamente lo aprendido 
+            en el proyecto de ventas, para lo cual el objetivo de la clase será imprimir un ticket de venta.
+            De tal suerte, los temas clave que veremos en esta clase son:
+
+            <ul>
+              <li>Introducción a la programación</li>
+              <li>Tipos de datos</li>
+              <li>Strings</li>
+              <li>Variables</li>
+              <li>Estructuras de datos: Listas</li>
+              <li>Librería Random</li>
+              <li>Todo lo anterior pero en equivalente en <code>R</code></li>
+            </ul>
+          </p>
+
+          <p style="background:rgb(255, 255, 255); color:rgb(0,0,0); font-weight:bold; padding:15px; border:3px solid rgb(0,0,0);">
+            Materiales: &nbsp;&nbsp;
+          <a href="https://drive.google.com/file/d/1KnHPCNYeAimXpah42_9JT5Kpia02TfhX/view?usp=sharing" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Grabación 1</a>
+          <a href="https://drive.google.com/file/d/1w6oqhFcTUuUG31rXHW2t7Qp5Ccy9wcYf/view?usp=sharing" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Grabación 2</a>
+          <a href="https://colab.research.google.com/drive/1xKlOkHCJLKvxhea1t3W-0oLifStOuPNx?usp=sharing" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Notas de la clase en vivo</a>
+          <a href="https://github.com/LuisApaez/ProgramacionNube/blob/main/PyBiS_Basico_Notebooks/Clase_01.ipynb" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Notas de clase en Python</a>
+          <a href="https://www.kaggle.com/code/cursopy/pybis-r-c1" style="background-color: #0c00f1;color: #ffffff; border: none; padding: 10px 15px; border-radius: 5px;">Notas de clase en R</a>
+          </p>
+          </div>
+
+
+      </div>
+
+      <div id="Tab12" class="tabcontent">
+        <center>
+          <img src="assets/img/camara_py.png" class="imagen-responsiva2">
+        </center>
+        <hr>
+
+        <div class="content">
+          <h2>📖 Clase 2 📖</h2>
+          <p>
+            Una vez que ya imprimimos el ticket de venta, lo que haremos será mejorar el código automatizando la fecha y 
+            generando 1000 ventas en un solo código, donde la información generada la almacenaremos en una tabla de 
+            pandas. Es así que veremos los siguientes temas:
+            <ul>
+              <li>Fechas en <code>Python</code>: librería <code>datetime</code></li>
+              <li>Librería <code>Pandas</code></li>
+              <li>Bucle <code>for</code></li>
+            </ul>
+          </p>
+          <p style="background:rgb(255, 255, 255); color:rgb(0,0,0); font-weight:bold; padding:15px; border:3px solid rgb(0,0,0);">
+            Materiales: &nbsp;&nbsp;
+          <a href="https://drive.google.com/file/d/1MfeAUPogNjEVcpCgusYco1Aia1O9_jk9/view?usp=sharing" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Grabación </a> &nbsp;&nbsp;
+          <a href="https://colab.research.google.com/drive/1f1l9sMWlHJ7c1FDrAFGF_WMn9rf2VpVy?usp=sharing" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Notas de la clase en vivo</a>
+          <a href="https://github.com/LuisApaez/ProgramacionNube/blob/main/PyBiS_Basico_Notebooks/Clase_02.ipynb" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Notas de clase en Python</a>
+          <a href="https://www.kaggle.com/code/cursopy/pybis-r-c2" style="background-color: #0c00f1;color: #ffffff; border: none; padding: 10px 15px; border-radius: 5px;">Notas de clase en R</a>
+          </p>
+        </div>
+      </div>
+
+
+      <div id="Tab13" class="tabcontent">
+        <center>
+          <img src="assets/img/camara_py.png" class="imagen-responsiva2">
+        </center>
+        <hr>
+
+        <div class="content">
+          <h2>📖 Clase 3 📖</h2>
+          <p>
+            Al haber generado el dataframe con las ventas simuladas solo nos resta almacenarlo en algùn lado, para ello
+            aprenderemos a crear una base de datos en <code>SQLite</code> y veremos lo poderosa que es la mancuerna 
+            entre <code>Python</code> y <code>SQL</code>. De tal suerte, los temas clave que veremos en esta clase son:
+            <ul>
+              <li>Funciones definidas por el usuario</li>
+              <li>Automatización de proyectos y f-strings</li>
+              <li>Librería SQLITE para usar <code>SQL</code> dentro de <code>Python</code></li>
+            </ul>
+          </p>
+
+          <p style="background:rgb(255, 255, 255); color:rgb(0,0,0); font-weight:bold; padding:15px; border:3px solid rgb(0,0,0);">
+            Materiales: &nbsp;&nbsp;
+          <a href="https://drive.google.com/file/d/1PNwoSYidsKj4C3K13kPtnLy8faWuAcVE/view?usp=sharing" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Grabación</a>
+          <a href="https://colab.research.google.com/drive/1t4IdAYbAIQ_Qbjl1SsO195-lkmnwxSa-?usp=sharing" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Notas de la clase en vivo</a>
+          <a href="https://github.com/LuisApaez/ProgramacionNube/blob/main/PyBiS_Basico_Notebooks/Clase_03.ipynb" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Notas de clase en Python</a>
+          <a href="https://www.kaggle.com/code/cursopy/pybis-r-c3" style="background-color: #0c00f1;color: #ffffff; border: none; padding: 10px 15px; border-radius: 5px;">Notas de clase en R</a>
+          <a href="https://drive.google.com/file/d/1rj8HoRaPlKwgZRJZOq-UPJsc_pTGARj3/view?usp=sharing" style="background-color: #0c00f1;color: #ffffff; border: none; padding: 10px 15px; border-radius: 5px;">Tarea R</a>
+          </p>
+        </div>
+      </div>
+
+      <div id="Tab14" class="tabcontent">
+        <center>
+          <img src="assets/img/camara_py.png" class="imagen-responsiva2">
+        </center>
+        <hr>
+
+        <div class="content">
+          <h2>📖 Clase 4 📖</h2>
+          <p>
+            Llegando a la parte final de la automatización del proyecto, aprenderemos a crear una librería donde conjuntaremos
+            todas las funcionalidades que hemos desarrollado para la generación de la información y la labor de montar 
+            un flujo de datos, para lo cual abordaremos los temas:
+            <ul>
+              <li>Automatizar tareas con funciones</li>
+              <li>Repaso de SQL</li>
+              <li>Creación de una librería con POO</li>
+            </ul>
+          Sobre la clase de <code>R</code> cambiaremos de enfoque, recordemos que en las clases pasadas veíamos código alternativo de lo 
+          realizado en <code>Python</code>, con lo cual buscamos brindar una manera de aprender <code>R</code> más intuitiva. Ahora,
+          el camino a seguir es indagar en temas propios de <code>R</code> sin estar hilados a lo que ya vimos en la clase de 
+          <code>Python</code>. Así, en la clase de <code>R</code> veremos:
+            <ul>
+              <li>Condicionales</li>
+              <li>Bucles: For y While</li>
+              <li>Funciones</li>
+            </ul>
+          </p>
+
+          <p style="background:rgb(255, 255, 255); color:rgb(0,0,0); font-weight:bold; padding:15px; border:3px solid rgb(0,0,0);">
+            Materiales: &nbsp;&nbsp;
+          <a href="https://drive.google.com/file/d/1hNt-wegh9C_jBGfbQbE1iO-mdMTzRBPz/view" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Grabación</a>
+          <a href="https://colab.research.google.com/drive/1MXT-7xkxMz1DqE2fhN2M3gyTvcdih8AA?usp=sharing" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Notas de la clase en vivo</a>
+          <a href="https://github.com/LuisApaez/ProgramacionNube/blob/main/PyBiS_Basico_Notebooks/Clase_04.ipynb" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Notas de clase en Python</a>
+          <a href="https://cursopypagina.github.io/CursoPy/Clases/Stats_ml_r_py/C2_intro.html" style="background-color: #0c00f1;color: #ffffff; border: none; padding: 10px 15px; border-radius: 5px;">Notas de clase en R</a>
+          <a href="https://drive.google.com/file/d/1SOqGIRE-dfqbG_kk0TV9BVJjzjwvBxwN/view?usp=sharing" style="background-color: #0c00f1;color: #ffffff; border: none; padding: 10px 15px; border-radius: 5px;">Tarea R</a>
+          </p>
+
+      </div>
+
+      <div id="Tab15" class="tabcontent">
+        <center>
+          <img src="assets/img/camara_py.png" class="imagen-responsiva2">
+        </center>
+        <hr>
+
+        <div class="content">
+          <h2>📖 Clase 5 📖</h2>
+          <p>
+            A este punto ya tenemos el código del proyecto automatizado mediante una librería de <code>Python</code>, y nuestro 
+            proyecto se encuentra en Github (https://github.com/LuisApaez/ProgramacionNube/tree/main/PyBiS_Basico_Notebooks). Una vez que la información ya está generada y el proceso automatizado, nos 
+            podemos concentrar en realizar análisis de datos, tanto con <code>Python</code> como con <code>SQL</code>. En este caso la 
+            clase está dividida en tres partes, de donde:
+
+            <h4><strong>Parte I</strong></h4>
+            <ul>
+              <li>Programar en <code>Github</code></li>
+              <li>Estructura del proyecto</li>
+            </ul>
+
+            <h4><strong>Parte II</strong></h4>
+              <ul>
+                <li>Más de consultas en <code>SQL</code></li>
+                <li>Crear funciones de <code>Python</code> y subirlas a <code>SQLITE3</code></li>
+                <li>Exploración de datos con Pandas</li>
+              </ul>
+
+            <h4><strong>Parte III</strong></h4>
+              <ul>
+                <li><code>Group By</code></li>
+                <li>Problemas aplicados en <code>SQL</code></li>
+                <li>Análisis de datos con <code>Pandas</code></li>
+              </ul>
+
+          Respecto a la clase de <code>R</code>, aprenderemos a manejar vectores y matrices, luego, veremos también como 
+          trabajar con dataframes.
+          </p>
+          <br>
+          <p style="background:rgb(255, 255, 255); color:rgb(0,0,0); font-weight:bold; padding:15px; border:3px solid rgb(0,0,0);">
+            Materiales: &nbsp;&nbsp;
+          <a href="https://github.com/LuisApaez/ProgramacionNube/blob/main/PyBiS_Basico_Notebooks/Clase_5_en_vivo.ipynb" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Notas de la clase en vivo</a>
+          <a href="https://github.com/LuisApaez/ProgramacionNube/blob/main/PyBiS_Basico_Notebooks/Clase_05.ipynb" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Notas de clase en Python</a>
+          <a href="https://cursopypagina.github.io/CursoPy/Clases/Stats_ml_r_py/C3_intro.html" style="background-color: #0c00f1;color: #ffffff; border: none; padding: 10px 15px; border-radius: 5px;">Notas de clase en R</a>
+          <a href="https://drive.google.com/file/d/1JloNANK6BsMr_ehI72uax5AR-FOAgD6P/view?usp=sharing" style="background-color: #0c00f1;color: #ffffff; border: none; padding: 10px 15px; border-radius: 5px;">Tarea R</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeZaXJh04thwC_S1lYPoIWiKzIP3lJlaV_W25hrZ3ME4uw-3Q/viewform?usp=dialog" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Quiz de asistencia</a>
+          </p>
+
+          <center>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSevwAC3Ys7psGkKDdENAcL-XEJbC7A88U_MlKSTaKMkfP0oLg/viewform?usp=dialog" style="color:rgb(255, 255, 255);">Formulario de entrega de tareas</a>
+          </button>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="https://drive.google.com/file/d/1_zq5FTVtT3eGotTRUdKl2W8ydztBan0E/view?usp=sharing" style="color:rgb(255, 255, 255);">¿Cómo hacer y entregar un tarea o práctica?</a>
+          </button>
+          <br>
+          <br>
+          <a href="Grabaciones_clase_5.html" style="background-color: #ff0404; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Grabaciones de clase</a>
+          <br>
+          <br>
+          &nbsp;
+          </center> 
+        </div>
+        
+      </div>
+
+      <div id="Tab16" class="tabcontent">
+        <center>
+          <img src="assets/img/camara_py.png" class="imagen-responsiva2">
+        </center>
+        <hr>
+
+        <div class="content">
+          <h2>📖 Clase 6 📖</h2>
+          <p>En esta clase aprendremos a utilizar <code></code>Power BI para crear nuestro primer tablero interactivo, 
+            para lo cual abordaremos:
+            <ul>
+              <li>Explorando la interfaz</li>
+              <li>Personalización de gráficos</li>
+              <li>Introducción a las medidas</li>
+            </ul>
+          Hemos llegado entonces a la parte final del curso donde hacemos que nuestros datos hablen y donde
+          comunicamos la información de una manera visual y atractiva.
+          </p>
+
+          <div class="video-container">
+            <h2>Intro</h2>
+            <iframe id="player1" src="https://drive.google.com/file/d/1Xk8_XGydKNWK1VkUfrwH1rrKaWi44hNL/preview" allow="autoplay" allowfullscreen title="Video de Google Drive"></iframe>
+            <div class="controls">
+            </div>
+          </div>
+          <br>
+          <br>
+          <p style="background:rgb(255, 255, 255); color:rgb(0,0,0); font-weight:bold; padding:15px; border:3px solid rgb(0,0,0);">
+            Materiales: &nbsp;&nbsp;
+          <a href="https://github.com/LuisApaez/ProgramacionNube/blob/main/PyBiS_Basico_Notebooks/Notas_PBI.md" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Notas de la clase en vivo</a>
+          <a href="assets/img/pybis_t1.png" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Tablero</a>
+          <a href="https://github.com/LuisApaez/ProgramacionNube/blob/main/PyBiS_Basico_Notebooks/Notas_PBI.md" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Notas</a>
+        </div>
+    </div>
+
+      <div id="Tab17" class="tabcontent">
+
+ <center>
+          <img src="assets/img/camara_py.png" class="imagen-responsiva2">
+        </center>
+        <hr>
+
+        <div class="content">
+          <h2>📖 Clase 7 📖</h2>
+          <p>En este cierre de curso veremos los últimos detalles de nuestro tablero de PBI, además de que abordaremos 
+            consejos que pueden servirte en entrevistas de trabajo 🥸 </p>
+
+          <div class="video-container">
+            <h2>Intro</h2>
+            <iframe id="player1" src="https://drive.google.com/file/d/1rxf7H5vdxDVUhWa4xi0nRBgYCj3N8Omp/preview" allow="autoplay" allowfullscreen title="Video de Google Drive"></iframe>
+            <div class="controls">
+            </div>
+          </div>
+          <br>
+          <br>
+          <p style="background:rgb(255, 255, 255); color:rgb(0,0,0); font-weight:bold; padding:15px; border:3px solid rgb(0,0,0);">
+            Materiales: &nbsp;&nbsp;
+          <a href="assets/img/pybis_t2.png" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Tablero</a>
+          <a href="assets/img/pybis_t3.png" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Tablero 2</a>
+          <a href="https://cursospym-pybisbasico.my.canva.site/tips" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Tips Laborales</a>
+          </div>
+    </div>
+
+      <div id="Tab2" class="tabcontent">
+        <br>
+        <h1><strong>Proyecto</strong></h1>
+        <p>Es esta sección estarás los códigos y materiales del proyecto, es decir, en esta sección encontrarás los avances y ejercicios
+          que deberás ir entregando.
+          <br>
+          <br>
+          Primero, mostramos el código completo ya terminado del proyecto (hecho en enero de este año) para establecerlo como la meta a alcanzar en el curso, luego, en las siguientes secciones
+          (o cajas) irás encontrando ejercicios, cuestionarios y avances para que puedas ir avanzando en tu propio proyecto.
+          <br>
+        </p>
+        <p style="background:rgb(255, 255, 255); color:rgb(0,0,0); font-weight:bold; padding:15px; border:3px solid rgb(0,0,0);">
+          <strong>PROYECTO 1: Código y tablero objetivo (código completo del proyecto final): </strong>      
+          <a href="https://github.com/LuisApaez/Proyectos_py/tree/main/Proyecto_AD_1" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Link</a>
+          <a href="https://drive.google.com/file/d/15wnLWPLL7Z8O5TadG3dhOvSVpNo4aTtE/view" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Tablero</a>
+        </p>
+        <br>
+        <hr>
+        <h2><strong>Avances</strong></h2>
+        <p style="background:rgb(255, 255, 255); color:rgb(0,0,0); font-weight:bold; padding:15px; border:3px solid rgb(0,0,0);">
+          <strong>Primera entrega: </strong>      
+          <a href="https://drive.google.com/file/d/1kh6tXpgZky8J2AII7myo6RYfM-PmIOHh/view?usp=sharing" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Descripción</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSevwAC3Ys7psGkKDdENAcL-XEJbC7A88U_MlKSTaKMkfP0oLg/viewform" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Entregar</a>
+        </p>
+        <p style="background:rgb(255, 255, 255); color:rgb(0,0,0); font-weight:bold; padding:15px; border:3px solid rgb(0,0,0);">
+          <strong>Segunda entrega: </strong>      
+          <a href="https://drive.google.com/file/d/1iAkw1zGGUAYF5s-ppKZpg-XADTf5K2tg/view?usp=sharing" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Descripción</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSevwAC3Ys7psGkKDdENAcL-XEJbC7A88U_MlKSTaKMkfP0oLg/viewform" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Entregar</a>
+        </p>
+        <p style="background:rgb(255, 255, 255); color:rgb(0,0,0); font-weight:bold; padding:15px; border:3px solid rgb(0,0,0);">
+          <strong>Tercera entrega: </strong>      
+          <a href="https://drive.google.com/file/d/1VioaGWgrh3QwKk00kk42SbpOH2GQLj9B/view?usp=sharing" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Descripción</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSevwAC3Ys7psGkKDdENAcL-XEJbC7A88U_MlKSTaKMkfP0oLg/viewform" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Entregar</a>
+        </p>
+        <p style="background:rgb(255, 255, 255); color:rgb(0,0,0); font-weight:bold; padding:15px; border:3px solid rgb(0,0,0);">
+          <strong>Cuarta entrega: </strong>      
+          <a href="https://drive.google.com/file/d/1IHFMoMhcAcVzndQBZLcuIw2x6QROM95I/view?usp=sharing" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Descripción</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSevwAC3Ys7psGkKDdENAcL-XEJbC7A88U_MlKSTaKMkfP0oLg/viewform" style="background-color: #000000; color: #fff; border: none; padding: 10px 15px; border-radius: 5px;">Entregar</a>
+        </p>
+      </div>
+
+      <div id="Tab4" class="tabcontent">
+        <center><img src="assets/img/subpaginas/libro.png" width="20%"></center>
+        <h5>PDF's</h5>
+        <ul>
+          <a href="https://drive.google.com/file/d/1T7pSonW3kN9qEqxYzl9yUP8K-FKJ0ZMF/view"><li>Introducción a la estadística y probabilidad para Machine Learning con Python</li></a>
+          <a href="https://drive.google.com/file/d/1a2wzUm1A6eYbVYWF1idI7al11ztOgXWs/view?usp=sharing"><li>A Beginners Guide to Python 3 Programming</li></a>
+          <a href="https://drive.google.com/file/d/1m_06pxsNGVgJF3h-kNQ1d2-uEeOptReu/view?usp=share_link"><li>Advanced Guide to Python 3 Programming</li></a>
+          <a href="https://drive.google.com/file/d/1CSEXIOFdr5-pjLJDUQiiY6ux-ScAtqU3/view?usp=share_link"><li>Introduction to Machine Learning With R</li></a>
+          <a href="https://drive.google.com/file/d/1CUjBWl9Sty5sfiyQlh1kNH84oULwUZvI/view?usp=share_link"><li>SQL for dummies</li></a>
+          <a href="https://drive.google.com/file/d/13qQaCd1JR-xAgFZGopL7-qKFBtKJXBkE/view?usp=share_link"><li>Essential Excel 2016 </li></a>
+          <a href="https://drive.google.com/file/d/1rC4qKFLTfKaDI9sRWVJPw3chQVSLQft8/view?usp=share_link"><li>Data Analysis with Microsoft Power Bi</li></a>
+        </ul>
+      </div>
+
+      <div id="Tab5" class="tabcontent">
+        <H2><strong>Certificado de Python</strong></H2>
+        <p><strong>Descripción:</strong> Soluciones al curso de <strong>Python</strong>
+          de la plataforma <i>Kaggle</i>
+           (<a href="https://www.kaggle.com/learn/python">Link</a>)
+        </p>
+        <br>
+        <p>
+          <img src="assets/img/kaggle2.png" width="30%" align="left">
+        </p>
+        <a href="https://colab.research.google.com/drive/1aEcODyXn-2nYBKZbs864RglO3MOkftHZ?usp=sharing">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;💎 Solución Clase 1 💎</a>
+        <br>
+        <a href="https://colab.research.google.com/drive/1dTks_Edylw1a9HQ7ZRbMogmFpvrroy-y?usp=sharing">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 💎 Solución Clase 2 💎</a>
+        <br>
+        <a href="https://colab.research.google.com/drive/13gTYtUHCC-cUQH7FqxwNCaGDTkjGRbNs?usp=sharing">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 💎 Solución Clase 3 💎</a>
+        <br>
+        <a href="https://colab.research.google.com/drive/1PDPLnJaGEm1Vk-PB1BFSDmc-AeUUUQmB?usp=sharing">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 💎 Solución Clase 4 💎</a>
+        <br>
+        <a href="https://colab.research.google.com/drive/1fh1KXot3ZfzQmG9bVVIIIAUzRF9VfLwy?usp=sharing">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 💎 Solución Clase 5 💎</a>
+        <br>
+        <a href="https://colab.research.google.com/drive/1PPJlh0fhZO85aEQTlGmZgjqwMYzjdP_X?usp=sharing">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 💎 Solución Clase 6 💎</a>
+        <br>
+        <a href="https://colab.research.google.com/drive/1V6p-zKO9ntshnBWEsuNzgsG7Lx6pHeGF?usp=sharing">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 💎 Solución Clase 7 💎</a>
+        </p>
+        <hr>
+        <H2><strong>Certificado de SQL</strong></H2>
+        <p>Próximamente</p>
+        <p>
+          <img src="assets/img/kaggle3.png" width="30%" align="left">
+        </p>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <hr>
+        <H2><strong>Certificado de Python + SQL</strong></H2>
+        <p><strong>Descripción:</strong> Este certificado es emitido por cursos Pym, destinado para los 
+        estudiantes que cursaron con éxito el curso en vivo de Python y SQL enfocado al análisis de datos.
+        <br>
+        <strong>Requisitos:</strong>
+        <ol>
+          <li>Haber entregado el código completo del proyecto.</li>
+          <li>Haber enviado captura de su tablero de Power BI.</li>
+          <li>Haber entegado al menos el 80% de todos los avances del proyecto</li>
+          <li>Tener al menos el 70% de asistencia</li>
+        </ol> 
+        </p>
+        <br>
+        <p>
+          <img src="assets/img/Certificado_Pym.png" width="30%">
+        </p>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+      </div>
+
+      <div id="Tab6" class="tabcontent">
+        <h1><strong>Seguimiento</strong></h1>
+        <p>Lista del curso</p>
+        <div style="position: relative; width: 100%; height: 0; padding-top: 90.3110%;
+        padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+        border-radius: 8px; will-change: transform;">
+          <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+            src="https://www.canva.com/design/DAGnhoWjdEc/gSKjl1bwLgN-OoLk4wU8HA/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+          </iframe>
+        </div>
+      </div>
+
+    </div>
+    <div class="container" data-aos="fade-up" id="notas">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Mamba</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <p><a href="https://www.flaticon.es/iconos-gratis/dia-de-muertos" title="dia de muertos iconos">Dia de muertos iconos creados por Freepik - Flaticon</a>
+          <a href="https://www.flaticon.es/iconos-gratis/panda" title="panda iconos">Panda iconos creados por riajulislam - Flaticon</a>
+        </p>
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/mamba-one-page-bootstrap-template-free/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/purecounter/purecounter.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <!-- tabs -->
+  <script>
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+  </script>
+
+  <script>
+    let carruselesIniciados = {};
+
+    function iniciarCarrusel(tabId) {
+      const tab = document.getElementById(tabId);
+      const track = tab.querySelector(".carrusel-track");
+      const cards = track.querySelectorAll(".tarjeta");
+      const total = Math.ceil(cards.length);
+      let index = 0;
+
+      function avanzarCarrusel() {
+        index++;
+        track.style.transform = `translateX(-${index * 100}%)`;
+
+        if (index === total) {
+          setTimeout(() => {
+            track.style.transition = "none";
+            index = 0;
+            track.style.transform = `translateX(0%)`;
+            void track.offsetWidth;
+            track.style.transition = "transform 0.5s ease-in-out";
+          }, 500);
+        }
+      }
+
+      setInterval(avanzarCarrusel, 4000);
+      carruselesIniciados[tabId] = true;
+    }
+
+    function activarTab(tabId) {
+      document.querySelectorAll(".tab-content").forEach(tab => tab.style.display = "none");
+      document.getElementById(tabId).style.display = "block";
+
+      if (!carruselesIniciados[tabId]) {
+        iniciarCarrusel(tabId);
+      }
+    }
+  </script>
+
+<script>
+  // Objeto para almacenar listas de videos por iframe
+  const videoPlayers = {
+    player1: {
+      videos: [
+        "https://drive.google.com/file/d/166G8iLSkZzaiNUeoIJQbHhzbIKpI5mLu/preview",
+      "https://drive.google.com/file/d/1BfLCiNWHlmCh6W8DxjcJV8jt-WnUi0I1/preview"
+      ],
+      current: 0
+    },
+    player2: {
+      videos: [
+        "https://drive.google.com/file/d/1wOgSe2Y11liKVeH8XjiZYd3cTCnRH_vv/preview",
+      "https://drive.google.com/file/d/1sPscwR7Oz-Xpd_WaQxllMUT13293cT-U/preview",
+      "https://drive.google.com/file/d/1ul9Z33H78cpx0RxV1rNI5pxELYIowRcp/preview"
+      ],
+      labels: ["Clase 1", "Clase 2", "Clase 3"],
+
+      current: 0
+    }
+  };
+
+  function changeVideo(playerId, direction) {
+    const player = videoPlayers[playerId];
+    if (!player) return;
+
+    player.current = (player.current + direction + player.videos.length) % player.videos.length;
+
+    document.getElementById(playerId).src = player.videos[player.current];
+    document.getElementById(`label-${playerId}`).textContent = player.labels[player.current];
+  }
+</script>
+
+
+</body>
+
+</html>
