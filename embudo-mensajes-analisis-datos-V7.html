@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Embudo de mensajes — Análisis de Datos desde Cero</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy-900:#081428;
+  --navy-800:#0d2244;
+  --navy-700:#123163;
+  --blue-600:#1d4ed8;
+  --blue-500:#3b82f6;
+  --blue-100:#dbeafe;
+  --sky:#38bdf8;
+  --slate-50:#f4f7fb;
+  --slate-100:#eaf0f8;
+  --slate-200:#dbe4f0;
+  --slate-300:#c3d1e4;
+  --ink:#0f1c2e;
+  --muted:#5b6b82;
+  --muted-2:#7a8aa0;
+  --green-500:#10b981;
+  --green-600:#059669;
+  --amber:#f59e0b;
+  --rose:#f43f5e;
+  --teal:#14b8a6;
+  --indigo:#6366f1;
+  --card:#ffffff;
+  --shadow-sm:0 1px 2px rgba(11,30,58,.06),0 1px 3px rgba(11,30,58,.05);
+  --shadow-md:0 8px 24px rgba(11,30,58,.10);
+  --radius:16px;
+  --radius-sm:10px;
+  --maxw:1180px;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --display:"Space Grotesk","Inter",system-ui,sans-serif;
+  --body:"Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;font-family:var(--body);color:var(--ink);
+  background:var(--slate-50);line-height:1.55;-webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:var(--display);margin:0;line-height:1.15;letter-spacing:-.01em}
+p{margin:0}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.mono{font-family:var(--mono)}
+
+/* ---------- Code token (signature element) ---------- */
+.code{
+  font-family:var(--mono);font-size:.78rem;font-weight:600;
+  color:var(--blue-600);background:var(--blue-100);
+  padding:3px 9px 3px 8px;border-radius:7px;white-space:nowrap;
+  border:1px solid rgba(29,78,216,.16);display:inline-flex;align-items:center;gap:5px;
+}
+.code::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--blue-500);flex:none}
+.code.on-dark{color:#cfe0ff;background:rgba(59,130,246,.16);border-color:rgba(120,160,240,.3)}
+.code.on-dark::before{background:var(--sky)}
+
+/* ---------- Nav ---------- */
+.nav{
+  position:sticky;top:0;z-index:50;background:rgba(8,20,40,.92);
+  backdrop-filter:blur(10px);border-bottom:1px solid rgba(120,160,240,.16);
+}
+.nav-inner{display:flex;align-items:center;gap:18px;height:60px}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;font-family:var(--display);font-weight:700;font-size:1rem;white-space:nowrap}
+.brand .dot{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--sky),var(--blue-600));display:grid;place-items:center;flex:none}
+.brand .dot span{width:9px;height:9px;background:#fff;border-radius:2px;box-shadow:6px 0 0 rgba(255,255,255,.5)}
+.nav-links{display:flex;gap:4px;margin-left:auto;overflow-x:auto}
+.nav-links a{color:#b9c8e0;font-size:.86rem;font-weight:500;padding:8px 12px;border-radius:8px;white-space:nowrap;transition:.15s}
+.nav-links a:hover{color:#fff;background:rgba(120,160,240,.14)}
+.nav-tag{font-family:var(--mono);font-size:.72rem;color:var(--sky);border:1px solid rgba(56,189,248,.35);padding:4px 8px;border-radius:6px;white-space:nowrap}
+
+/* ---------- Hero ---------- */
+.hero{
+  background:radial-gradient(1200px 500px at 80% -10%,rgba(56,189,248,.18),transparent 60%),
+             radial-gradient(900px 500px at 0% 0%,rgba(16,185,129,.12),transparent 55%),
+             linear-gradient(180deg,var(--navy-900),var(--navy-800));
+  color:#fff;padding:56px 0 62px;position:relative;overflow:hidden;
+}
+.hero::after{
+  content:"";position:absolute;inset:0;opacity:.5;pointer-events:none;
+  background-image:linear-gradient(rgba(120,160,240,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(120,160,240,.05) 1px,transparent 1px);
+  background-size:44px 44px;mask-image:linear-gradient(180deg,#000,transparent 85%);
+}
+.hero .wrap{position:relative;z-index:1}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.76rem;color:var(--sky);
+  background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.28);padding:6px 12px;border-radius:100px;margin-bottom:20px}
+.eyebrow .pulse{width:7px;height:7px;border-radius:50%;background:var(--green-500);box-shadow:0 0 0 0 rgba(16,185,129,.6);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(16,185,129,.55)}70%{box-shadow:0 0 0 8px rgba(16,185,129,0)}100%{box-shadow:0 0 0 0 rgba(16,185,129,0)}}
+.hero h1{font-size:clamp(1.9rem,4.4vw,3rem);font-weight:700;max-width:20ch}
+.hero h1 em{font-style:normal;color:var(--sky)}
+.hero .sub{margin-top:16px;max-width:62ch;color:#c3d3ec;font-size:1.02rem}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.chip{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);
+  padding:9px 14px;border-radius:100px;font-size:.84rem;color:#e6eefc}
+.chip b{color:#fff;font-weight:600}
+.chip.pro{background:rgba(16,185,129,.14);border-color:rgba(16,185,129,.4)}
+.chip.pro b{color:#7ff0c8}
+.chip .k{color:#8fa6c9;font-size:.74rem;text-transform:uppercase;letter-spacing:.06em}
+
+/* ---------- Section shell ---------- */
+.section{padding:60px 0}
+.section-head{margin-bottom:30px;max-width:70ch}
+.kicker{font-family:var(--mono);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-600);
+  display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.kicker::before{content:"";width:22px;height:2px;background:var(--blue-500);border-radius:2px}
+.section h2{font-size:clamp(1.4rem,2.6vw,1.9rem);font-weight:700}
+.section .lead{margin-top:10px;color:var(--muted);font-size:1rem}
+.alt{background:linear-gradient(180deg,#fff,var(--slate-50))}
+
+/* ---------- Overview cards (Section 2) ---------- */
+.grid-overview{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ov-card{background:var(--card);border:1px solid var(--slate-200);border-radius:var(--radius);padding:22px;
+  box-shadow:var(--shadow-sm);position:relative;display:flex;flex-direction:column;gap:12px;transition:.18s}
+.ov-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px);border-color:var(--slate-300)}
+.ov-num{font-family:var(--display);font-weight:700;font-size:1.05rem;width:34px;height:34px;border-radius:9px;
+  display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--blue-600),var(--blue-500));flex:none}
+.ov-top{display:flex;align-items:center;gap:12px}
+.ov-card h3{font-size:1.06rem;font-weight:600}
+.ov-obj{color:var(--muted);font-size:.92rem}
+.ov-branches{display:flex;flex-wrap:wrap;gap:7px;margin-top:2px}
+.branch-pill{font-family:var(--mono);font-size:.72rem;color:var(--muted);background:var(--slate-100);border:1px solid var(--slate-200);
+  padding:3px 8px;border-radius:6px}
+.ov-foot{margin-top:auto;padding-top:10px;border-top:1px dashed var(--slate-200);display:flex;align-items:center;justify-content:space-between;gap:8px}
+.ov-note{font-size:.78rem;color:var(--muted-2)}
+
+/* ---------- Diagram (Section 3) ---------- */
+.map{display:flex;flex-direction:column;align-items:center;gap:0}
+.node{background:var(--card);border:1px solid var(--slate-200);border-radius:14px;box-shadow:var(--shadow-sm);
+  padding:16px 20px;width:100%;max-width:520px;text-align:center;position:relative}
+.node .code{margin-bottom:6px}
+.node h4{font-size:1rem;font-weight:600}
+.node p{color:var(--muted);font-size:.88rem;margin-top:4px}
+.node.entry{background:linear-gradient(135deg,var(--navy-800),var(--navy-700));color:#fff;border:none;max-width:420px}
+.node.entry h4{color:#fff}.node.entry p{color:#bcd0f0}
+.node.decision{background:#fff8ec;border-color:#f6dfa8;max-width:560px}
+.node.decision .q{font-weight:600;color:#9a6a06}
+.node.goal{background:linear-gradient(135deg,var(--green-600),var(--green-500));color:#fff;border:none;max-width:440px}
+.node.goal h4{color:#fff}.node.goal p{color:#d6fff0}
+.connector{width:2px;height:34px;background:linear-gradient(var(--slate-300),var(--slate-300));position:relative;flex:none}
+.connector::after{content:"";position:absolute;bottom:-1px;left:50%;transform:translateX(-50%);
+  border-left:6px solid transparent;border-right:6px solid transparent;border-top:8px solid var(--slate-300)}
+.branch-set{width:100%;display:grid;gap:16px;margin:6px 0}
+.branch-set.three{grid-template-columns:repeat(3,1fr)}
+.branch-set.two{grid-template-columns:repeat(2,1fr);max-width:760px}
+.bnode{background:var(--card);border:1px solid var(--slate-200);border-top:3px solid var(--blue-500);border-radius:14px;
+  padding:18px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:9px}
+.bnode.a{border-top-color:var(--blue-500)}
+.bnode.b{border-top-color:var(--teal)}
+.bnode.c{border-top-color:var(--indigo)}
+.bnode.pay{border-top-color:var(--green-500)}
+.bnode .tag-mini{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--muted-2)}
+.bnode h4{font-size:.98rem}
+.bnode p{font-size:.86rem;color:var(--muted)}
+.bnode .bono{font-size:.82rem;color:var(--green-600);background:rgba(16,185,129,.09);border:1px solid rgba(16,185,129,.2);
+  padding:7px 10px;border-radius:8px;margin-top:auto}
+.branch-label{display:inline-block;font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-bottom:2px}
+.fork{width:80%;max-width:520px;height:22px;border-left:2px solid var(--slate-300);border-right:2px solid var(--slate-300);
+  border-bottom:2px solid var(--slate-300);border-radius:0 0 10px 10px;margin-top:-2px}
+.merge{width:80%;max-width:520px;height:22px;border-left:2px solid var(--slate-300);border-right:2px solid var(--slate-300);
+  border-top:2px solid var(--slate-300);border-radius:10px 10px 0 0}
+
+/* ---------- Timeline (Section 4) ---------- */
+.timeline{position:relative;padding-left:0}
+.tl-step{display:grid;grid-template-columns:56px 1fr;gap:18px;position:relative;padding-bottom:26px}
+.tl-step::before{content:"";position:absolute;left:27px;top:44px;bottom:-8px;width:2px;background:var(--slate-200)}
+.tl-step:last-child::before{display:none}
+.tl-marker{width:54px;height:54px;border-radius:14px;background:var(--card);border:1px solid var(--slate-200);
+  box-shadow:var(--shadow-sm);display:grid;place-items:center;font-family:var(--display);font-weight:700;color:var(--blue-600);z-index:1}
+.tl-marker.done{background:linear-gradient(135deg,var(--green-600),var(--green-500));color:#fff;border:none}
+.tl-body{background:var(--card);border:1px solid var(--slate-200);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:20px 22px}
+.tl-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:8px}
+.tl-body h3{font-size:1.1rem;font-weight:600}
+.tl-meta{display:flex;flex-wrap:wrap;gap:14px;margin:8px 0 14px;font-size:.84rem;color:var(--muted)}
+.tl-meta b{color:var(--ink);font-weight:600}
+.preview{background:var(--slate-50);border:1px solid var(--slate-200);border-left:3px solid var(--blue-500);border-radius:0 10px 10px 0;
+  padding:14px 16px;font-size:.9rem;color:#33465e;white-space:pre-line}
+
+/* tabs */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.tab{font-family:var(--body);font-size:.88rem;font-weight:600;padding:9px 15px;border-radius:100px;border:1px solid var(--slate-200);
+  background:#fff;color:var(--muted);cursor:pointer;transition:.15s}
+.tab:hover{border-color:var(--slate-300);color:var(--ink)}
+.tab.active{background:var(--navy-800);color:#fff;border-color:var(--navy-800)}
+.tab-panel{display:none}.tab-panel.active{display:block}
+
+/* horario cards */
+.horarios{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:6px 0 14px}
+.h-card{background:#fff;border:1px solid var(--slate-200);border-radius:12px;padding:16px;box-shadow:var(--shadow-sm);position:relative;overflow:hidden}
+.h-card::before{content:"";position:absolute;top:0;left:0;width:100%;height:3px;background:var(--blue-500)}
+.h-card.mj::before{background:var(--teal)}.h-card.sab::before{background:var(--amber)}.h-card.am::before{background:var(--indigo)}
+.h-card .h-days{font-weight:700;font-family:var(--display);font-size:1rem}
+.h-card .h-time{color:var(--blue-600);font-weight:600;font-size:.92rem;margin-top:2px}
+.h-card .h-info{font-size:.82rem;color:var(--muted);margin-top:8px;display:flex;flex-direction:column;gap:2px}
+.h-extra{grid-column:1/-1;background:linear-gradient(135deg,#eef2ff,#f5f3ff);border:1px dashed var(--indigo);border-radius:12px;padding:14px 16px;
+  display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px}
+.h-extra .badge{font-family:var(--mono);font-size:.72rem;color:#fff;background:var(--indigo);padding:3px 9px;border-radius:6px}
+.cta-line{margin-top:8px;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:8px}
+.cta-line .arrow{color:var(--green-600)}
+
+/* pay card / cierre columns / accesos */
+.pay-card{background:linear-gradient(135deg,#fff,#f7fbff);border:1px solid var(--slate-200);border-radius:12px;padding:18px}
+.pay-list{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:8px}
+.pay-list li{display:flex;gap:10px;align-items:flex-start;font-size:.9rem;color:#33465e}
+.pay-list li::before{content:"";width:16px;height:16px;border-radius:5px;background:var(--blue-100);border:1px solid var(--blue-500);flex:none;margin-top:2px}
+.placeholder-box{margin-top:12px;background:repeating-linear-gradient(45deg,#f1f5fb,#f1f5fb 10px,#eaf0f8 10px,#eaf0f8 20px);
+  border:1px dashed var(--slate-300);border-radius:10px;padding:14px 16px;font-family:var(--mono);font-size:.82rem;color:var(--muted);text-align:center}
+.warn-inline{margin-top:10px;font-size:.82rem;color:#8a5a00;background:#fff6e6;border:1px solid #f6dfa8;border-radius:8px;padding:9px 12px;display:flex;gap:8px}
+.cols-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}
+.close-col{background:#fff;border:1px solid var(--slate-200);border-radius:12px;padding:18px;border-top:3px solid var(--green-500)}
+.close-col.tdc{border-top-color:var(--indigo)}
+.close-col h4{font-size:1rem;display:flex;align-items:center;gap:8px}
+.close-col p{font-size:.88rem;color:var(--muted);margin-top:8px}
+
+/* ---------- Library / templates (Section 5 + 8) ---------- */
+.lib-controls{position:sticky;top:60px;z-index:20;background:rgba(244,247,251,.94);backdrop-filter:blur(8px);
+  padding:14px 0;margin-bottom:22px;border-bottom:1px solid var(--slate-200)}
+.controls-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.search-box{position:relative;flex:1;min-width:220px}
+.search-box input{width:100%;padding:11px 14px 11px 40px;border:1px solid var(--slate-200);border-radius:10px;font-family:var(--body);
+  font-size:.9rem;background:#fff;color:var(--ink);transition:.15s}
+.search-box input:focus{outline:none;border-color:var(--blue-500);box-shadow:0 0 0 3px rgba(59,130,246,.15)}
+.search-box svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--muted-2)}
+.toggle-mode{display:flex;background:#fff;border:1px solid var(--slate-200);border-radius:10px;padding:3px;gap:2px}
+.toggle-mode button{font-family:var(--body);font-size:.82rem;font-weight:600;padding:7px 13px;border:none;background:transparent;color:var(--muted);
+  border-radius:7px;cursor:pointer;transition:.15s}
+.toggle-mode button.active{background:var(--navy-800);color:#fff}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.f-chip{font-family:var(--body);font-size:.82rem;font-weight:500;padding:7px 13px;border-radius:100px;border:1px solid var(--slate-200);
+  background:#fff;color:var(--muted);cursor:pointer;transition:.15s}
+.f-chip:hover{border-color:var(--slate-300);color:var(--ink)}
+.f-chip.active{background:var(--blue-600);color:#fff;border-color:var(--blue-600)}
+
+.lib-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.msg-card{background:var(--card);border:1px solid var(--slate-200);border-radius:var(--radius);box-shadow:var(--shadow-sm);
+  padding:18px 20px;display:flex;flex-direction:column;gap:12px;transition:.18s}
+.msg-card:hover{box-shadow:var(--shadow-md);border-color:var(--slate-300)}
+.msg-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.msg-tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;padding:3px 8px;border-radius:6px;white-space:nowrap}
+.tag.urgencia{color:#92580a;background:#fff2d6}
+.tag.segmentacion{color:#1d4ed8;background:var(--blue-100)}
+.tag.horario{color:#0369a1;background:#e0f4ff}
+.tag.pago{color:#4338ca;background:#e7e9ff}
+.tag.cierre{color:#047857;background:#d6f7ea}
+.tag.objecion{color:#b91c4a;background:#ffe1ea}
+.tag.confianza{color:#0f766e;background:#d4f5f1}
+.msg-obj{font-size:.9rem;color:var(--muted)}
+.msg-obj b{color:var(--ink);font-weight:600}
+.msg-body{background:var(--slate-50);border:1px solid var(--slate-200);border-radius:10px;padding:14px;font-size:.88rem;
+  color:#33465e;white-space:pre-line;line-height:1.6}
+.msg-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto}
+.copy-btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--body);font-size:.83rem;font-weight:600;
+  padding:8px 13px;border-radius:9px;border:1px solid var(--slate-200);background:#fff;color:var(--blue-600);cursor:pointer;transition:.15s}
+.copy-btn:hover{background:var(--blue-600);color:#fff;border-color:var(--blue-600)}
+.copy-btn.copied{background:var(--green-500);color:#fff;border-color:var(--green-500)}
+.moment{font-size:.76rem;color:var(--muted-2)}
+.compact .msg-body{display:none}
+.empty-state{grid-column:1/-1;text-align:center;padding:40px;color:var(--muted);background:#fff;border:1px dashed var(--slate-300);border-radius:var(--radius)}
+
+/* ---------- Accordion (Section 5 complementarios) ---------- */
+.acc{display:grid;gap:12px}
+.acc-item{background:#fff;border:1px solid var(--slate-200);border-radius:12px;overflow:hidden;box-shadow:var(--shadow-sm)}
+.acc-head{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:16px 18px;display:flex;align-items:center;gap:12px;
+  font-family:var(--body);font-size:.96rem;font-weight:600;color:var(--ink)}
+.acc-head .chev{margin-left:auto;color:var(--muted-2);transition:.2s;flex:none}
+.acc-item.open .chev{transform:rotate(180deg)}
+.acc-head .code{flex:none}
+.acc-panel{max-height:0;overflow:hidden;transition:max-height .28s ease}
+.acc-inner{padding:0 18px 18px;color:var(--muted);font-size:.9rem}
+.acc-inner .use{font-size:.8rem;color:var(--muted-2);margin-bottom:8px}
+.acc-inner .content{background:var(--slate-50);border:1px solid var(--slate-200);border-radius:10px;padding:12px 14px;color:#33465e;white-space:pre-line}
+
+/* ---------- Regla central (Section 6) ---------- */
+.rule{background:linear-gradient(135deg,#eef4ff,#e9fbf3);border:1px solid #cfe0f6;border-radius:20px;padding:30px;position:relative;overflow:hidden}
+.rule::before{content:"";position:absolute;right:-40px;top:-40px;width:180px;height:180px;border-radius:50%;background:rgba(59,130,246,.08)}
+.rule-top{display:flex;gap:16px;align-items:center;margin-bottom:18px;position:relative}
+.rule-ico{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,var(--blue-600),var(--sky));display:grid;place-items:center;flex:none;box-shadow:0 6px 16px rgba(29,78,216,.3)}
+.rule h2{font-size:1.3rem}
+.rule .big{font-size:1.05rem;color:#1e2f47;font-weight:500;max-width:64ch;position:relative}
+.returns{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px;position:relative}
+.return-card{background:#fff;border:1px solid #d6e3f4;border-radius:12px;padding:16px}
+.return-card .state{font-size:.76rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--blue-600);margin-bottom:8px;display:flex;align-items:center;gap:7px}
+.return-card .state .n{width:20px;height:20px;border-radius:6px;background:var(--blue-100);display:grid;place-items:center;font-size:.72rem}
+.return-card .say{font-size:.94rem;color:var(--ink);font-weight:500}
+
+/* ---------- Tabla (Section 7) ---------- */
+.table-wrap{overflow-x:auto;border:1px solid var(--slate-200);border-radius:var(--radius);background:#fff;box-shadow:var(--shadow-sm)}
+table{border-collapse:collapse;width:100%;min-width:820px;font-size:.88rem}
+thead th{background:var(--navy-800);color:#e6eefc;font-family:var(--display);font-weight:600;text-align:left;padding:14px 16px;font-size:.82rem;
+  text-transform:uppercase;letter-spacing:.04em;position:sticky;top:0}
+tbody td{padding:14px 16px;border-top:1px solid var(--slate-100);vertical-align:top;color:#33465e}
+tbody tr:hover{background:var(--slate-50)}
+tbody td:first-child{font-weight:600;color:var(--ink)}
+.next-cell{color:var(--green-600);font-weight:600}
+
+/* ---------- Microcopy (Section 9) ---------- */
+.reminders{background:linear-gradient(180deg,var(--navy-800),var(--navy-900));color:#fff;padding:52px 0}
+.reminders .kicker{color:var(--sky)}.reminders .kicker::before{background:var(--sky)}
+.reminders h2{color:#fff}
+.rem-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:26px}
+.rem-card{background:rgba(255,255,255,.05);border:1px solid rgba(120,160,240,.2);border-radius:14px;padding:18px;position:relative}
+.rem-card .q{font-size:2rem;font-family:var(--display);color:var(--sky);line-height:.6;opacity:.5}
+.rem-card p{margin-top:12px;font-size:.9rem;color:#dbe6f8;font-weight:500}
+.rem-card:nth-child(4){border-color:rgba(16,185,129,.35)}
+.rem-card:nth-child(4) .q{color:var(--green-500)}
+
+/* ---------- Footer ---------- */
+.foot{background:var(--navy-900);color:#8fa6c9;padding:28px 0;font-size:.82rem;text-align:center;border-top:1px solid rgba(120,160,240,.14)}
+.foot b{color:#cfe0ff}
+
+/* ---------- Toast ---------- */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--navy-800);color:#fff;
+  padding:12px 20px;border-radius:100px;font-size:.88rem;font-weight:600;box-shadow:var(--shadow-md);opacity:0;pointer-events:none;
+  transition:.25s;z-index:100;display:flex;align-items:center;gap:8px;border:1px solid rgba(120,160,240,.3)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.toast .ok{color:var(--green-500)}
+
+/* ---------- Responsive ---------- */
+@media(max-width:900px){
+  .grid-overview{grid-template-columns:1fr 1fr}
+  .lib-grid{grid-template-columns:1fr}
+  .rem-grid{grid-template-columns:repeat(2,1fr)}
+  .returns{grid-template-columns:1fr}
+  .nav-links{display:none}
+}
+@media(max-width:680px){
+  .section{padding:44px 0}
+  .grid-overview{grid-template-columns:1fr}
+  .branch-set.three,.branch-set.two{grid-template-columns:1fr}
+  .fork,.merge{display:none}
+  .horarios{grid-template-columns:1fr}
+  .cols-2{grid-template-columns:1fr}
+  .rem-grid{grid-template-columns:1fr}
+  .tl-step{grid-template-columns:44px 1fr;gap:12px}
+  .tl-marker{width:44px;height:44px}
+  .tl-step::before{left:22px}
+  .controls-row{flex-direction:column;align-items:stretch}
+  .toggle-mode{justify-content:center}
+  .lib-controls{top:0;position:static}
+  .hero h1{max-width:100%}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <div class="brand"><span class="dot"><span></span></span>Embudo · Datos desde Cero</div>
+    <div class="nav-links">
+      <a href="#resumen">Resumen</a>
+      <a href="#diagrama">Diagrama</a>
+      <a href="#secuencia">Secuencia</a>
+      <a href="#biblioteca">Biblioteca</a>
+      <a href="#complementarios">Dudas</a>
+      <a href="#tabla">Objetivos</a>
+    </div>
+    <span class="nav-tag">V7</span>
+  </div>
+</nav>
+
+<!-- SECTION 1 · HERO -->
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="pulse"></span>Guía comercial interna · Meta Ads → Inscripción</span>
+    <h1>Embudo de mensajes — Curso de <em>Análisis de Datos desde Cero</em></h1>
+    <p class="sub">Secuencia ideal para convertir leads de Meta / Facebook Ads en inscritos al curso, guiándolos desde el primer contacto hasta el pago y el acceso al grupo.</p>
+    <div class="chips">
+      <span class="chip"><span class="k">Versión</span><b>V7</b></span>
+      <span class="chip pro"><span class="k">Precio promo</span><b>$650 MXN</b></span>
+      <span class="chip"><span class="k">Modalidad</span><b>Online</b></span>
+      <span class="chip"><span class="k">Público</span><b>Principiantes</b></span>
+      <span class="chip"><span class="k">Objetivo</span><b>Cierre el mismo día</b></span>
+    </div>
+  </div>
+</header>
+
+<!-- SECTION 2 · RESUMEN -->
+<section class="section" id="resumen">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Sección 2 · Panorama</div>
+      <h2>Resumen del embudo</h2>
+      <p class="lead">Seis etapas para llevar al lead de “quiero información” a inscripción confirmada el mismo día.</p>
+    </div>
+    <div class="grid-overview">
+      <article class="ov-card">
+        <div class="ov-top"><div class="ov-num">1</div><h3>Mensaje inicial</h3></div>
+        <p class="ov-obj">Presentar el curso, precio y beneficios, y preguntar la intención del lead.</p>
+        <div class="ov-foot"><span class="code">V7Inicio</span></div>
+      </article>
+      <article class="ov-card">
+        <div class="ov-top"><div class="ov-num">2</div><h3>Segmentación</h3></div>
+        <p class="ov-obj">Adaptar el mensaje según la necesidad del lead.</p>
+        <div class="ov-branches">
+          <span class="branch-pill">V7CeroEmpleo</span>
+          <span class="branch-pill">V7CeroMejorarTrabajo</span>
+          <span class="branch-pill">V7CeroAprender</span>
+        </div>
+      </article>
+      <article class="ov-card">
+        <div class="ov-top"><div class="ov-num">3</div><h3>Horarios</h3></div>
+        <p class="ov-obj">Llevar al lead a elegir un grupo.</p>
+        <div class="ov-foot"><span class="code">V7Horario</span><span class="ov-note">Matutino → V7DosHorario</span></div>
+      </article>
+      <article class="ov-card">
+        <div class="ov-top"><div class="ov-num">4</div><h3>Forma de pago</h3></div>
+        <p class="ov-obj">Confirmar horario, reforzar la promo y pedir decisión entre transferencia o tarjeta.</p>
+        <div class="ov-foot"><span class="code">V7FormaPago</span></div>
+      </article>
+      <article class="ov-card">
+        <div class="ov-top"><div class="ov-num">5</div><h3>Cierre de pago</h3></div>
+        <p class="ov-obj">Dar instrucciones finales según el método de pago.</p>
+        <div class="ov-branches">
+          <span class="branch-pill">V7CierreTrans</span>
+          <span class="branch-pill">V7CierreTdc</span>
+        </div>
+      </article>
+      <article class="ov-card">
+        <div class="ov-top"><div class="ov-num">6</div><h3>Accesos</h3></div>
+        <p class="ov-obj">Tras el pago, mandar accesos según el horario elegido.</p>
+        <div class="ov-branches">
+          <span class="branch-pill">V7SabAccesos</span>
+          <span class="branch-pill">V7MJAccesos</span>
+          <span class="branch-pill">V7LMAccesos</span>
+          <span class="branch-pill">V7SEMAccesos</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3 · DIAGRAMA -->
+<section class="section alt" id="diagrama">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Sección 3 · Flujo visual</div>
+      <h2>Diagrama del embudo</h2>
+      <p class="lead">El camino completo, del anuncio a los accesos. En escritorio se abre como mapa; en móvil se apila hacia abajo.</p>
+    </div>
+    <div class="map">
+      <div class="node entry"><h4>Lead entra por anuncio</h4><p>Meta / Facebook Ads · primer contacto por WhatsApp o Messenger</p></div>
+      <div class="connector"></div>
+      <div class="node"><span class="code">V7Inicio</span><h4>Mensaje inicial</h4><p>Curso, precio, beneficios y pregunta de intención.</p></div>
+      <div class="connector"></div>
+      <div class="node decision"><p class="q">“¿Lo buscas para conseguir empleo, mejorar en tu trabajo actual o aprender desde cero?”</p></div>
+      <div class="connector"></div>
+      <div class="fork"></div>
+      <div class="branch-set three">
+        <div class="bnode a">
+          <span class="branch-label">Rama A · Busca empleo</span>
+          <span class="code">V7CeroEmpleo</span>
+          <p>Python, SQL y Power BI, ejercicios prácticos y orientación laboral: CV, entrevistas, vacantes y pruebas técnicas.</p>
+          <div class="bono">🎁 Bono: clase en vivo para crear y mejorar tu CV.</div>
+        </div>
+        <div class="bnode b">
+          <span class="branch-label">Rama B · Mejorar trabajo</span>
+          <span class="code">V7CeroMejorarTrabajo</span>
+          <p>Reportes, análisis, automatización y presentación profesional de la información.</p>
+          <div class="bono">🎁 Bono: Excel, Power BI, dashboards e IA para el día a día.</div>
+        </div>
+        <div class="bnode c">
+          <span class="branch-label">Rama C · Aprender desde cero</span>
+          <span class="code">V7CeroAprender</span>
+          <p>Sin experiencia previa, paso a paso, clases grabadas y grupo de dudas.</p>
+          <div class="bono">🎁 Bono: Excel, Power BI, R y ChatGPT.</div>
+        </div>
+      </div>
+      <div class="merge"></div>
+      <div class="connector"></div>
+      <div class="node"><span class="code">V7Horario</span><h4>Enviar horarios → el lead elige</h4><p>Objetivo: que elija un grupo para apartar lugar.</p></div>
+      <div class="connector"></div>
+      <div class="node"><span class="code">V7FormaPago</span><h4>Enviar forma de pago → el lead elige método</h4><p>Confirmar horario, reforzar promo y pedir decisión.</p></div>
+      <div class="connector"></div>
+      <div class="fork"></div>
+      <div class="branch-set two">
+        <div class="bnode pay">
+          <span class="branch-label">Transferencia o depósito</span>
+          <span class="code">V7CierreTrans</span>
+          <p>El lead manda comprobante → confirmar inscripción → enviar accesos según grupo.</p>
+        </div>
+        <div class="bnode pay">
+          <span class="branch-label">Tarjeta / link de pago</span>
+          <span class="code">V7CierreTdc</span>
+          <p>El lead manda captura o comprobante → confirmar inscripción → enviar accesos según grupo.</p>
+        </div>
+      </div>
+      <div class="merge"></div>
+      <div class="connector"></div>
+      <div class="node goal"><h4>Inscripción confirmada + accesos enviados</h4><p>Según grupo: V7SabAccesos · V7MJAccesos · V7LMAccesos · V7SEMAccesos</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4 · SECUENCIA -->
+<section class="section" id="secuencia">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Sección 4 · Paso a paso</div>
+      <h2>Secuencia ideal (timeline)</h2>
+      <p class="lead">El orden recomendado de mensajes, con su objetivo y una vista previa de cada uno.</p>
+    </div>
+    <div class="timeline">
+      <!-- paso 1 -->
+      <div class="tl-step">
+        <div class="tl-marker">1</div>
+        <div class="tl-body">
+          <div class="tl-head"><span class="code">V7Inicio</span><h3>Mensaje inicial</h3></div>
+          <div class="tl-meta"><span>🎯 <b>Objetivo:</b> presentar y segmentar</span><span>⏱️ <b>Momento:</b> apenas entra el lead</span></div>
+          <div class="preview">Hola, soy Luis, profe del programa… el curso ya está por iniciar… precio promo $650… Python, SQL y Power BI desde cero… ¿lo buscas para conseguir empleo, mejorar en tu trabajo o aprender desde cero?</div>
+        </div>
+      </div>
+      <!-- paso 2 -->
+      <div class="tl-step">
+        <div class="tl-marker">2</div>
+        <div class="tl-body">
+          <div class="tl-head"><h3>Segmentación</h3></div>
+          <div class="tl-meta"><span>🎯 <b>Objetivo:</b> adaptar el mensaje a su intención</span></div>
+          <div class="tabs" id="segTabs">
+            <button class="tab active" data-seg="empleo">Conseguir empleo</button>
+            <button class="tab" data-seg="mejorar">Mejorar en mi trabajo</button>
+            <button class="tab" data-seg="aprender">Aprender desde cero</button>
+          </div>
+          <div class="tab-panel active" data-panel="empleo">
+            <div class="tl-head" style="margin-bottom:6px"><span class="code">V7CeroEmpleo</span></div>
+            <div class="preview" id="seg-empleo"></div>
+          </div>
+          <div class="tab-panel" data-panel="mejorar">
+            <div class="tl-head" style="margin-bottom:6px"><span class="code">V7CeroMejorarTrabajo</span></div>
+            <div class="preview" id="seg-mejorar"></div>
+          </div>
+          <div class="tab-panel" data-panel="aprender">
+            <div class="tl-head" style="margin-bottom:6px"><span class="code">V7CeroAprender</span></div>
+            <div class="preview" id="seg-aprender"></div>
+          </div>
+        </div>
+      </div>
+      <!-- paso 3 -->
+      <div class="tl-step">
+        <div class="tl-marker">3</div>
+        <div class="tl-body">
+          <div class="tl-head"><span class="code">V7Horario</span><h3>Enviar horarios</h3></div>
+          <div class="tl-meta"><span>🎯 <b>Objetivo:</b> lograr que elija un grupo</span></div>
+          <div class="horarios">
+            <div class="h-card lm">
+              <div class="h-days">Lunes y miércoles</div>
+              <div class="h-time">7:00 – 9:00 pm</div>
+              <div class="h-info"><span>📅 Inicia 15 jul</span><span>📚 7 clases</span></div>
+            </div>
+            <div class="h-card mj">
+              <div class="h-days">Martes y jueves</div>
+              <div class="h-time">6:00 – 8:00 pm</div>
+              <div class="h-info"><span>📅 Inicia 16 jul</span><span>📚 7 clases</span></div>
+            </div>
+            <div class="h-card sab">
+              <div class="h-days">Sábados</div>
+              <div class="h-time">8:00 – 11:30 am</div>
+              <div class="h-info"><span>📅 Inicia 18 jul</span><span>📚 4 clases</span></div>
+            </div>
+            <div class="h-extra">
+              <span class="badge">Extra matutino</span>
+              <div><b>Lunes a jueves · 7:00 – 9:00 am</b> · inicia 13 jul · 7 clases</div>
+              <span class="code">V7DosHorario</span>
+            </div>
+          </div>
+          <div class="cta-line"><span class="arrow">→</span> “¿Qué horario te acomoda más para apartarte tu lugar?”</div>
+        </div>
+      </div>
+      <!-- paso 4 -->
+      <div class="tl-step">
+        <div class="tl-marker">4</div>
+        <div class="tl-body">
+          <div class="tl-head"><span class="code">V7FormaPago</span><h3>Forma de pago</h3></div>
+          <div class="tl-meta"><span>🎯 <b>Objetivo:</b> confirmar lugar y método</span></div>
+          <div class="pay-card">
+            <ul class="pay-list">
+              <li>Confirmación del horario elegido.</li>
+              <li>Recordatorio del precio promo: <b>$650 MXN</b> (regular $1,200).</li>
+              <li>Activación de bonos (Excel, Power BI, dashboards, IA).</li>
+              <li>Opciones: <b>transferencia</b> o <b>tarjeta</b>.</li>
+            </ul>
+            <div class="placeholder-box">[ DATOS DE PAGO BBVA ]</div>
+            <div class="warn-inline">⚠️ Si la página es <b>pública</b>, no muestres datos bancarios completos. Si es <b>interna</b>, colócalos en un bloque protegido.</div>
+          </div>
+        </div>
+      </div>
+      <!-- paso 5 -->
+      <div class="tl-step">
+        <div class="tl-marker">5</div>
+        <div class="tl-body">
+          <div class="tl-head"><h3>Cierre</h3></div>
+          <div class="tl-meta"><span>🎯 <b>Objetivo:</b> obtener el comprobante y confirmar el lugar</span></div>
+          <div class="cols-2">
+            <div class="close-col">
+              <h4>🏦 Transferencia / depósito <span class="code">V7CierreTrans</span></h4>
+              <p>Pedir comprobante, concepto con nombre completo y confirmar el lugar.</p>
+            </div>
+            <div class="close-col tdc">
+              <h4>💳 Tarjeta / link <span class="code">V7CierreTdc</span></h4>
+              <p>Compartir link de pago, pedir captura o comprobante y confirmar el lugar.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- paso 6 -->
+      <div class="tl-step">
+        <div class="tl-marker done">✓</div>
+        <div class="tl-body">
+          <div class="tl-head"><h3>Accesos</h3></div>
+          <div class="tl-meta"><span>🎯 <b>Objetivo:</b> completar la inscripción</span></div>
+          <div class="preview">Después del pago: confirmar lugar, agregar al grupo y mandar accesos según el horario elegido (Sabatino, Mar-Jue, Lun-Mié o Semanal).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BIBLIOTECA (Section 8 controls + all templates) -->
+<section class="section alt" id="biblioteca">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Sección 8 · Herramienta</div>
+      <h2>Biblioteca de plantillas</h2>
+      <p class="lead">Busca por código, filtra por etapa y copia el mensaje listo. Cambia entre modo compacto (solo objetivos) y completo.</p>
+    </div>
+
+    <div class="lib-controls">
+      <div class="controls-row">
+        <div class="search-box">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="text" id="search" placeholder="Buscar por código u objetivo…  (V7Inicio, V7CierreTdc…)">
+        </div>
+        <div class="toggle-mode" id="modeToggle">
+          <button data-mode="full" class="active">Completo</button>
+          <button data-mode="compact">Compacto</button>
+        </div>
+      </div>
+      <div class="filters" id="filters">
+        <button class="f-chip active" data-stage="todos">Todos</button>
+        <button class="f-chip" data-stage="inicio">Inicio</button>
+        <button class="f-chip" data-stage="segmentacion">Segmentación</button>
+        <button class="f-chip" data-stage="horarios">Horarios</button>
+        <button class="f-chip" data-stage="pago">Pago</button>
+        <button class="f-chip" data-stage="cierre">Cierre</button>
+        <button class="f-chip" data-stage="accesos">Accesos</button>
+        <button class="f-chip" data-stage="complementarios">Complementarios</button>
+      </div>
+    </div>
+
+    <div class="lib-grid" id="libGrid"></div>
+  </div>
+</section>
+
+<!-- SECTION 5 · COMPLEMENTARIOS -->
+<section class="section" id="complementarios">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Sección 5 · Objeciones y dudas</div>
+      <h2>Mensajes complementarios</h2>
+      <p class="lead">Respuestas rápidas para las preguntas frecuentes. Toca cada tarjeta para desplegar el mensaje.</p>
+    </div>
+    <div class="acc" id="accordion"></div>
+  </div>
+</section>
+
+<!-- SECTION 6 · REGLA CENTRAL -->
+<section class="section alt">
+  <div class="wrap">
+    <div class="rule">
+      <div class="rule-top">
+        <div class="rule-ico">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+        </div>
+        <h2>Regla central del embudo</h2>
+      </div>
+      <p class="big">Si el lead se sale de la secuencia ideal, se responde su duda de forma breve y clara, <b>pero siempre se regresa al flujo comercial.</b></p>
+      <div class="returns">
+        <div class="return-card">
+          <div class="state"><span class="n">1</span> Aún no elige horario</div>
+          <p class="say">“¿Qué horario te acomoda más?”</p>
+        </div>
+        <div class="return-card">
+          <div class="state"><span class="n">2</span> Ya eligió horario</div>
+          <p class="say">“¿Te paso la información para confirmar tu lugar?”</p>
+        </div>
+        <div class="return-card">
+          <div class="state"><span class="n">3</span> Falta definir el pago</div>
+          <p class="say">“¿Te queda mejor por transferencia o con tarjeta?”</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7 · TABLA -->
+<section class="section" id="tabla">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Sección 7 · Referencia</div>
+      <h2>Objetivo por etapa</h2>
+      <p class="lead">Qué buscar en cada mensaje, qué esperar del lead y cuál es el siguiente paso.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Etapa</th><th>Código</th><th>Objetivo</th><th>Acción esperada del lead</th><th>Siguiente paso</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Inicio</td><td><span class="code">V7Inicio</span></td><td>Presentar curso y segmentar</td><td>Responde su objetivo</td><td class="next-cell">Enviar mensaje segmentado</td></tr>
+          <tr><td>Segmentación · empleo</td><td><span class="code">V7CeroEmpleo</span></td><td>Conectar con búsqueda laboral</td><td>Muestra interés</td><td class="next-cell">Enviar horarios</td></tr>
+          <tr><td>Segmentación · trabajo</td><td><span class="code">V7CeroMejorarTrabajo</span></td><td>Conectar con mejora profesional</td><td>Muestra interés</td><td class="next-cell">Enviar horarios</td></tr>
+          <tr><td>Segmentación · aprender</td><td><span class="code">V7CeroAprender</span></td><td>Reducir el miedo de principiante</td><td>Muestra interés</td><td class="next-cell">Enviar horarios</td></tr>
+          <tr><td>Horarios</td><td><span class="code">V7Horario</span></td><td>Lograr elección de grupo</td><td>Elige horario</td><td class="next-cell">Enviar forma de pago</td></tr>
+          <tr><td>Forma de pago</td><td><span class="code">V7FormaPago</span></td><td>Confirmar lugar y método</td><td>Elige transferencia o tarjeta</td><td class="next-cell">Enviar cierre</td></tr>
+          <tr><td>Cierre · transferencia</td><td><span class="code">V7CierreTrans</span></td><td>Obtener comprobante</td><td>Manda comprobante</td><td class="next-cell">Confirmar y mandar accesos</td></tr>
+          <tr><td>Cierre · tarjeta</td><td><span class="code">V7CierreTdc</span></td><td>Obtener pago por link</td><td>Manda captura / comprobante</td><td class="next-cell">Confirmar y mandar accesos</td></tr>
+          <tr><td>Accesos</td><td><span class="code">V7Accesos</span></td><td>Completar inscripción</td><td>Entra al grupo</td><td class="next-cell">Finalizar proceso</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 9 · MICROCOPY -->
+<section class="reminders">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Sección 9 · Recordatorios</div>
+      <h2>Microcopy comercial</h2>
+    </div>
+    <div class="rem-grid">
+      <div class="rem-card"><div class="q">“</div><p>No solo informes: guía al lead al siguiente paso.</p></div>
+      <div class="rem-card"><div class="q">“</div><p>Cada respuesta debe acercar al horario o al pago.</p></div>
+      <div class="rem-card"><div class="q">“</div><p>Resolver dudas sí, pero regresar al flujo.</p></div>
+      <div class="rem-card"><div class="q">“</div><p>La urgencia principal es la promo de $650 y el inicio próximo.</p></div>
+      <div class="rem-card"><div class="q">“</div><p>El cierre ideal ocurre el mismo día.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">Guía interna del equipo comercial · <b>Embudo V7</b> · Curso de Análisis de Datos desde Cero · Mensajes editables desde el bloque <span class="mono">MESSAGES</span> del código.</div>
+</footer>
+
+<div class="toast" id="toast"><span class="ok">✓</span><span id="toastText">¡Mensaje copiado!</span></div>
+
+<script>
+/* ============================================================
+   FUENTE DE VERDAD · edita aquí los mensajes fácilmente
+   ============================================================ */
+const MESSAGES = [
+  {
+    code:'V7Inicio', stage:'inicio', stageLabel:'Inicio', tags:['urgencia'],
+    objective:'Presentar el curso, precio y beneficios, y preguntar la intención del lead.',
+    moment:'Apenas entra el lead por el anuncio.',
+    text:`¡Hola! 👋 Soy Luis, profe del programa de Análisis de Datos desde Cero.
+Gracias por tu interés 🙌 El curso ya está por iniciar y te cuento lo esencial:
+
+📊 Aprendes desde cero Python, SQL y Power BI (no necesitas experiencia previa).
+🎥 Clases en vivo + grabaciones + grupo de dudas.
+💼 Orientación laboral: CV, entrevistas, vacantes y pruebas técnicas.
+💰 Precio promo: $650 MXN pago único (precio regular $1,200).
+
+Para recomendarte lo ideal, cuéntame:
+¿Lo buscas para conseguir empleo, mejorar en tu trabajo actual o aprender desde cero?`
+  },
+  {
+    code:'V7CeroEmpleo', stage:'segmentacion', stageLabel:'Segmentación', tags:['segmentacion'],
+    objective:'Conectar el curso con la búsqueda de empleo y llevar al lead a elegir horario.',
+    moment:'El lead responde que busca empleo.',
+    text:`¡Excelente! 🚀 Si tu meta es conseguir empleo, este curso está pensado justo para eso.
+
+Vas a dominar las 3 herramientas más pedidas en vacantes de datos: Python, SQL y Power BI, con ejercicios prácticos en cada clase.
+Además incluye orientación laboral completa: te ayudamos con tu CV, simulacros de entrevista, vacantes reales y pruebas técnicas.
+
+🎁 Bono: clase en vivo para crear, personalizar y mejorar tu CV.
+
+Sales con proyectos para tu portafolio y listo para postularte.
+¿Qué horario te acomoda más para apartarte tu lugar?`
+  },
+  {
+    code:'V7CeroMejorarTrabajo', stage:'segmentacion', stageLabel:'Segmentación', tags:['segmentacion'],
+    objective:'Conectar el curso con la mejora en el trabajo actual y llevar a elegir horario.',
+    moment:'El lead quiere mejorar en su trabajo actual.',
+    text:`¡Perfecto! 💼 Si buscas mejorar en tu trabajo actual, aquí aprendes a sacarle todo el provecho a tus datos.
+
+Te enfocas en reportes, análisis, automatización y presentación profesional de la información, para dejar de perder horas en tareas manuales y destacar con resultados claros.
+
+🎁 Bonos: Excel avanzado, Power BI y dashboards, más clases de IA para tu día a día laboral.
+
+Vas a poder aplicar lo que aprendes desde la primera semana.
+¿Qué horario te acomoda más para apartarte tu lugar?`
+  },
+  {
+    code:'V7CeroAprender', stage:'segmentacion', stageLabel:'Segmentación', tags:['segmentacion','confianza'],
+    objective:'Reducir el miedo de principiante y llevar al lead a elegir horario.',
+    moment:'El lead solo quiere aprender desde cero.',
+    text:`¡Me encanta! 🌱 Si quieres aprender desde cero, no te preocupes: no necesitas ninguna experiencia previa.
+
+Todo es paso a paso, con explicaciones sencillas, clases grabadas por si te pierdes alguna y un grupo de dudas donde siempre hay apoyo.
+
+🎁 Bonos: Excel, Power BI, R y ChatGPT para que explores a tu ritmo.
+
+Vas a avanzar con confianza y a tu propio paso.
+¿Qué horario te acomoda más para apartarte tu lugar?`
+  },
+  {
+    code:'V7Horario', stage:'horarios', stageLabel:'Horarios', tags:['horario'],
+    objective:'Presentar los horarios y lograr que el lead elija un grupo.',
+    moment:'Después de segmentar, cuando ya mostró interés.',
+    text:`Estos son los horarios disponibles 📅 (elige el que mejor te quede):
+
+🟦 Lunes y miércoles · 7:00–9:00 pm · inicia 15 jul · 7 clases
+🟩 Martes y jueves · 6:00–8:00 pm · inicia 16 jul · 7 clases
+🟨 Sábados · 8:00–11:30 am · inicia 18 jul · 4 clases
+
+Todas las clases quedan grabadas, así que no te preocupes si algún día no puedes conectarte.
+
+¿Qué horario te acomoda más para apartarte tu lugar?`
+  },
+  {
+    code:'V7FormaPago', stage:'pago', stageLabel:'Pago', tags:['pago','cierre'],
+    objective:'Confirmar el horario, reforzar la promo y pedir decisión de método de pago.',
+    moment:'El lead ya eligió horario.',
+    text:`¡Excelente elección! ✅ Te confirmo tu horario: [HORARIO ELEGIDO].
+
+Recuerda que el precio promo es de $650 MXN pago único (después sube a $1,200) e incluye todos los bonos: Excel, Power BI, dashboards e IA.
+
+Para apartar tu lugar puedes pagar por:
+💳 Tarjeta (te paso link de pago)
+🏦 Transferencia o depósito
+
+¿Cuál te queda mejor para dejar tu lugar apartado hoy?`
+  },
+  {
+    code:'V7CierreTrans', stage:'cierre', stageLabel:'Cierre', tags:['cierre','pago'],
+    objective:'Dar los datos de transferencia, pedir comprobante y confirmar el lugar.',
+    moment:'El lead eligió transferencia o depósito.',
+    text:`¡Perfecto! 🏦 Para transferencia o depósito:
+
+[DATOS DE PAGO BBVA]
+
+📌 En el concepto pon tu nombre completo.
+
+Cuando lo hagas, mándame tu comprobante por aquí y con eso confirmo tu lugar y te agrego al grupo. 🙌`
+  },
+  {
+    code:'V7CierreTdc', stage:'cierre', stageLabel:'Cierre', tags:['cierre','pago'],
+    objective:'Compartir el link de pago, pedir captura o comprobante y confirmar el lugar.',
+    moment:'El lead eligió tarjeta / link de pago.',
+    text:`¡Perfecto! 💳 Aquí está tu link de pago seguro:
+
+[LINK DE PAGO]
+
+Cuando termines, mándame la captura o comprobante por aquí y con eso confirmo tu lugar y te agrego al grupo. 🙌`
+  },
+  {
+    code:'V7SabAccesos', stage:'accesos', stageLabel:'Accesos', tags:['cierre'],
+    objective:'Enviar accesos al grupo Sabatino tras confirmar el pago.',
+    moment:'Pago confirmado · horario Sábados.',
+    text:`¡Bienvenido/a al curso! 🎉 Tu lugar en el grupo Sabatino está confirmado.
+🗓️ Sábados 8:00–11:30 am · inicia 18 jul
+
+Te comparto tus accesos:
+📲 Grupo de dudas: [LINK GRUPO]
+🎥 Sala de clases: [LINK CLASE]
+
+Cualquier cosa aquí estoy. ¡Nos vemos en clase! 🚀`
+  },
+  {
+    code:'V7MJAccesos', stage:'accesos', stageLabel:'Accesos', tags:['cierre'],
+    objective:'Enviar accesos al grupo Martes y Jueves tras confirmar el pago.',
+    moment:'Pago confirmado · horario Mar-Jue.',
+    text:`¡Bienvenido/a al curso! 🎉 Tu lugar en el grupo Martes y Jueves está confirmado.
+🗓️ Mar y Jue 6:00–8:00 pm · inicia 16 jul
+
+Tus accesos:
+📲 Grupo de dudas: [LINK GRUPO]
+🎥 Sala de clases: [LINK CLASE]
+
+¡Nos vemos en clase! 🚀`
+  },
+  {
+    code:'V7LMAccesos', stage:'accesos', stageLabel:'Accesos', tags:['cierre'],
+    objective:'Enviar accesos al grupo Lunes y Miércoles tras confirmar el pago.',
+    moment:'Pago confirmado · horario Lun-Mié.',
+    text:`¡Bienvenido/a al curso! 🎉 Tu lugar en el grupo Lunes y Miércoles está confirmado.
+🗓️ Lun y Mié 7:00–9:00 pm · inicia 15 jul
+
+Tus accesos:
+📲 Grupo de dudas: [LINK GRUPO]
+🎥 Sala de clases: [LINK CLASE]
+
+¡Nos vemos en clase! 🚀`
+  },
+  {
+    code:'V7SEMAccesos', stage:'accesos', stageLabel:'Accesos', tags:['cierre'],
+    objective:'Enviar accesos al grupo Semanal (matutino) tras confirmar el pago.',
+    moment:'Pago confirmado · horario Lun-Jue matutino.',
+    text:`¡Bienvenido/a al curso! 🎉 Tu lugar en el grupo Semanal (matutino) está confirmado.
+🗓️ Lun a Jue 7:00–9:00 am · inicia 13 jul
+
+Tus accesos:
+📲 Grupo de dudas: [LINK GRUPO]
+🎥 Sala de clases: [LINK CLASE]
+
+¡Nos vemos en clase! 🚀`
+  },
+  {
+    code:'V7DosHorario', stage:'complementarios', stageLabel:'Complementarios', tags:['horario'],
+    objective:'Responder cuando el lead pregunta por el horario matutino semanal.',
+    moment:'El lead pregunta por el horario matutino.',
+    text:`¡Claro! ☀️ También tenemos horario matutino semanal:
+
+🌅 Lunes a jueves · 7:00–9:00 am · inicia 13 jul · 7 clases
+
+Es el mismo contenido y también queda todo grabado.
+¿Te acomoda este para apartar tu lugar?`
+  },
+  {
+    code:'V7Facturar', stage:'complementarios', stageLabel:'Complementarios', tags:['objecion'],
+    objective:'Confirmar que sí se factura y pedir los datos fiscales.',
+    moment:'El lead pregunta si se factura.',
+    text:`¡Claro que sí! 🧾 Sí facturamos.
+
+Para tu factura necesito tu Constancia de Situación Fiscal y el uso de CFDI que requieras.
+Envíamela por aquí y te generamos tu comprobante sin problema. 🙌`
+  },
+  {
+    code:'V7claro', stage:'complementarios', stageLabel:'Complementarios', tags:['urgencia','objecion'],
+    objective:'Responder sin presionar de más, pero recordar la urgencia de la promo.',
+    moment:'El lead dice “lo checo” o “después veo”.',
+    text:`¡Claro, sin problema! 😊 Solo te comento algo importante:
+
+El precio de $650 MXN es promocional y aplica solo con inscripción hoy; después regresa a su precio regular de $1,200.
+Además el grupo ya está por iniciar y los lugares son limitados.
+
+Si te animas hoy, te aparto tu lugar con la promo.
+¿Te paso la info para confirmar?`
+  },
+  {
+    code:'V7Certificados', stage:'complementarios', stageLabel:'Complementarios', tags:['confianza'],
+    objective:'Validar el respaldo del curso y regresar al flujo.',
+    moment:'El lead pregunta por certificados.',
+    text:`¡Buena pregunta! 🎓 Sí, recibes certificado del programa al terminar.
+
+Además te guiamos para obtener certificados en Kaggle y armas proyectos reales para tu portafolio, que es justo lo que valoran en las vacantes de datos.
+
+¿Qué horario te acomoda más para apartar tu lugar?`
+  },
+  {
+    code:'V7DuracionClases', stage:'complementarios', stageLabel:'Complementarios', tags:['confianza'],
+    objective:'Explicar la duración del curso y regresar al flujo.',
+    moment:'El lead pregunta cuánto dura el curso.',
+    text:`¡Con gusto! ⏱️ La duración es:
+
+📗 Entre semana: 8 sesiones en vivo (1 introductoria + 7 clases). Total: 15 horas.
+📘 Sabatino: 5 sesiones en vivo (1 introductoria + 4 clases). Total: 15 horas.
+
+El contenido es exactamente el mismo y todo queda grabado.
+¿Qué horario te acomoda más?`
+  },
+  {
+    code:'V7ReseñasDos', stage:'complementarios', stageLabel:'Complementarios', tags:['confianza','objecion'],
+    objective:'Dar pruebas sociales cuando el lead no confía o pide referencias.',
+    moment:'El lead pide reseñas o no confía.',
+    text:`¡Con toda confianza! ⭐ Te comparto reseñas reales de otros alumnos:
+
+📘 Reseñas en Facebook: [LINK FACEBOOK]
+🎬 Video corto en TikTok: [LINK TIKTOK]
+
+Ahí puedes ver sus experiencias y resultados.
+¿Te gustaría apartar tu lugar con la promo de hoy?`
+  },
+  {
+    code:'V7Temario', stage:'complementarios', stageLabel:'Complementarios', tags:['confianza'],
+    objective:'Enviar el temario y regresar al flujo.',
+    moment:'El lead pide el temario.',
+    text:`📚 ¡Claro! Aquí te comparto el temario del curso.
+
+[ENVIAR IMÁGENES DEL TEMARIO]
+
+Cuéntame qué horario te acomoda y con gusto aparto tu lugar con la promo. 😉`
+  }
+];
+
+/* ---------- helpers ---------- */
+const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const $ = sel => document.querySelector(sel);
+const $$ = sel => [...document.querySelectorAll(sel)];
+
+/* ---------- segmentation previews (timeline) ---------- */
+const byCode = c => MESSAGES.find(m=>m.code===c);
+$('#seg-empleo').textContent  = byCode('V7CeroEmpleo').text;
+$('#seg-mejorar').textContent = byCode('V7CeroMejorarTrabajo').text;
+$('#seg-aprender').textContent= byCode('V7CeroAprender').text;
+
+$$('#segTabs .tab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    $$('#segTabs .tab').forEach(t=>t.classList.remove('active'));
+    tab.classList.add('active');
+    const seg=tab.dataset.seg;
+    $$('.tab-panel').forEach(p=>p.classList.toggle('active',p.dataset.panel===seg));
+  });
+});
+
+/* ---------- library render ---------- */
+const grid = $('#libGrid');
+function copyIcon(){return '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';}
+
+function cardHTML(m){
+  const tags = m.tags.map(t=>`<span class="tag ${t}">${t}</span>`).join('');
+  return `<article class="msg-card" data-stage="${m.stage}" data-code="${m.code.toLowerCase()}" data-obj="${esc(m.objective).toLowerCase()}">
+    <div class="msg-top">
+      <span class="code">${m.code}</span>
+      <div class="msg-tags">${tags}</div>
+    </div>
+    <p class="msg-obj"><b>Objetivo:</b> ${esc(m.objective)}</p>
+    <div class="msg-body">${esc(m.text)}</div>
+    <div class="msg-foot">
+      <span class="moment">⏱️ ${esc(m.moment)}</span>
+      <button class="copy-btn" data-code="${m.code}">${copyIcon()} Copiar mensaje</button>
+    </div>
+  </article>`;
+}
+grid.innerHTML = MESSAGES.map(cardHTML).join('') + '<div class="empty-state" id="emptyState" style="display:none">Sin resultados. Prueba con otro código o quita el filtro.</div>';
+
+/* ---------- copy ---------- */
+grid.addEventListener('click', async e=>{
+  const btn = e.target.closest('.copy-btn');
+  if(!btn) return;
+  const m = byCode(btn.dataset.code);
+  try{
+    await navigator.clipboard.writeText(m.text);
+  }catch(err){
+    const ta=document.createElement('textarea');ta.value=m.text;document.body.appendChild(ta);ta.select();
+    try{document.execCommand('copy');}catch(_){}
+    document.body.removeChild(ta);
+  }
+  btn.classList.add('copied');
+  btn.innerHTML = '✓ ¡Copiado!';
+  showToast('Mensaje '+m.code+' copiado');
+  setTimeout(()=>{btn.classList.remove('copied');btn.innerHTML=copyIcon()+' Copiar mensaje';},1600);
+});
+
+/* ---------- filters + search ---------- */
+let activeStage='todos';
+function applyFilters(){
+  const q = $('#search').value.trim().toLowerCase();
+  let visible=0;
+  $$('#libGrid .msg-card').forEach(card=>{
+    const stageOk = activeStage==='todos' || card.dataset.stage===activeStage;
+    const qOk = !q || card.dataset.code.includes(q) || card.dataset.obj.includes(q);
+    const show = stageOk && qOk;
+    card.style.display = show ? '' : 'none';
+    if(show) visible++;
+  });
+  $('#emptyState').style.display = visible? 'none':'block';
+}
+$('#filters').addEventListener('click',e=>{
+  const chip=e.target.closest('.f-chip'); if(!chip) return;
+  $$('#filters .f-chip').forEach(c=>c.classList.remove('active'));
+  chip.classList.add('active');
+  activeStage=chip.dataset.stage;
+  applyFilters();
+});
+$('#search').addEventListener('input',applyFilters);
+
+/* ---------- compact / full ---------- */
+$('#modeToggle').addEventListener('click',e=>{
+  const btn=e.target.closest('button'); if(!btn) return;
+  $$('#modeToggle button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  grid.classList.toggle('compact', btn.dataset.mode==='compact');
+});
+
+/* ---------- accordion (complementarios) ---------- */
+const acc = $('#accordion');
+const comp = MESSAGES.filter(m=>m.stage==='complementarios');
+acc.innerHTML = comp.map(m=>`
+  <div class="acc-item">
+    <button class="acc-head">
+      <span class="code">${m.code}</span>
+      <span>${esc(m.objective)}</span>
+      <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="acc-panel">
+      <div class="acc-inner">
+        <div class="use">Cuándo usarlo: ${esc(m.moment)}</div>
+        <div class="content">${esc(m.text)}</div>
+      </div>
+    </div>
+  </div>`).join('');
+acc.addEventListener('click',e=>{
+  const head=e.target.closest('.acc-head'); if(!head) return;
+  const item=head.parentElement;
+  const panel=item.querySelector('.acc-panel');
+  const open=item.classList.toggle('open');
+  panel.style.maxHeight = open ? panel.scrollHeight+'px' : 0;
+});
+
+/* ---------- toast ---------- */
+let toastTimer;
+function showToast(txt){
+  const t=$('#toast'); $('#toastText').textContent=txt;
+  t.classList.add('show'); clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>t.classList.remove('show'),1800);
+}
+</script>
+</body>
+</html>
