@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Repaso Clase 1: Introducción a Excel | Excel y Power BI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EEF6F0; --bg-glow:#D3EEDD;
+  --surface:rgba(255,255,255,.78); --surface-strong:#FFFFFF;
+  --border:rgba(14,90,52,.15); --border-strong:rgba(14,90,52,.32);
+  --text:#0E2A1C; --muted:#4A6556;
+  --violet:#107C41; --violet-soft:rgba(16,124,65,.10);
+  --iris:#0B7F73; --iris-soft:rgba(11,127,115,.10);
+  --band:#C2410C; --band-soft:rgba(194,65,12,.09);
+  --pink:#C99700;
+  --track:#123524;
+  --shadow:0 18px 50px -24px rgba(10,70,40,.40);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0B1A13; --bg-glow:#163D2A;
+    --surface:rgba(255,255,255,.05); --surface-strong:rgba(255,255,255,.085);
+    --border:rgba(160,230,190,.14); --border-strong:rgba(160,230,190,.34);
+    --text:#ECF7F0; --muted:#A3C4B1;
+    --violet:#3DD68C; --violet-soft:rgba(61,214,140,.15);
+    --iris:#5EEAD4; --iris-soft:rgba(94,234,212,.12);
+    --band:#FF8A4C; --band-soft:rgba(255,138,76,.12);
+    --pink:#F2C811;
+    --track:#06120C;
+    --shadow:0 24px 60px -28px rgba(0,0,0,.7);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0B1A13; --bg-glow:#163D2A;
+  --surface:rgba(255,255,255,.05); --surface-strong:rgba(255,255,255,.085);
+  --border:rgba(160,230,190,.14); --border-strong:rgba(160,230,190,.34);
+  --text:#ECF7F0; --muted:#A3C4B1;
+  --violet:#3DD68C; --violet-soft:rgba(61,214,140,.15);
+  --iris:#5EEAD4; --iris-soft:rgba(94,234,212,.12);
+  --band:#FF8A4C; --band-soft:rgba(255,138,76,.12);
+  --pink:#F2C811;
+  --track:#06120C;
+  --shadow:0 24px 60px -28px rgba(0,0,0,.7);
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; min-height:100vh;
+  font-family:"Manrope","Segoe UI",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:17px; line-height:1.55; color:var(--text);
+  background-color:var(--bg);
+  background-image:radial-gradient(ellipse 80% 60% at 50% 30%, var(--bg-glow), transparent 70%);
+  background-attachment:fixed;
+  overflow-x:hidden;
+}
+img{max-width:100%;height:auto;display:block}
+code{
+  font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  font-size:.88em; padding:.1em .4em; border-radius:6px;
+  background:var(--violet-soft); color:inherit; white-space:nowrap;
+}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--iris);outline-offset:3px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+[hidden]{display:none !important}
+
+.wrap{width:100%;max-width:720px;margin:0 auto;padding:0 20px}
+
+/* ---------- botones ---------- */
+.btn{
+  appearance:none;border:0;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;gap:.5em;
+  min-height:52px;padding:0 28px;border-radius:999px;
+  font-weight:800;font-size:1rem;letter-spacing:.01em;
+  transition:transform .15s ease, background-color .15s ease, box-shadow .15s ease, opacity .15s ease;
+}
+.btn:active{transform:translateY(1px) scale(.99)}
+.btn-primary{
+  color:#fff;
+  background:linear-gradient(180deg,#2FB86A,#138A4C 55%,#0E6B3A);
+  box-shadow:0 10px 28px -10px rgba(16,124,65,.75), inset 0 1px 0 rgba(255,255,255,.35);
+}
+.btn-primary:hover{box-shadow:0 14px 34px -10px rgba(16,124,65,.9), inset 0 1px 0 rgba(255,255,255,.35)}
+.btn-band{
+  color:#2B2100;
+  background:linear-gradient(180deg,#FFE066,#F2C811 55%,#D9A900);
+  box-shadow:0 10px 26px -10px rgba(217,169,0,.85), inset 0 1px 0 rgba(255,255,255,.5);
+}
+.btn-ghost{background:transparent;border:1.5px solid var(--border-strong)}
+.btn-ghost:hover{background:var(--violet-soft)}
+.btn[disabled]{opacity:.35;cursor:not-allowed;transform:none}
+
+/* ---------- inicio ---------- */
+.intro{
+  min-height:100vh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:32px 20px 48px;
+}
+.hero-logo{position:relative;width:min(290px,64vw);margin-bottom:12px}
+.hero-logo::before{
+  content:"";position:absolute;inset:8% 4% -6%;border-radius:50%;
+  background:radial-gradient(circle, rgba(242,200,17,.45), rgba(31,158,90,.38) 45%, transparent 70%);
+  filter:blur(28px);z-index:-1;
+}
+.hero-logo img{animation:bob 5s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-10px) rotate(1.5deg)}}
+.course{margin:0 0 6px;font-weight:700;color:var(--muted);font-size:1rem}
+.intro h1{
+  margin:0;font-weight:900;line-height:1.02;letter-spacing:-.03em;
+  font-size:clamp(2.4rem,7.5vw,4rem);
+  background:linear-gradient(180deg,var(--text) 30%, var(--violet) 130%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.intro .lead{max-width:30em;margin:18px auto 30px;color:var(--muted);font-size:1.06rem}
+.facts{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:0 0 30px;padding:0;list-style:none}
+.facts li{
+  display:flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;
+  background:var(--surface);border:1px solid var(--border);font-weight:700;font-size:.95rem;
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+}
+.facts svg{width:18px;height:18px;flex:none}
+.kbd-hint{margin-top:22px;font-size:.88rem;color:var(--muted)}
+kbd{
+  font-family:inherit;font-weight:800;font-size:.8rem;padding:.1em .45em;border-radius:6px;
+  border:1px solid var(--border-strong);border-bottom-width:2px;background:var(--surface-strong)
+}
+
+/* ---------- cinta temporizador ---------- */
+.topbar{
+  position:sticky;top:0;z-index:20;padding:12px 0 10px;
+  background:var(--bg);box-shadow:0 10px 20px -12px var(--bg);
+}
+.band-row{display:flex;align-items:center;gap:12px}
+.band{
+  position:relative;flex:1;height:46px;border-radius:999px;overflow:hidden;
+  background:var(--track);
+  box-shadow:inset 0 3px 8px rgba(0,0,0,.45), 0 0 0 1px var(--border);
+}
+.band-fill{
+  position:absolute;inset:0;transform-origin:left center;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.22),transparent 40%,transparent 60%,rgba(0,0,0,.22)),
+    repeating-linear-gradient(90deg,rgba(255,255,255,.22) 0 1.5px,transparent 1.5px 34px),
+    linear-gradient(180deg,transparent calc(50% - .75px),rgba(255,255,255,.2) calc(50% - .75px) calc(50% + .75px),transparent calc(50% + .75px)),
+    linear-gradient(90deg,#0E6B3A,#1E9E5A 55%,#2FC873);
+  transition:transform 1s linear;
+}
+.band-fill.is-low{animation:throb 1s ease-in-out infinite;background:linear-gradient(180deg,rgba(255,255,255,.22),transparent 40%,transparent 60%,rgba(0,0,0,.22)),repeating-linear-gradient(90deg,rgba(255,255,255,.22) 0 1.5px,transparent 1.5px 34px),linear-gradient(90deg,#B8860B,#E0A800 55%,#F2C811)}
+@keyframes throb{50%{filter:brightness(1.3) saturate(1.15)}}
+.band-time{
+  position:absolute;left:18px;top:50%;transform:translateY(-50%);
+  display:flex;align-items:baseline;gap:8px;
+  color:#fff;font-weight:900;font-size:1.3rem;font-variant-numeric:tabular-nums;
+  text-shadow:0 1px 3px rgba(0,0,0,.55);
+}
+.band-time small{font-size:.78rem;font-weight:700;opacity:.9}
+.mini-logo{width:58px;flex:none;margin:-8px -4px -10px 0;filter:drop-shadow(0 6px 12px rgba(0,0,0,.35))}
+
+.dots{display:flex;gap:6px;margin-top:12px}
+.dot{
+  appearance:none;flex:1;min-width:0;height:30px;border-radius:9px;cursor:pointer;
+  border:1.5px solid var(--border);background:var(--surface);
+  font-weight:800;font-size:.8rem;color:var(--muted);
+  transition:background-color .15s ease,border-color .15s ease,color .15s ease;
+}
+.dot:hover{border-color:var(--border-strong)}
+.dot.answered{background:var(--violet-soft);border-color:transparent;color:var(--text)}
+.dot.current{border-color:var(--violet);background:var(--violet);color:#fff}
+
+/* ---------- pregunta ---------- */
+.stage{padding:18px 0 48px}
+.card{
+  background:var(--surface);border:1px solid var(--border);border-radius:28px;
+  padding:clamp(22px,4.5vw,36px);box-shadow:var(--shadow);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+}
+.q-count{margin:0 0 8px;font-weight:800;color:var(--muted);font-size:.92rem}
+.q-count b{color:var(--violet)}
+.q-text{margin:0 0 22px;font-size:clamp(1.25rem,3.4vw,1.55rem);line-height:1.3;font-weight:800;letter-spacing:-.01em}
+.q-extra{display:flex;flex-direction:column;align-items:flex-start;gap:6px;margin:-8px 0 22px}
+.q-extra code{font-size:.95rem;padding:.35em .7em;max-width:100%;white-space:pre-wrap;overflow-wrap:anywhere}
+.r-q code,.r-body code{white-space:normal;overflow-wrap:anywhere}
+.q-anim{animation:swap .28s ease both}
+@keyframes swap{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:none}}
+
+.opts{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.opt{
+  appearance:none;width:100%;text-align:left;cursor:pointer;
+  display:flex;align-items:flex-start;gap:14px;
+  padding:14px 16px;border-radius:18px;
+  background:var(--surface-strong);border:2px solid var(--border);
+  font-size:1rem;line-height:1.45;
+  transition:border-color .15s ease,background-color .15s ease,transform .1s ease;
+}
+.opt:hover{border-color:var(--border-strong)}
+.opt:active{transform:scale(.995)}
+.opt .letter{
+  flex:none;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;
+  font-weight:900;font-size:.95rem;border:2px solid var(--border-strong);color:var(--muted);
+  transition:all .15s ease;
+}
+.opt .opt-text{padding-top:3px}
+.opt[aria-checked="true"]{border-color:var(--violet);background:var(--violet-soft)}
+.opt[aria-checked="true"] .letter{
+  background:linear-gradient(180deg,#2FB86A,#107C41);border-color:transparent;color:#fff;
+  box-shadow:0 0 0 4px var(--violet-soft);
+}
+
+.nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:26px;flex-wrap:wrap}
+.nav .spacer{flex:1}
+
+.confirm{
+  margin-top:18px;padding:16px 18px;border-radius:18px;
+  background:var(--band-soft);border:1.5px solid var(--band);
+  display:flex;flex-wrap:wrap;align-items:center;gap:12px;
+}
+.confirm p{margin:0;flex:1 1 220px;font-weight:700}
+.confirm .btn{min-height:44px;padding:0 20px;font-size:.95rem}
+
+/* ---------- resultados ---------- */
+.results{padding:36px 0 64px}
+.score-card{text-align:center;position:relative}
+.ring{position:relative;width:min(220px,58vw);margin:0 auto 6px}
+.ring svg{width:100%;height:auto;transform:rotate(-90deg);overflow:visible}
+.ring .track{stroke:var(--violet-soft)}
+.ring .prog{transition:stroke-dashoffset 1.6s cubic-bezier(.2,.8,.2,1)}
+.ring-label{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring-label strong{font-size:clamp(3.4rem,11vw,4.4rem);font-weight:900;line-height:1;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.ring-label span{font-weight:800;color:var(--muted);font-size:.95rem;margin-top:4px}
+.ring-logo{position:absolute;width:34%;right:-8%;top:-6%;transform:rotate(12deg);filter:drop-shadow(0 8px 14px rgba(0,0,0,.35))}
+.verdict{margin:14px 0 6px;font-size:clamp(1.5rem,4.4vw,2rem);font-weight:900;letter-spacing:-.02em;line-height:1.15}
+.verdict-sub{margin:0 auto;max-width:32em;color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:26px 0 24px}
+.stat{padding:14px 10px;border-radius:18px;background:var(--surface-strong);border:1px solid var(--border)}
+.stat b{display:block;font-size:1.5rem;font-weight:900;font-variant-numeric:tabular-nums;line-height:1.1}
+.stat span{font-size:.85rem;color:var(--muted);font-weight:700}
+.stat.ok b{color:var(--iris)}
+.stat.bad b{color:var(--band)}
+.timeout-note{
+  margin:0 0 20px;padding:10px 14px;border-radius:14px;background:var(--band-soft);
+  font-weight:700;font-size:.95rem;
+}
+
+.review-title{margin:40px 0 14px;font-size:1.35rem;font-weight:900;letter-spacing:-.01em}
+.review{display:grid;gap:12px;margin:0;padding:0;list-style:none}
+.r-item{
+  padding:18px 20px;border-radius:22px;background:var(--surface);
+  border:1px solid var(--border);border-left:5px solid var(--iris);
+}
+.r-item.wrong{border-left-color:var(--band)}
+.r-head{display:flex;gap:12px;align-items:flex-start}
+.r-icon{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--iris-soft);color:var(--iris)}
+.r-item.wrong .r-icon{background:var(--band-soft);color:var(--band)}
+.r-icon svg{width:16px;height:16px}
+.r-q{margin:2px 0 0;font-weight:800;line-height:1.35}
+.r-body{margin:10px 0 0 40px;font-size:.96rem}
+.r-body p{margin:4px 0}
+.r-body .lbl{font-weight:800}
+.r-yours{color:var(--band)}
+.r-item:not(.wrong) .r-yours{color:var(--iris)}
+.r-right{color:var(--iris)}
+.r-why{margin-top:8px !important;color:var(--muted)}
+.again{display:flex;justify-content:center;margin-top:32px}
+
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:50;width:100%;height:100%}
+
+@media (max-width:520px){
+  body{font-size:16px}
+  .dots{gap:4px}
+  .dot{height:26px;border-radius:7px;font-size:.72rem}
+  .mini-logo{width:48px}
+  .band{height:42px}
+  .nav .btn{flex:1;padding:0 12px;white-space:nowrap;font-size:.95rem}
+  .nav .spacer{display:none}
+  .r-body{margin-left:0}
+  .stats{gap:6px}
+  .stat b{font-size:1.25rem}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important}
+}
+</style>
+</head>
+<body>
+<div class="sr-only" aria-live="assertive" id="announcer"></div>
+<canvas id="confetti" aria-hidden="true"></canvas>
+
+<!-- INICIO -->
+<main id="intro" class="wrap intro">
+  <div class="hero-logo"><img id="heroPanda" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NjAgNTI4Ij4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iZzEiIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMyRkM4NzMiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwRTZCM0EiLz48L2xpbmVhckdyYWRpZW50Pgo8bGluZWFyR3JhZGllbnQgaWQ9ImcyIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjRkZFMDY2Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjRTBBODAwIi8+PC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJnMyIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI0ZGRkZGRiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI0U3RjVFQyIvPjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPGcgdHJhbnNmb3JtPSJyb3RhdGUoLTYgMjgwIDI2NCkiPgo8cmVjdCB4PSI3MCIgeT0iNzAiIHdpZHRoPSIzODAiIGhlaWdodD0iMzkwIiByeD0iNDYiIGZpbGw9InVybCgjZzEpIi8+CjxyZWN0IHg9IjEwNCIgeT0iMTUwIiB3aWR0aD0iMzEyIiBoZWlnaHQ9IjI3NiIgcng9IjIyIiBmaWxsPSJ1cmwoI2czKSIvPgo8ZyBzdHJva2U9IiNCRkRDQ0IiIHN0cm9rZS13aWR0aD0iNCI+CjxsaW5lIHgxPSIxMDQiIHkxPSIyMTkiIHgyPSI0MTYiIHkyPSIyMTkiLz48bGluZSB4MT0iMTA0IiB5MT0iMjg4IiB4Mj0iNDE2IiB5Mj0iMjg4Ii8+PGxpbmUgeDE9IjEwNCIgeTE9IjM1NyIgeDI9IjQxNiIgeTI9IjM1NyIvPgo8bGluZSB4MT0iMTgyIiB5MT0iMTUwIiB4Mj0iMTgyIiB5Mj0iNDI2Ii8+PGxpbmUgeDE9IjI2MCIgeTE9IjE1MCIgeDI9IjI2MCIgeTI9IjQyNiIvPjxsaW5lIHgxPSIzMzgiIHkxPSIxNTAiIHgyPSIzMzgiIHkyPSI0MjYiLz4KPC9nPgo8cmVjdCB4PSIxMDQiIHk9IjE1MCIgd2lkdGg9IjMxMiIgaGVpZ2h0PSIzMCIgcng9IjEyIiBmaWxsPSIjMEU2QjNBIiBvcGFjaXR5PSIuMTgiLz4KPGNpcmNsZSBjeD0iMTMwIiBjeT0iMTEwIiByPSIxMiIgZmlsbD0iI0ZGRkZGRiIgb3BhY2l0eT0iLjg1Ii8+PHJlY3QgeD0iMTUyIiB5PSIxMDEiIHdpZHRoPSIxMjAiIGhlaWdodD0iMTgiIHJ4PSI5IiBmaWxsPSIjRkZGRkZGIiBvcGFjaXR5PSIuNTUiLz4KPC9nPgo8cmVjdCB4PSIyNTAiIHk9IjMwMCIgd2lkdGg9IjU4IiBoZWlnaHQ9IjE1MCIgcng9IjE0IiBmaWxsPSJ1cmwoI2cyKSIvPgo8cmVjdCB4PSIzMjYiIHk9IjIzNiIgd2lkdGg9IjU4IiBoZWlnaHQ9IjIxNCIgcng9IjE0IiBmaWxsPSJ1cmwoI2cyKSIvPgo8cmVjdCB4PSI0MDIiIHk9IjE2MCIgd2lkdGg9IjU4IiBoZWlnaHQ9IjI5MCIgcng9IjE0IiBmaWxsPSJ1cmwoI2cyKSIvPgo8cmVjdCB4PSIyMjgiIHk9IjQ0NiIgd2lkdGg9IjI1NiIgaGVpZ2h0PSIxNCIgcng9IjciIGZpbGw9IiMwQjNEMjQiIG9wYWNpdHk9Ii4zNSIvPgo8cG9seWxpbmUgcG9pbnRzPSIxOTYsMzMwIDI3OSwyNjIgMzU1LDIwMCA0MzEsMTE4IiBmaWxsPSJub25lIiBzdHJva2U9IiMwQjNEMjQiIHN0cm9rZS13aWR0aD0iMTYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8Y2lyY2xlIGN4PSI0MzEiIGN5PSIxMTgiIHI9IjIyIiBmaWxsPSIjMEIzRDI0Ii8+PGNpcmNsZSBjeD0iNDMxIiBjeT0iMTE4IiByPSIxMCIgZmlsbD0iI0ZGRTA2NiIvPgo8L3N2Zz4=" alt="Logo del curso: hoja de cálculo con gráfica de barras ascendente" width="560" height="528"></div>
+  <p class="course">Excel, Power Query y Power BI · Repaso clase 1</p>
+  <h1>Introducción a Excel</h1>
+  <p class="lead">Siete preguntas sobre formato de celdas, fórmulas, referencias, ordenamiento, filtros, tablas y uso de la IA en Excel. Al terminar verás tu calificación y la explicación de cada respuesta.</p>
+  <ul class="facts">
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1.2" fill="currentColor"/><circle cx="4.5" cy="12" r="1.2" fill="currentColor"/><circle cx="4.5" cy="18" r="1.2" fill="currentColor"/></svg>7 preguntas</li>
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9.5 2.5h5"/></svg>5 minutos</li>
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.5 6 .8-4.4 4.1 1.1 6L12 16.6 6.7 19.4l1.1-6L3.4 9.3l6-.8z"/></svg>Calificación sobre 10</li>
+  </ul>
+  <button class="btn btn-primary" id="startBtn" type="button">Comenzar cuestionario</button>
+  <p class="kbd-hint">Atajos: <kbd>A</kbd>–<kbd>D</kbd> para responder, <kbd>←</kbd> <kbd>→</kbd> para moverte</p>
+</main>
+
+<!-- CUESTIONARIO -->
+<div id="quiz" hidden>
+  <header class="topbar">
+    <div class="wrap">
+      <div class="band-row">
+        <div class="band" role="timer" aria-label="Tiempo restante">
+          <div class="band-fill" id="bandFill"></div>
+          <div class="band-time"><span id="timeText">5:00</span><small>restantes</small></div>
+        </div>
+        <img class="mini-logo" src="data:," data-panda alt="" width="560" height="528">
+      </div>
+      <nav class="dots" id="dots" aria-label="Preguntas"></nav>
+    </div>
+  </header>
+
+  <main class="wrap stage">
+    <section class="card" id="qCard" aria-live="polite">
+      <div id="qInner">
+        <p class="q-count" id="qCount"></p>
+        <h2 class="q-text" id="qText"></h2>
+        <div class="q-extra" id="qExtra" hidden></div>
+        <div class="opts" id="opts" role="radiogroup" aria-labelledby="qText"></div>
+      </div>
+      <div class="nav">
+        <button class="btn btn-ghost" id="prevBtn" type="button">Anterior</button>
+        <span class="spacer"></span>
+        <button class="btn btn-primary" id="nextBtn" type="button">Siguiente</button>
+      </div>
+      <div class="confirm" id="confirm" hidden>
+        <p id="confirmText"></p>
+        <button class="btn btn-ghost" id="keepBtn" type="button">Seguir respondiendo</button>
+        <button class="btn btn-band" id="gradeAnywayBtn" type="button">Calificar ahora</button>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- RESULTADOS -->
+<main id="results" class="wrap results" hidden>
+  <section class="card score-card">
+    <div class="ring">
+      <svg viewBox="0 0 120 120" aria-hidden="true">
+        <defs>
+          <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#5EEAD4"/>
+            <stop offset=".55" stop-color="#2FC873"/>
+            <stop offset="1" stop-color="#F2C811"/>
+          </linearGradient>
+        </defs>
+        <circle class="track" cx="60" cy="60" r="52" fill="none" stroke-width="11"/>
+        <circle class="prog" id="ringProg" cx="60" cy="60" r="52" fill="none" stroke="url(#ringGrad)" stroke-width="11" stroke-linecap="round" stroke-dasharray="326.73" stroke-dashoffset="326.73"/>
+      </svg>
+      <div class="ring-label"><strong id="scoreNum">0</strong><span>de 10</span></div>
+      <img class="ring-logo" src="data:," data-panda alt="" width="560" height="528">
+    </div>
+    <h2 class="verdict" id="verdict"></h2>
+    <p class="verdict-sub" id="verdictSub"></p>
+    <div class="stats">
+      <div class="stat ok"><b id="stOk">0</b><span>correctas</span></div>
+      <div class="stat bad"><b id="stBad">0</b><span>incorrectas</span></div>
+      <div class="stat"><b id="stTime">0:00</b><span>tiempo usado</span></div>
+    </div>
+    <p class="timeout-note" id="timeoutNote" hidden>Se acabó el tiempo. Las preguntas sin responder cuentan como incorrectas.</p>
+    <button class="btn btn-primary" id="retryTop" type="button">Intentar de nuevo</button>
+  </section>
+
+  <h3 class="review-title">Revisa tus respuestas</h3>
+  <ol class="review" id="review"></ol>
+  <div class="again"><button class="btn btn-primary" id="retryBottom" type="button">Intentar de nuevo</button></div>
+</main>
+
+<script>
+(function(){
+"use strict";
+var DURATION = 5 * 60;
+var LETTERS = ["A","B","C","D"];
+
+var QUESTIONS = [
+  { t:"Formato de celdas",
+    q:"Quieres mostrar los valores de `ColPrecio` con símbolo de dinero y dos decimales, conservando su valor numérico para realizar cálculos. ¿Qué formato debes aplicar?",
+    o:["Texto.","Moneda con dos decimales.","Fecha corta.","Porcentaje con dos decimales."],
+    a:1, why:"El formato Moneda cambia la presentación del número y conserva su valor para realizar cálculos." },
+  { t:"Fórmulas básicas",
+    q:"En la hoja `Reforma_Clase`, la celda `D3` contiene el precio unitario y `E3` contiene la cantidad vendida. ¿Qué fórmula calcula el importe total de ese registro?",
+    o:["`=D3+E3`","`=D3/E3`","`=D3*E3`","`=D3-E3`"],
+    a:2, why:"El importe se calcula multiplicando el precio unitario por la cantidad vendida." },
+  { t:"Referencias relativas y absolutas",
+    q:"En la celda `J3` escribiste la fórmula `=F3*$J$1`. Después la copias una fila hacia abajo, hasta `J4`. ¿Cómo queda la fórmula?",
+    o:["`=F4*$J$2`","`=F3*$J$1`","`=F4*J2`","`=F4*$J$1`"],
+    a:3, why:"La referencia relativa `F3` cambia a `F4`; la referencia absoluta `$J$1` permanece fija." },
+  { t:"Ordenamiento para analizar ventas",
+    q:"Tu jefe te pide identificar el registro de venta con el mayor importe total. ¿Qué acción permite encontrarlo al principio de la tabla?",
+    o:["Ordenar toda la tabla por `ColTotal`, de mayor a menor.","Ordenar toda la tabla por `ColPrecio`, de mayor a menor.","Ordenar toda la tabla por `ColCantidad`, de mayor a menor.","Ordenar toda la tabla por `ColCajero`, de A a Z."],
+    a:0, why:"Ordenar `ColTotal` de mayor a menor coloca primero el registro con el importe más alto." },
+  { t:"Filtros de información",
+    q:"Quieres mostrar únicamente los registros de Adela Noriega Méndez, sin eliminar ningún registro del archivo. ¿Qué debes hacer?",
+    o:["Ordenar alfabéticamente la columna `ColCajero`.","Ocultar la columna `ColCajero`.","Aplicar un filtro en `ColCajero` y seleccionar su nombre.","Borrar las filas que correspondan a otros cajeros."],
+    a:2, why:"El filtro muestra los registros que cumplen el criterio y oculta temporalmente los demás." },
+  { t:"Tablas de Excel",
+    q:"Conviertes el rango de ventas en una tabla de Excel y agregas una columna calculada. ¿Qué ventaja ofrece esta estructura al incorporar nuevas filas?",
+    o:["Permite extender automáticamente la fórmula de la columna calculada.","Elimina automáticamente los registros duplicados que se capturen.","Ordena automáticamente cada registro nuevo por su importe.","Convierte todas las referencias de las fórmulas en referencias absolutas."],
+    a:0, why:"Una columna calculada puede extender su fórmula a las nuevas filas de la tabla." },
+  { t:"Uso de la IA en el trabajo",
+    q:"Cada fila de tus datos representa un registro de venta. Quieres que la IA te ayude a contar cuántos registros corresponden al cajero cuyo nombre aparece en `B3`. ¿Qué solicitud corresponde a ese objetivo?",
+    o:["“Los cajeros están en B y los importes en F. Dame una fórmula para sumar el importe vendido por el cajero de B3”.",
+       "“Los cajeros están en B3:B2831. Dame una fórmula para contar cuántos registros corresponden al cajero de B3”.",
+       "“Los cajeros están en B y las cantidades en E. Dame una fórmula para sumar las unidades vendidas por el cajero de B3”.",
+       "“Los cajeros están en B3:B2831. Dame una fórmula para contar cuántos nombres distintos aparecen en ese rango”."],
+    a:1, why:"La solicitud especifica el rango de cajeros y pide contar los registros que coinciden con el nombre de `B3`." }
+];
+
+var $ = function(id){ return document.getElementById(id); };
+var state;
+
+function esc(s){ return s.replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+function rich(s){ return esc(s).replace(/`([^`]+)`/g, "<code>$1</code>"); }
+function fmt(sec){ sec = Math.max(0, Math.ceil(sec)); var m = Math.floor(sec/60), s = sec % 60; return m + ":" + (s < 10 ? "0" : "") + s; }
+function announce(t){ var a = $("announcer"); a.textContent = ""; setTimeout(function(){ a.textContent = t; }, 50); }
+
+function reset(){
+  state = { idx:0, answers:QUESTIONS.map(function(){ return null; }), start:0, end:0, timer:null, done:false, warned:false, timedOut:false, finishedAt:0 };
+}
+
+/* ---- construir navegación ---- */
+function buildDots(){
+  var d = $("dots"); d.innerHTML = "";
+  QUESTIONS.forEach(function(_, i){
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "dot"; b.textContent = i + 1;
+    b.addEventListener("click", function(){ go(i); });
+    d.appendChild(b);
+  });
+}
+function paintDots(){
+  var kids = $("dots").children;
+  for (var i = 0; i < kids.length; i++){
+    var answered = state.answers[i] !== null;
+    kids[i].classList.toggle("answered", answered);
+    kids[i].classList.toggle("current", i === state.idx);
+    kids[i].setAttribute("aria-label", "Pregunta " + (i+1) + (answered ? ", respondida" : ", sin responder"));
+    if (i === state.idx) kids[i].setAttribute("aria-current","step"); else kids[i].removeAttribute("aria-current");
+  }
+}
+
+/* ---- pintar pregunta ---- */
+function render(animate){
+  var Q = QUESTIONS[state.idx];
+  $("qCount").innerHTML = "Pregunta <b>" + (state.idx + 1) + "</b> de " + QUESTIONS.length + (Q.t ? " · " + esc(Q.t) : "");
+  $("qText").innerHTML = rich(Q.q);
+  var ex = $("qExtra");
+  if (Q.extra){ ex.innerHTML = Q.extra.map(rich).join(""); ex.hidden = false; } else { ex.innerHTML = ""; ex.hidden = true; }
+
+  var box = $("opts"); box.innerHTML = "";
+  Q.o.forEach(function(txt, i){
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "opt";
+    b.setAttribute("role","radio");
+    b.setAttribute("aria-checked", state.answers[state.idx] === i ? "true" : "false");
+    b.innerHTML = '<span class="letter">' + LETTERS[i] + '</span><span class="opt-text">' + rich(txt) + '</span>';
+    b.addEventListener("click", function(){ pick(i); });
+    box.appendChild(b);
+  });
+
+  $("prevBtn").disabled = state.idx === 0;
+  var last = state.idx === QUESTIONS.length - 1;
+  var nb = $("nextBtn");
+  nb.textContent = last ? "Terminar y calificar" : "Siguiente";
+  nb.className = "btn " + (last ? "btn-band" : "btn-primary");
+  $("confirm").hidden = true;
+
+  if (animate){
+    var inner = $("qInner");
+    inner.classList.remove("q-anim"); void inner.offsetWidth; inner.classList.add("q-anim");
+  }
+  paintDots();
+}
+
+function pick(i){
+  if (state.done) return;
+  state.answers[state.idx] = i;
+  var kids = $("opts").children;
+  for (var k = 0; k < kids.length; k++) kids[k].setAttribute("aria-checked", k === i ? "true" : "false");
+  paintDots();
+  $("confirm").hidden = true;
+}
+
+function go(i){
+  if (state.done || i < 0 || i >= QUESTIONS.length || i === state.idx) return;
+  state.idx = i; render(true);
+  window.scrollTo(0, 0);
+}
+
+function next(){
+  if (state.idx < QUESTIONS.length - 1){ go(state.idx + 1); return; }
+  var missing = state.answers.filter(function(a){ return a === null; }).length;
+  if (missing > 0){
+    $("confirmText").textContent = missing === 1
+      ? "Te falta 1 pregunta por responder. Si calificas ahora contará como incorrecta."
+      : "Te faltan " + missing + " preguntas por responder. Si calificas ahora contarán como incorrectas.";
+    $("confirm").hidden = false;
+    $("keepBtn").focus();
+  } else {
+    finish(false);
+  }
+}
+
+/* ---- temporizador ---- */
+function tick(){
+  var left = (state.end - Date.now()) / 1000;
+  $("timeText").textContent = fmt(left);
+  $("bandFill").style.transform = "scaleX(" + Math.max(0, left / DURATION) + ")";
+  if (left <= 60 && !state.warned){
+    state.warned = true;
+    $("bandFill").classList.add("is-low");
+    announce("Queda un minuto.");
+  }
+  if (left <= 0) finish(true);
+}
+
+function start(){
+  reset();
+  state.start = Date.now();
+  state.end = state.start + DURATION * 1000;
+  $("intro").hidden = true; $("results").hidden = true; $("quiz").hidden = false;
+  $("bandFill").classList.remove("is-low");
+  $("bandFill").style.transition = "none";
+  $("bandFill").style.transform = "scaleX(1)";
+  void $("bandFill").offsetWidth;
+  $("bandFill").style.transition = "";
+  $("timeText").textContent = fmt(DURATION);
+  render(true);
+  window.scrollTo(0,0);
+  state.timer = setInterval(tick, 250);
+  var first = $("opts").querySelector(".opt"); if (first) first.focus({preventScroll:true});
+}
+
+/* ---- calificar ---- */
+function finish(timedOut){
+  if (state.done) return;
+  state.done = true; state.timedOut = timedOut;
+  clearInterval(state.timer);
+  state.finishedAt = Math.min(Date.now(), state.end);
+  var used = (state.finishedAt - state.start) / 1000;
+
+  var ok = 0;
+  state.answers.forEach(function(a, i){ if (a === QUESTIONS[i].a) ok++; });
+  var total = QUESTIONS.length;
+  var grade = Math.round(ok / total * 100) / 10; // escala 0 a 10
+
+  $("quiz").hidden = true; $("results").hidden = false;
+  window.scrollTo(0,0);
+
+  $("stOk").textContent = ok;
+  $("stBad").textContent = total - ok;
+  $("stTime").textContent = fmt(used);
+  $("timeoutNote").hidden = !timedOut;
+
+  var v, s;
+  if (ok === total){ v = "¡Calificación perfecta!"; s = "Dominas los fundamentos de Excel vistos en la clase 1. Listo para seguir."; }
+  else if (grade >= 8){ v = "¡Muy buen trabajo!"; s = "Tienes claros los conceptos principales. Revisa abajo los detalles que se te escaparon."; }
+  else if (grade >= 6){ v = "Vas por buen camino"; s = "Aprobaste, pero hay temas que conviene reforzar. Lee las explicaciones de las preguntas marcadas en rojo."; }
+  else { v = "Vale la pena repasar"; s = "Vuelve a revisar el material de la clase 1 y lee las explicaciones de abajo antes de intentarlo otra vez."; }
+  $("verdict").textContent = v;
+  $("verdictSub").textContent = s;
+
+  // anillo y número animados
+  var C = 326.73, prog = $("ringProg");
+  prog.style.transition = "none"; prog.style.strokeDashoffset = C; void prog.getBoundingClientRect();
+  prog.style.transition = "";
+  requestAnimationFrame(function(){ prog.style.strokeDashoffset = C * (1 - ok / total); });
+  countUp($("scoreNum"), grade);
+
+  buildReview();
+  announce("Calificación: " + fmtGrade(grade) + " de 10. " + ok + " respuestas correctas.");
+  if (grade >= 8) confetti();
+}
+
+function fmtGrade(g){ return (g % 1 === 0 ? String(g) : g.toFixed(1)).replace(".", ","); }
+
+function countUp(el, target){
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce || target === 0){ el.textContent = fmtGrade(target); return; }
+  var t0 = null, dur = 1400;
+  function step(t){
+    if (!t0) t0 = t;
+    var p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+    el.textContent = p < 1 ? String(Math.floor(target * e)) : fmtGrade(target);
+    if (p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+var ICON_OK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+var ICON_BAD = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></svg>';
+
+function buildReview(){
+  var list = $("review"); list.innerHTML = "";
+  QUESTIONS.forEach(function(Q, i){
+    var a = state.answers[i], right = a === Q.a;
+    var li = document.createElement("li");
+    li.className = "r-item" + (right ? "" : " wrong");
+    var yours = a === null
+      ? "Sin responder"
+      : LETTERS[a] + ") " + rich(Q.o[a]);
+    var html =
+      '<div class="r-head"><span class="r-icon" aria-hidden="true">' + (right ? ICON_OK : ICON_BAD) + '</span>' +
+      '<p class="r-q"><span class="sr-only">' + (right ? "Correcta. " : "Incorrecta. ") + '</span>' + (i+1) + '. ' + rich(Q.q) +
+      (Q.extra ? " " + Q.extra.map(rich).join(" / ") : "") + '</p></div>' +
+      '<div class="r-body">' +
+      '<p class="r-yours"><span class="lbl">Tu respuesta:</span> ' + yours + '</p>' +
+      (right ? "" : '<p class="r-right"><span class="lbl">Respuesta correcta:</span> ' + LETTERS[Q.a] + ') ' + rich(Q.o[Q.a]) + '</p>') +
+      '<p class="r-why">' + rich(Q.why) + '</p>' +
+      '</div>';
+    li.innerHTML = html;
+    list.appendChild(li);
+  });
+}
+
+/* ---- confeti ---- */
+function confetti(){
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var cv = $("confetti"), ctx = cv.getContext("2d");
+  var dpr = window.devicePixelRatio || 1;
+  var W = cv.width = innerWidth * dpr, H = cv.height = innerHeight * dpr;
+  var colors = ["#2FC873","#F2C811","#5EEAD4","#107C41","#FFFFFF","#FFE066"];
+  var parts = [];
+  for (var i = 0; i < 170; i++){
+    parts.push({
+      x: W/2 + (Math.random()-.5) * W * .3, y: H * .32,
+      vx: (Math.random()-.5) * 16 * dpr, vy: (-Math.random()*15 - 5) * dpr,
+      w: (6 + Math.random()*6) * dpr, h: (8 + Math.random()*10) * dpr,
+      r: Math.random()*6.28, vr: (Math.random()-.5)*.35,
+      c: colors[i % colors.length], life: 0
+    });
+  }
+  var frames = 0;
+  function loop(){
+    frames++;
+    ctx.clearRect(0,0,W,H);
+    parts.forEach(function(p){
+      p.vy += .38 * dpr; p.vx *= .99; p.x += p.vx; p.y += p.vy; p.r += p.vr;
+      ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.r);
+      ctx.globalAlpha = Math.max(0, 1 - frames / 190);
+      ctx.fillStyle = p.c; ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h * Math.abs(Math.cos(p.r*1.7)));
+      ctx.restore();
+    });
+    if (frames < 190) requestAnimationFrame(loop); else ctx.clearRect(0,0,W,H);
+  }
+  requestAnimationFrame(loop);
+}
+
+/* ---- eventos ---- */
+$("startBtn").addEventListener("click", start);
+$("prevBtn").addEventListener("click", function(){ go(state.idx - 1); });
+$("nextBtn").addEventListener("click", next);
+$("keepBtn").addEventListener("click", function(){
+  $("confirm").hidden = true;
+  var first = state.answers.indexOf(null);
+  if (first >= 0){ state.idx = -1; go(first); }
+});
+$("gradeAnywayBtn").addEventListener("click", function(){ finish(false); });
+$("retryTop").addEventListener("click", start);
+$("retryBottom").addEventListener("click", start);
+
+document.addEventListener("keydown", function(e){
+  if ($("quiz").hidden || state.done || e.altKey || e.ctrlKey || e.metaKey) return;
+  var k = e.key.toLowerCase();
+  var map = {a:0,b:1,c:2,d:3,"1":0,"2":1,"3":2,"4":3};
+  if (k in map){ e.preventDefault(); pick(map[k]); var el = $("opts").children[map[k]]; if (el) el.focus({preventScroll:true}); }
+  else if (e.key === "ArrowRight"){ e.preventDefault(); if (state.idx < QUESTIONS.length - 1) go(state.idx + 1); }
+  else if (e.key === "ArrowLeft"){ e.preventDefault(); go(state.idx - 1); }
+  else if (e.key === "Enter" && document.activeElement && document.activeElement.getAttribute("aria-checked") === "true"){ e.preventDefault(); next(); }
+});
+
+document.querySelectorAll("[data-panda]").forEach(function(i){ i.src = $("heroPanda").src; });
+reset();
+buildDots();
+})();
+</script>
+</body>
+</html>
